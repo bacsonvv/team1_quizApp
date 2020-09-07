@@ -39,6 +39,11 @@ class EndGameViewController: UIViewController {
         storeUserResult()
     }
     
+    @IBAction func playAgain(_ sender: Any) {
+        let homeViewController = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(identifier: "homeVC") as! HomeViewController
+        self.navigationController?.pushViewController(homeViewController, animated: true)
+    }
+    
     func storeUserResult() {
         let userHistory = [
             "score": self.score,
