@@ -86,7 +86,7 @@ class ViewController: UIViewController {
                 print("\(name)")
                 let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "homeVC") as! HomeViewController
                 vc.user = name
-                vc.tag = 0
+                //vc.tag = 0
                 self.navigationController?.pushViewController(vc, animated: true)
                 }
             
@@ -116,7 +116,7 @@ extension ViewController: GIDSignInDelegate {
                 let email1 = user.profile.email
                 let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "homeVC") as! HomeViewController
                 vc.user = email1!
-                vc.tag = 1
+                //vc.tag = 1
                 self.navigationController?.pushViewController(vc, animated: true)
             }
             
