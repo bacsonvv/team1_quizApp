@@ -28,6 +28,10 @@
 		8AC3DF212500AC5F0089A859 /* Team1_QuizAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC3DF202500AC5F0089A859 /* Team1_QuizAppUITests.swift */; };
 		8AE6956E2500FBA70052FE0A /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE6956D2500FBA70052FE0A /* GameViewController.swift */; };
 		8AE69573250106490052FE0A /* AnswerViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE69571250106490052FE0A /* AnswerViewCell.swift */; };
+		D2F152222506096400F8AD0A /* HistoryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F152212506096400F8AD0A /* HistoryController.swift */; };
+		D2F1522525060AA700F8AD0A /* HistoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F1522325060AA700F8AD0A /* HistoryCell.swift */; };
+		D2F1522625060AA700F8AD0A /* HistoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D2F1522425060AA700F8AD0A /* HistoryCell.xib */; };
+		D2F1522825060B3900F8AD0A /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F1522725060B3900F8AD0A /* User.swift */; };
 		DAE078898D9F90DF8192711A /* Pods_Team1_QuizApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79CDB2DA6B1805AE7CBF2A38 /* Pods_Team1_QuizApp.framework */; };
 		F5B4D1A9091B804B64DC660A /* Pods_Team1_QuizApp_Team1_QuizAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C621A4D10BBBFDEC0666949 /* Pods_Team1_QuizApp_Team1_QuizAppUITests.framework */; };
 /* End PBXBuildFile section */
@@ -82,6 +86,10 @@
 		8AE6956D2500FBA70052FE0A /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		8AE69571250106490052FE0A /* AnswerViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerViewCell.swift; sourceTree = "<group>"; };
 		8C621A4D10BBBFDEC0666949 /* Pods_Team1_QuizApp_Team1_QuizAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Team1_QuizApp_Team1_QuizAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D2F152212506096400F8AD0A /* HistoryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryController.swift; sourceTree = "<group>"; };
+		D2F1522325060AA700F8AD0A /* HistoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryCell.swift; sourceTree = "<group>"; };
+		D2F1522425060AA700F8AD0A /* HistoryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HistoryCell.xib; sourceTree = "<group>"; };
+		D2F1522725060B3900F8AD0A /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		D57471FA28DE8F0EC59BEA15 /* Pods-Team1_QuizAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Team1_QuizAppTests.debug.xcconfig"; path = "Target Support Files/Pods-Team1_QuizAppTests/Pods-Team1_QuizAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		E26E907D1E3F5283F41AB340 /* Pods-Team1_QuizApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Team1_QuizApp.debug.xcconfig"; path = "Target Support Files/Pods-Team1_QuizApp/Pods-Team1_QuizApp.debug.xcconfig"; sourceTree = "<group>"; };
 		F683C60137DC888C6393C735 /* Pods-Team1_QuizApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Team1_QuizApp.release.xcconfig"; path = "Target Support Files/Pods-Team1_QuizApp/Pods-Team1_QuizApp.release.xcconfig"; sourceTree = "<group>"; };
@@ -182,6 +190,10 @@
 				72ACDD172500E4360020FBE7 /* GoogleService-Info.plist */,
 				8A1DC10E2501D61A009EC72E /* Question.swift */,
 				725F4FF72505F71500CCEA6C /* Main.storyboard */,
+				D2F152212506096400F8AD0A /* HistoryController.swift */,
+				D2F1522325060AA700F8AD0A /* HistoryCell.swift */,
+				D2F1522425060AA700F8AD0A /* HistoryCell.xib */,
+				D2F1522725060B3900F8AD0A /* User.swift */,
 			);
 			path = Team1_QuizApp;
 			sourceTree = "<group>";
@@ -317,6 +329,7 @@
 			files = (
 				725F4FF82505F71500CCEA6C /* Main.storyboard in Resources */,
 				8A490C602505D9DE00904EE7 /* QuestionViewCell.xib in Resources */,
+				D2F1522625060AA700F8AD0A /* HistoryCell.xib in Resources */,
 				8AC3DF0B2500AC5F0089A859 /* LaunchScreen.storyboard in Resources */,
 				8A490C582505D62000904EE7 /* AnswerViewCell.xib in Resources */,
 				8A490C562505D55E00904EE7 /* CategoryTableViewCell.xib in Resources */,
@@ -486,7 +499,10 @@
 				72ACDD1D2500EEB10020FBE7 /* CategoryTableViewCell.swift in Sources */,
 				8A1DC10F2501D61A009EC72E /* Question.swift in Sources */,
 				8A490C542505D52B00904EE7 /* EndGameViewController.swift in Sources */,
+				D2F1522525060AA700F8AD0A /* HistoryCell.swift in Sources */,
 				8A490C5F2505D9DE00904EE7 /* QuestionViewCell.swift in Sources */,
+				D2F152222506096400F8AD0A /* HistoryController.swift in Sources */,
+				D2F1522825060B3900F8AD0A /* User.swift in Sources */,
 				8AC3DF032500AC5E0089A859 /* ViewController.swift in Sources */,
 				8AE69573250106490052FE0A /* AnswerViewCell.swift in Sources */,
 				8AC3DEFF2500AC5E0089A859 /* AppDelegate.swift in Sources */,
