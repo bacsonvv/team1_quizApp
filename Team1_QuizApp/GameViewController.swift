@@ -34,6 +34,7 @@ class GameViewController: UIViewController {
     var score = 0
     var isClicked = false
     var category = "Geography"
+    var userID = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()

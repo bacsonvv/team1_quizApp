@@ -20,6 +20,8 @@ class HomeViewController: UIViewController {
     
     @IBOutlet weak var imageUser: UIImageView!
     
+    @IBOutlet weak var lblTitle: UILabel!
+    
     let cellID = "CategoryTableViewCell"
     
     var listCollection = [""]
@@ -31,6 +33,8 @@ class HomeViewController: UIViewController {
     var spreadSheetId = "1urSOD9SR3lSD7WE1SF0CqKRa7c1INR9I-iMqQgwsKvM"
     
     var user = ""
+    
+    var id = ""
     
     //var tag = 0
     
@@ -48,7 +52,10 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        id = UserDefaults.standard.string(forKey: "idUser") ?? "kh"
+        print(id)
         setupNavigation()
+        
         
         lblEmail.text = "Name Player : \(UserDefaults.standard.string(forKey: "nameUserSession") ?? "Underfined")"
         //        if tag == 0 {
@@ -63,7 +70,7 @@ class HomeViewController: UIViewController {
         GetListCategory()
         initComponent()
         
-        imageUser.tintColor = UIColor(red: 0.71, green: 0.61, blue: 0.71, alpha: 1)
+        lblTitle.font = UIFont.italicSystemFont(ofSize: 17)
         
     }
     
