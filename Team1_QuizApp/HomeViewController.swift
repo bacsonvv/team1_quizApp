@@ -18,11 +18,13 @@ class HomeViewController: UIViewController {
     
     @IBOutlet weak var lblEmail: UILabel!
     
+    @IBOutlet weak var imageUser: UIImageView!
+    
     let cellID = "CategoryTableViewCell"
     
     var listCollection = [""]
     
-    var collection = [Collection]()
+    //var collection = [Collection]()
     
     var ref = Database.database().reference()
     
@@ -30,7 +32,7 @@ class HomeViewController: UIViewController {
     
     var user = ""
     
-    var tag = 0
+    //var tag = 0
     
     var chooseCategory = -1
     
@@ -42,28 +44,25 @@ class HomeViewController: UIViewController {
         label.textAlignment = .center
         return label
     }()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.navigationItem.setHidesBackButton(true, animated: false)
-        self.title = "Subject Matter"
-        let btnRightBar = UIBarButtonItem(image: UIImage(systemName: "imagename"), style: .plain, target: self, action: #selector(signOut)) // action:#selector(Class.MethodName) for swift 3
-        self.navigationItem.rightBarButtonItem  = btnRightBar
-        //navigationItem.rightBarButtonItem = UIBarButtonItem(title: UIImage(named: "System"), style: .done, target: self, action: #selector(signOut))
+        setupNavigation()
         
-        if tag == 0 {
-            lblEmail.text = "Name: \(user)"
-        } else {
-            lblEmail.text = "Email: \(user)"
-        }
-        
+        lblEmail.text = "Name: \(user)"
+        //        if tag == 0 {
+        //            lblEmail.text = "Name: \(user)"
+        //        } else {
+        //            lblEmail.text = "Email: \(user)"
+        //        }
+        imageUser.tintColor = .blue
         categoryTableView.delegate = self
         categoryTableView.dataSource = self
         
         GetListCategory()
         initComponent()
-        setupNavigation()
+        
     }
     
     fileprivate func initComponent() {
@@ -71,10 +70,19 @@ class HomeViewController: UIViewController {
     }
     
     func setupNavigation() {
-        navigationController?.navigationBar.barTintColor = UIColor.blue
+
+        navigationController?.navigationBar.barTintColor = UIColor(red: 0.71, green: 0.61, blue: 0.71, alpha: 1)
+        self.navigationItem.setHidesBackButton(true, animated: false)
+        
+        self.title = "Subject Matter"
         navigationItem.titleView = titleNavigationLabel
         
-        //      navigationItem.leftBarButtonItem?.tintColor = .white
+        //navigationController?.navigationBar.barTintColor = UIColor(red: 0.71, green: 0.61, blue: 0.71, alpha: 1)
+        
+        let btnRightBar = UIBarButtonItem(image: UIImage(systemName: "arrow.left.square"), style: .plain, target: self, action: #selector(signOut))
+        self.navigationItem.rightBarButtonItem  = btnRightBar
+        //navigationItem.rightBarButtonItem?.tintColor = UIColor(red: 0.71, green: 0.61, blue: 0.71, alpha: 1)
+        
     }
     
     @objc func signOut() {
@@ -92,6 +100,9 @@ class HomeViewController: UIViewController {
         let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "gameVC") as! GameViewController
         vc.category = listCollection[chooseCategory]
         self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    @IBAction func showHistory(_ sender: Any) {
     }
     
     func GetListCategory(){
@@ -120,13 +131,14 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didHighlightRowAt indexPath: IndexPath) {
-      
-        chooseCategory = indexPath.row
+        
+        chooseCategory = indexPath.row 
+         
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-          if let cell = tableView.cellForRow(at: indexPath) {
-              cell.contentView.backgroundColor = UIColor.darkGray
-          }
-      }
+        if let cell = tableView.cellForRow(at: indexPath) {
+            cell.contentView.backgroundColor = UIColor.darkGray
+        }
+    }
 }

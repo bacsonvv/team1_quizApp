@@ -171,6 +171,7 @@
 				8AE6956D2500FBA70052FE0A /* GameViewController.swift */,
 				8A490C522505D52B00904EE7 /* EndGameViewController.swift */,
 				8AC3DF092500AC5F0089A859 /* LaunchScreen.storyboard */,
+				725F4FF72505F71500CCEA6C /* Main.storyboard */,
 				8AC3DF072500AC5F0089A859 /* Assets.xcassets */,
 				72ACDD1B2500EEB10020FBE7 /* CategoryTableViewCell.swift */,
 				8A490C552505D55E00904EE7 /* CategoryTableViewCell.xib */,
@@ -181,7 +182,6 @@
 				8AC3DF0C2500AC5F0089A859 /* Info.plist */,
 				72ACDD172500E4360020FBE7 /* GoogleService-Info.plist */,
 				8A1DC10E2501D61A009EC72E /* Question.swift */,
-				725F4FF72505F71500CCEA6C /* Main.storyboard */,
 			);
 			path = Team1_QuizApp;
 			sourceTree = "<group>";
