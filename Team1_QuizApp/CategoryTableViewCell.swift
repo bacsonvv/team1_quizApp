@@ -18,22 +18,15 @@ class CategoryTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         containerView.layer.cornerRadius = 20
-        self.selectedBackgroundView = { view in
-            view.backgroundColor = .red
-            return view
-        }(UIView())
-
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         
-    }
-    
-    
-    func setupCategory(colection: Collection) {
-        self.lblCategory.text = colection.category
-        self.lblTime.text = "60"
-        self.lblNumberOfQuestion.text = "20"
-    }
+    } 
+//    func setupCategory(colection: Collection) {
+//        self.lblCategory.text = colection.category
+//        self.lblTime.text = "60"
+//        self.lblNumberOfQuestion.text = "20"
+//    }
 }
