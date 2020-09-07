@@ -14,6 +14,9 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var sigInFb: UIButton!
     
+    
+    
+    
     @IBOutlet weak var signInGg: UIButton!
     
     override func viewDidLoad() {
