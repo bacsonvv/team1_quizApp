@@ -15,10 +15,16 @@ class HomeViewController: UIViewController {
     // Huong
     
     @IBOutlet weak var categoryTableView: UITableView!
-    
     @IBOutlet weak var lblEmail: UILabel!
-    
     @IBOutlet weak var imageUser: UIImageView!
+    
+    @IBOutlet weak var btnDetail: UIButton!
+    @IBOutlet weak var btnHistory: UIButton!
+    @IBOutlet weak var btnStart: UIButton!
+    
+    @IBOutlet weak var loading: UIActivityIndicatorView!
+    
+    var timer = Timer()
     
     let cellID = "CategoryTableViewCell"
     
@@ -60,11 +66,45 @@ class HomeViewController: UIViewController {
         categoryTableView.delegate = self
         categoryTableView.dataSource = self
         
-        GetListCategory()
+        setStateForView(state: true)
+        
+        loading.isHidden = false
+        loading.startAnimating()
+        
+        DispatchQueue.main.async {
+            self.GetListCategory()
+        }
+        
+        checkWhenDataIsReady()
+        
+        categoryTableView.reloadData()
+        
         initComponent()
         
         imageUser.tintColor = UIColor(red: 0.71, green: 0.61, blue: 0.71, alpha: 1)
         
+    }
+    
+    func checkWhenDataIsReady() {
+        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: (#selector(HomeViewController.setupData)), userInfo: nil, repeats: true)
+    }
+    @objc func setupData() {
+        if listCollection.count == 3 {
+            loading.isHidden = true
+            loading.stopAnimating()
+            
+            setStateForView(state: false)
+
+            timer.invalidate()
+        }
+    }
+    
+    func setStateForView(state: Bool) {
+        lblEmail.isHidden = state
+        imageUser.isHidden = state
+        btnDetail.isHidden = state
+        btnHistory.isHidden = state
+        btnStart.isHidden = state
     }
     
     fileprivate func initComponent() {
@@ -117,6 +157,7 @@ class HomeViewController: UIViewController {
     func startGame() {
         let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "gameVC") as! GameViewController
         vc.category = listCollection[chooseCategory]
+        vc.userId = self.user
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
@@ -130,6 +171,10 @@ class HomeViewController: UIViewController {
         
     }
     @IBAction func showHistory(_ sender: Any) {
+        let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "historyView") as! HistoryViewController
+        vc.userId = self.user
+        vc.categroy = listCollection[chooseCategory]
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     func GetListCategory(){
@@ -155,7 +200,6 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         
         let cell = categoryTableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath) as! CategoryTableViewCell
         cell.lblCategory.text = listCollection[indexPath.row]
-        
         return cell
     }
     

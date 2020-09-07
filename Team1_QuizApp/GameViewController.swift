@@ -33,7 +33,8 @@ class GameViewController: UIViewController {
     var userChoice = ""
     var score = 0
     var isClicked = false
-    var category = "Geography"
+    var category = ""
+    var userId = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -157,11 +158,11 @@ class GameViewController: UIViewController {
     func moveToEndGame() {
         let endGameController = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(identifier: "endGameView") as! EndGameViewController
         endGameController.category = self.category
-                endGameController.time = self.amountOfTime - self.timeRemaining
-                endGameController.score = self.score
-        //        self.navigationController?.pushViewController(endGameController, animated: true)
-                self.present(endGameController, animated: true, completion: nil)
-                timer.invalidate()
+        endGameController.time = self.amountOfTime - self.timeRemaining
+        endGameController.score = self.score
+        endGameController.userId = self.userId
+        timer.invalidate()
+        self.navigationController?.pushViewController(endGameController, animated: true)
     }
     
     func runTimer() {
