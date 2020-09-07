@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "2DC2FD67-9D54-40C7-9BAA-BD5DCF693B75"
+   type = "0"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "C6F8D4AA-5A0B-48C0-81BF-952E294AE142"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Team1_QuizApp/CategoryTableViewCell.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "11"
+            endingLineNumber = "11"
+            landmarkName = "CategoryTableViewCell"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  uuid = "C6F8D4AA-5A0B-48C0-81BF-952E294AE142 - f436dbc99ca4e243"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Team1_QuizApp.CategoryTableViewCell.__deallocating_deinit"
+                  moduleName = "Team1_QuizApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/huong.nguyenthi1/Desktop/team1_quizApp/Team1_QuizApp/CategoryTableViewCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "16">
+               </Location>
+               <Location
+                  uuid = "C6F8D4AA-5A0B-48C0-81BF-952E294AE142 - eef03965cf52d11e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Team1_QuizApp.CategoryTableViewCell.__allocating_init(style: __C.UITableViewCellStyle, reuseIdentifier: Swift.Optional&lt;Swift.String&gt;) -&gt; Team1_QuizApp.CategoryTableViewCell"
+                  moduleName = "Team1_QuizApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/huong.nguyenthi1/Desktop/team1_quizApp/Team1_QuizApp/CategoryTableViewCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "12">
+               </Location>
+               <Location
+                  uuid = "C6F8D4AA-5A0B-48C0-81BF-952E294AE142 - 7d9f8134363ef9a4"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Team1_QuizApp.CategoryTableViewCell.init(style: __C.UITableViewCellStyle, reuseIdentifier: Swift.Optional&lt;Swift.String&gt;) -&gt; Team1_QuizApp.CategoryTableViewCell"
+                  moduleName = "Team1_QuizApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/huong.nguyenthi1/Desktop/team1_quizApp/Team1_QuizApp/CategoryTableViewCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "257">
+               </Location>
+               <Location
+                  uuid = "C6F8D4AA-5A0B-48C0-81BF-952E294AE142 - 717df6d33570827b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Team1_QuizApp.CategoryTableViewCell.__allocating_init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;Team1_QuizApp.CategoryTableViewCell&gt;"
+                  moduleName = "Team1_QuizApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/huong.nguyenthi1/Desktop/team1_quizApp/Team1_QuizApp/CategoryTableViewCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "12">
+               </Location>
+               <Location
+                  uuid = "C6F8D4AA-5A0B-48C0-81BF-952E294AE142 - 94c22e30a4c50c88"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Team1_QuizApp.CategoryTableViewCell.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;Team1_QuizApp.CategoryTableViewCell&gt;"
+                  moduleName = "Team1_QuizApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/huong.nguyenthi1/Desktop/team1_quizApp/Team1_QuizApp/CategoryTableViewCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "198">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
