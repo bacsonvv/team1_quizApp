@@ -99,10 +99,15 @@ class HomeViewController: UIViewController {
     @IBAction func startGame(_ sender: Any) {
         let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "gameVC") as! GameViewController
         vc.category = listCollection[chooseCategory]
+        vc.userId = self.user
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
     @IBAction func showHistory(_ sender: Any) {
+        let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "historyView") as! HistoryViewController
+        vc.userId = self.user
+        vc.categroy = listCollection[chooseCategory]
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     func GetListCategory(){
@@ -126,7 +131,6 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = categoryTableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath) as! CategoryTableViewCell
         cell.lblCategory.text = listCollection[indexPath.row]
-        print("hihi")
         return cell
     }
     
