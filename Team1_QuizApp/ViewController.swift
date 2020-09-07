@@ -16,25 +16,36 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var signInGg: UIButton!
     
+    var isLogined = UserDefaults.standard.integer(forKey: "option")
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupNavigation()
         
         GIDSignIn.sharedInstance()?.delegate = self
-    
+        
         if AccessToken.current != nil {
             firebaseFaceBookLogin(token: AccessToken.current!.tokenString)
         }
         
+        autoLogin()
     }
     
     func setupNavigation() {
-         navigationController?.navigationBar.backgroundColor = .clear
-         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
-         navigationController?.navigationBar.shadowImage = UIImage()
-       }
-      
+        navigationController?.navigationBar.backgroundColor = .clear
+        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        navigationController?.navigationBar.shadowImage = UIImage()
+    }
+    
+    func autoLogin(){
+        print(isLogined)
+        if isLogined != 0 {
+            print("Logged in")
+            nextToHomeViewController()
+        }
+    }
+    
     
     @IBAction func signInWithGG(_ sender: Any) {
         GIDSignIn.sharedInstance()?.presentingViewController = self
@@ -44,7 +55,6 @@ class ViewController: UIViewController {
     
     @IBAction func signInWithFB(_ sender: Any) {
         facebookLogin()
-        
     }
     
     func facebookLogin() {
@@ -55,10 +65,9 @@ class ViewController: UIViewController {
                 print(error)
             case .cancelled:
                 print("User cancelled login")
-            case .success(let grantedPermissions, let declinedPermissions, let accessToken):
+            case .success( _, _, _):
                 print("Log in")
                 self.returnUserData()
-                
             }
         }
     }
@@ -77,22 +86,47 @@ class ViewController: UIViewController {
     }
     
     func returnUserData() {
-        let graphRequest : GraphRequest = GraphRequest(graphPath: "me", parameters: ["fields":"email,name"])
-        graphRequest.start(completionHandler: { (connection, result, error) -> Void in
-            if ((error) != nil) {
-            } else {
-                let resultDic = result as! NSDictionary
-                let name = resultDic.object(forKey: "name") as! String
-                print("\(name)")
-                let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "homeVC") as! HomeViewController
-                vc.user = name
-                //vc.tag = 0
-                self.navigationController?.pushViewController(vc, animated: true)
-                }
+        if ((AccessToken.current) != nil) {
             
+            GraphRequest(graphPath: "me", parameters: ["fields": "id, name, picture.type(large), email, gender"]).start(completionHandler: { (connection, result, error) -> Void in
+                
+                // nếu không xảy ra lỗi
+                if (error == nil){
+                    
+                    let dict = result as! [String : AnyObject]
+                    
+                    let picutreDic = dict as NSDictionary
+                    
+                    
+                    let nameOfUser = picutreDic.object(forKey: "name") as! String
+                    let idOfUser = picutreDic.object(forKey: "id") as! String
+                    
+                    
+                    UserDefaults.standard.set(idOfUser, forKey: "idFB")
+                    UserDefaults.standard.set(nameOfUser, forKey: "nameUserSession")
+                    UserDefaults.standard.set(1, forKey: "option")
+                    
+                    self.nextToHomeViewController()
+                    var tmpEmailAdd = ""
+                    
+                    if let emailAddress = picutreDic.object(forKey: "email") {
+                        tmpEmailAdd = emailAddress as! String
+                        print(tmpEmailAdd)
+                    }
+                    else {
+                        var usrName = nameOfUser
+                        usrName = usrName.replacingOccurrences(of: " ", with: "")
+                        tmpEmailAdd = usrName+"@facebook.com"
+                    }
+                }
             })
+        }
     }
     
+    func nextToHomeViewController(){
+        let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "homeVC") as! HomeViewController
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
 }
 // Huong
 extension ViewController: GIDSignInDelegate {
@@ -106,6 +140,7 @@ extension ViewController: GIDSignInDelegate {
             }
             return
         }
+        
         guard let authentication = user.authentication else { return }
         let credential = GoogleAuthProvider.credential(withIDToken: authentication.idToken,
                                                        accessToken: authentication.accessToken)
@@ -113,11 +148,15 @@ extension ViewController: GIDSignInDelegate {
             if error != nil {
                 print("Error")
             } else {
-                let email1 = user.profile.email
-                let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "homeVC") as! HomeViewController
-                vc.user = email1!
-                //vc.tag = 1
-                self.navigationController?.pushViewController(vc, animated: true)
+                let currentUser = GIDSignIn.sharedInstance()?.currentUser
+                
+                let userIDGoogle = currentUser?.userID
+                let nameIDGoogle = currentUser?.profile.name
+                UserDefaults.standard.set(userIDGoogle, forKey: "idGG")
+                UserDefaults.standard.set(nameIDGoogle, forKey: "nameUserSession")
+                UserDefaults.standard.set(2, forKey: "option")
+                
+                self.nextToHomeViewController()
             }
             
         }
