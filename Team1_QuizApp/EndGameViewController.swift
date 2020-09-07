@@ -7,12 +7,16 @@
 //
 
 import UIKit
+import FirebaseDatabase
 
 class EndGameViewController: UIViewController {
+    
+    var ref: DatabaseReference!
     
     var category = "Default"
     var time = 0
     var score = 0
+    var userId = "123"
 
     @IBOutlet weak var lblCategory: UILabel!
     @IBOutlet weak var lblTime: UILabel!
@@ -20,6 +24,8 @@ class EndGameViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        ref = Database.database().reference()
 
         lblCategory.text = "Category: \(self.category)"
         lblCategory.textColor = .white
@@ -29,6 +35,22 @@ class EndGameViewController: UIViewController {
         lblScore.textColor = .white
         
         self.view.backgroundColor = .purple
+        
+        storeUserResult()
+    }
+    
+    func storeUserResult() {
+        let userHistory = [
+            "score": self.score,
+            "time": self.time] as [String : Any]
+        
+        
+        self.ref.child("PlayHistory").child(userId).child(category).childByAutoId().setValue(userHistory, withCompletionBlock: { error, ref in
+            if error == nil {
+            } else {
+            }
+        })
+        
     }
     
 }
