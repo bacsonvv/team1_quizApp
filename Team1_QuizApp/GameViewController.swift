@@ -37,6 +37,8 @@ class GameViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.navigationItem.setHidesBackButton(true, animated: false)
 
         tableView.register(AnswerViewCell.nib(), forCellReuseIdentifier: AnswerViewCell.identifier)
         tableView.delegate = self

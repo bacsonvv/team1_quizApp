@@ -48,6 +48,9 @@ class HomeViewController: UIViewController {
         
         self.navigationItem.setHidesBackButton(true, animated: false)
         self.title = "Subject Matter"
+        let btnRightBar = UIBarButtonItem(image: UIImage(systemName: "imagename"), style: .plain, target: self, action: #selector(signOut)) // action:#selector(Class.MethodName) for swift 3
+        self.navigationItem.rightBarButtonItem  = btnRightBar
+        //navigationItem.rightBarButtonItem = UIBarButtonItem(title: UIImage(named: "System"), style: .done, target: self, action: #selector(signOut))
         
         if tag == 0 {
             lblEmail.text = "Name: \(user)"
@@ -74,11 +77,14 @@ class HomeViewController: UIViewController {
         //      navigationItem.leftBarButtonItem?.tintColor = .white
     }
     
-    @IBAction func signOut(_ sender: Any) {
-        GIDSignIn.sharedInstance().signOut()
+    @objc func signOut() {
+        
     }
     
     @IBAction func showListQuestion(_ sender: Any) {
+        let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "listQVC") as! ListQuestionViewController
+        vc.category = listCollection[chooseCategory]
+        self.navigationController?.pushViewController(vc, animated: true)
         
     }
     

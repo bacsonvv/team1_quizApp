@@ -262,21 +262,12 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e6m-lN-2co">
-                                        <rect key="frame" x="327" y="51.333333333333329" width="57" height="30"/>
-                                        <state key="normal" title="Sign out"/>
-                                        <connections>
-                                            <action selector="signOut:" destination="wAw-IK-zbu" eventType="touchUpInside" id="t8b-lY-8ir"/>
-                                        </connections>
-                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
                                     <constraint firstItem="eQ3-2R-Qg9" firstAttribute="leading" secondItem="Pc4-ON-I2U" secondAttribute="leading" id="2hN-ko-Cdb"/>
-                                    <constraint firstAttribute="trailing" secondItem="e6m-lN-2co" secondAttribute="trailing" constant="10" id="Psq-lA-s3e"/>
                                     <constraint firstItem="eQ3-2R-Qg9" firstAttribute="top" secondItem="Pc4-ON-I2U" secondAttribute="top" id="T4H-cL-G70"/>
                                     <constraint firstAttribute="bottom" secondItem="eQ3-2R-Qg9" secondAttribute="bottom" id="iQk-6t-sRp"/>
-                                    <constraint firstAttribute="bottom" secondItem="e6m-lN-2co" secondAttribute="bottom" id="kcz-bv-xuC"/>
                                     <constraint firstAttribute="trailing" secondItem="eQ3-2R-Qg9" secondAttribute="trailing" id="syO-Ox-mrD"/>
                                 </constraints>
                             </view>
@@ -347,6 +338,80 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wxe-f7-wiQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1495.6521739130435" y="138.61607142857142"/>
+        </scene>
+        <!--List Question View Controller-->
+        <scene sceneID="wzx-39-dHA">
+            <objects>
+                <viewController storyboardIdentifier="listQVC" id="qoE-W8-2om" customClass="ListQuestionViewController" customModule="Team1_QuizApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Evb-Oz-bFP">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="uQp-Ur-MVi">
+                                <rect key="frame" x="197" y="438" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </activityIndicatorView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Category" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4XP-vJ-dnv">
+                                <rect key="frame" x="87" y="129" width="165" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="165" id="e8J-hw-WiF"/>
+                                    <constraint firstAttribute="height" constant="21" id="wgb-AS-pUy"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="wdN-6k-9nE">
+                                <rect key="frame" x="0.0" y="202" width="414" height="660"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </tableView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Your quiz will have 15 randomize questions from the following list." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="3gL-66-7tI">
+                                <rect key="frame" x="87" y="44" width="240" height="50"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="s3a-lm-7so"/>
+                                    <constraint firstAttribute="height" constant="50" id="xzx-WM-1yf"/>
+                                </constraints>
+                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="E00-p6-70A">
+                                <rect key="frame" x="277" y="114" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="nIN-OT-rUa"/>
+                                    <constraint firstAttribute="width" constant="50" id="rCj-uO-cen"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="qJg-2j-n8T" firstAttribute="trailing" secondItem="3gL-66-7tI" secondAttribute="trailing" constant="87" id="4x4-HI-N24"/>
+                            <constraint firstItem="wdN-6k-9nE" firstAttribute="leading" secondItem="qJg-2j-n8T" secondAttribute="leading" id="8rI-pE-RPN"/>
+                            <constraint firstItem="wdN-6k-9nE" firstAttribute="top" secondItem="E00-p6-70A" secondAttribute="bottom" constant="38" id="C6D-Ak-y5f"/>
+                            <constraint firstItem="3gL-66-7tI" firstAttribute="leading" secondItem="qJg-2j-n8T" secondAttribute="leading" constant="87" id="CRx-Ti-5GT"/>
+                            <constraint firstItem="E00-p6-70A" firstAttribute="top" secondItem="3gL-66-7tI" secondAttribute="bottom" constant="20" id="DEm-wz-fKW"/>
+                            <constraint firstItem="wdN-6k-9nE" firstAttribute="trailing" secondItem="qJg-2j-n8T" secondAttribute="trailing" id="Fj4-NV-75j"/>
+                            <constraint firstItem="E00-p6-70A" firstAttribute="leading" secondItem="4XP-vJ-dnv" secondAttribute="trailing" constant="25" id="Xsy-NL-XRl"/>
+                            <constraint firstItem="wdN-6k-9nE" firstAttribute="bottom" secondItem="qJg-2j-n8T" secondAttribute="bottom" id="bQx-8n-Nlj"/>
+                            <constraint firstItem="4XP-vJ-dnv" firstAttribute="top" secondItem="3gL-66-7tI" secondAttribute="bottom" constant="35" id="g3d-Y4-bPp"/>
+                            <constraint firstItem="3gL-66-7tI" firstAttribute="top" secondItem="qJg-2j-n8T" secondAttribute="top" id="kYM-l3-pNi"/>
+                            <constraint firstItem="4XP-vJ-dnv" firstAttribute="leading" secondItem="qJg-2j-n8T" secondAttribute="leading" constant="87" id="pMp-lL-Tai"/>
+                            <constraint firstItem="wdN-6k-9nE" firstAttribute="top" secondItem="4XP-vJ-dnv" secondAttribute="bottom" constant="52" id="xNJ-1b-uVA"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="qJg-2j-n8T"/>
+                    </view>
+                    <connections>
+                        <outlet property="imageCategory" destination="E00-p6-70A" id="i8A-IA-WzH"/>
+                        <outlet property="lblCategory" destination="4XP-vJ-dnv" id="Bd5-cl-0O0"/>
+                        <outlet property="lblIntroduce" destination="3gL-66-7tI" id="N16-Cw-Ifl"/>
+                        <outlet property="loadingView" destination="uQp-Ur-MVi" id="r38-Lw-foG"/>
+                        <outlet property="tableView" destination="wdN-6k-9nE" id="8j9-U2-dw9"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PFu-i2-IlM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1495.6521739130435" y="862.5"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="UEk-Yi-bZb">
