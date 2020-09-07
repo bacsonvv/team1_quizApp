@@ -13,15 +13,15 @@ class CategoryTableViewCell: UITableViewCell {
     @IBOutlet weak var lblCategory: UILabel!
     @IBOutlet weak var lblTime: UILabel!
     @IBOutlet weak var lblNumberOfQuestion: UILabel!
-    @IBOutlet weak var btnAction: UIButton!
-    
-    
-    // khai báo một biến start kiểu closure
-    var start: (() -> Void)?
-    
+    @IBOutlet weak var containerView: UIView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        containerView.layer.cornerRadius = 20
+        self.selectedBackgroundView = { view in
+            view.backgroundColor = .red
+            return view
+        }(UIView())
 
     }
     
@@ -30,12 +30,6 @@ class CategoryTableViewCell: UITableViewCell {
         
     }
     
-    @IBAction func startDidpress(_ sender: Any) {
-        
-        // gọi closure
-        // ?: có đối tượng nào lắng nghe (hứng start) thì mới k nil
-        start?()
-    }
     
     func setupCategory(colection: Collection) {
         self.lblCategory.text = colection.category

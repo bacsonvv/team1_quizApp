@@ -32,6 +32,17 @@ class HomeViewController: UIViewController {
     
     var tag = 0
     
+    var chooseCategory = -1
+    
+    let titleNavigationLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Master Subject"
+        label.font = .boldSystemFont(ofSize: 16)
+        label.textColor = .black
+        label.textAlignment = .center
+        return label
+    }()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -46,17 +57,35 @@ class HomeViewController: UIViewController {
         
         categoryTableView.delegate = self
         categoryTableView.dataSource = self
-    
+        
         GetListCategory()
         initComponent()
+        setupNavigation()
     }
     
     fileprivate func initComponent() {
         categoryTableView.register(UINib(nibName: "CategoryTableViewCell", bundle: nil), forCellReuseIdentifier: cellID)
     }
     
+    func setupNavigation() {
+        navigationController?.navigationBar.barTintColor = UIColor.blue
+        navigationItem.titleView = titleNavigationLabel
+        
+        //      navigationItem.leftBarButtonItem?.tintColor = .white
+    }
+    
     @IBAction func signOut(_ sender: Any) {
         GIDSignIn.sharedInstance().signOut()
+    }
+    
+    @IBAction func showListQuestion(_ sender: Any) {
+        
+    }
+    
+    @IBAction func startGame(_ sender: Any) {
+        let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "gameVC") as! GameViewController
+        vc.category = listCollection[chooseCategory]
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     func GetListCategory(){
@@ -83,4 +112,15 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         print("hihi")
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didHighlightRowAt indexPath: IndexPath) {
+      
+        chooseCategory = indexPath.row
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+          if let cell = tableView.cellForRow(at: indexPath) {
+              cell.contentView.backgroundColor = UIColor.darkGray
+          }
+      }
 }

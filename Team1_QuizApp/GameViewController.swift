@@ -33,6 +33,7 @@ class GameViewController: UIViewController {
     var userChoice = ""
     var score = 0
     var isClicked = false
+    var category = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,18 +49,19 @@ class GameViewController: UIViewController {
         self.view.backgroundColor = .purple
         
         DispatchQueue.main.async {
-            self.fetchData("History")
+            self.fetchData(category : self.category)
         }
         
         checkWhenDataIsReady()
         
         tableView.reloadData()
         
-        runTimer()
+        runTimer()  
     }
     
-    func fetchData(_ category: String){
-        self.ref.child(self.spreadSheetId).child("History").observeSingleEvent(of: .value) { snapshot in
+    func fetchData(category: String){
+        print(category)
+        self.ref.child(self.spreadSheetId).child(category).observeSingleEvent(of: .value) { snapshot in
             for case let child as DataSnapshot in snapshot.children {
                 guard let dict = child.value as? [String:Any] else {
                     print("Error")

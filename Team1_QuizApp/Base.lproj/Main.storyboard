@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="xTH-we-t0e">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Alh-SN-69i">
     <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -23,9 +23,9 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="xp4-8j-56F"/>
                                         </constraints>
-                                        <state key="normal" title="Button" image="signingg"/>
+                                        <state key="normal" image="signingg"/>
                                         <connections>
-                                            <action selector="signInToHome:" destination="BYZ-38-t0r" eventType="touchUpInside" id="EUH-hq-49g"/>
+                                            <action selector="signInWithGG:" destination="BYZ-38-t0r" eventType="touchUpInside" id="TQm-CB-COw"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tif-1H-Hc5">
@@ -33,21 +33,33 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="780-TP-uOM"/>
                                         </constraints>
-                                        <state key="normal" title="Button" image="signinfb"/>
+                                        <state key="normal" image="signinfb"/>
+                                        <connections>
+                                            <action selector="signInWithFB:" destination="BYZ-38-t0r" eventType="touchUpInside" id="s0O-qh-6XF"/>
+                                        </connections>
                                     </button>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="quiz-time" translatesAutoresizingMaskIntoConstraints="NO" id="lhQ-q4-ubp">
+                                        <rect key="frame" x="50" y="25" width="314" height="500"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="500" id="vSs-Pl-QpQ"/>
+                                        </constraints>
+                                    </imageView>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="backgroundColor" red="0.9977006316" green="0.69307890500000002" blue="0.79302038029999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
+                                    <constraint firstItem="lhQ-q4-ubp" firstAttribute="top" secondItem="92S-RU-hu1" secondAttribute="top" constant="25" id="61o-jQ-GoC"/>
                                     <constraint firstAttribute="trailing" secondItem="tif-1H-Hc5" secondAttribute="trailing" constant="20" id="EV8-6d-N2w"/>
                                     <constraint firstAttribute="bottom" secondItem="68B-T4-fYl" secondAttribute="bottom" constant="20" id="QGN-s1-1Qw"/>
                                     <constraint firstItem="68B-T4-fYl" firstAttribute="leading" secondItem="92S-RU-hu1" secondAttribute="leading" constant="20" id="Rq5-F0-Eeo"/>
+                                    <constraint firstAttribute="trailing" secondItem="lhQ-q4-ubp" secondAttribute="trailing" constant="50" id="cI4-w9-0zL"/>
                                     <constraint firstItem="tif-1H-Hc5" firstAttribute="leading" secondItem="92S-RU-hu1" secondAttribute="leading" constant="20" id="dOy-Gs-JPC"/>
+                                    <constraint firstItem="lhQ-q4-ubp" firstAttribute="leading" secondItem="92S-RU-hu1" secondAttribute="leading" constant="50" id="gZZ-Kb-XGg"/>
                                     <constraint firstAttribute="trailing" secondItem="68B-T4-fYl" secondAttribute="trailing" constant="20" id="kpd-wW-hm0"/>
                                     <constraint firstItem="68B-T4-fYl" firstAttribute="top" secondItem="tif-1H-Hc5" secondAttribute="bottom" constant="10" id="uQi-hz-Ijg"/>
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" red="0.9977006316" green="0.69307890500000002" blue="0.79302038029999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="92S-RU-hu1" secondAttribute="trailing" id="04N-zn-6mJ"/>
                             <constraint firstItem="92S-RU-hu1" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="B23-lg-NeO"/>
@@ -57,6 +69,10 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="e0p-pj-3PJ"/>
+                    <connections>
+                        <outlet property="sigInFb" destination="tif-1H-Hc5" id="Et0-ua-xW1"/>
+                        <outlet property="signInGg" destination="68B-T4-fYl" id="ZAc-8B-HW6"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -65,7 +81,7 @@
         <!--Game View Controller-->
         <scene sceneID="GUF-AM-pe5">
             <objects>
-                <viewController id="xTH-we-t0e" customClass="GameViewController" customModule="Team1_QuizApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="gameVC" id="xTH-we-t0e" customClass="GameViewController" customModule="Team1_QuizApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tr9-I4-4P3">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -240,36 +256,86 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pc4-ON-I2U">
                                 <rect key="frame" x="10" y="53.999999999999993" width="394" height="81.333333333333314"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eQ3-2R-Qg9">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email: " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eQ3-2R-Qg9">
                                         <rect key="frame" x="0.0" y="0.0" width="394" height="81.333333333333329"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e6m-lN-2co">
+                                        <rect key="frame" x="327" y="51.333333333333329" width="57" height="30"/>
+                                        <state key="normal" title="Sign out"/>
+                                        <connections>
+                                            <action selector="signOut:" destination="wAw-IK-zbu" eventType="touchUpInside" id="t8b-lY-8ir"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
                                     <constraint firstItem="eQ3-2R-Qg9" firstAttribute="leading" secondItem="Pc4-ON-I2U" secondAttribute="leading" id="2hN-ko-Cdb"/>
+                                    <constraint firstAttribute="trailing" secondItem="e6m-lN-2co" secondAttribute="trailing" constant="10" id="Psq-lA-s3e"/>
                                     <constraint firstItem="eQ3-2R-Qg9" firstAttribute="top" secondItem="Pc4-ON-I2U" secondAttribute="top" id="T4H-cL-G70"/>
                                     <constraint firstAttribute="bottom" secondItem="eQ3-2R-Qg9" secondAttribute="bottom" id="iQk-6t-sRp"/>
+                                    <constraint firstAttribute="bottom" secondItem="e6m-lN-2co" secondAttribute="bottom" id="kcz-bv-xuC"/>
                                     <constraint firstAttribute="trailing" secondItem="eQ3-2R-Qg9" secondAttribute="trailing" id="syO-Ox-mrD"/>
                                 </constraints>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="U3q-3I-kWB">
-                                <rect key="frame" x="10" y="145.33333333333331" width="394" height="706.66666666666674"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="U3q-3I-kWB">
+                                <rect key="frame" x="10" y="145.33333333333331" width="394" height="574.33333333333348"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fEk-l9-bDa">
+                                <rect key="frame" x="10" y="727.66666666666663" width="394" height="114.33333333333337"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dbf-Q1-rxH">
+                                        <rect key="frame" x="50" y="20" width="80" height="40"/>
+                                        <color key="backgroundColor" red="0.4683190008" green="0.89546227329999994" blue="0.4029068851" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="19Z-6r-G9n"/>
+                                            <constraint firstAttribute="width" constant="80" id="78g-xz-b2f"/>
+                                        </constraints>
+                                        <state key="normal" title="Detail"/>
+                                        <connections>
+                                            <action selector="showListQuestion:" destination="wAw-IK-zbu" eventType="touchUpInside" id="wac-DT-8Mz"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eN7-ks-Bqw">
+                                        <rect key="frame" x="264" y="20" width="80" height="40"/>
+                                        <color key="backgroundColor" red="0.4683190008" green="0.89546227329999994" blue="0.4029068851" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="2X7-TH-3WB"/>
+                                            <constraint firstAttribute="width" constant="80" id="X7e-54-mRw"/>
+                                        </constraints>
+                                        <state key="normal" title="Start"/>
+                                        <connections>
+                                            <action selector="startGame:" destination="wAw-IK-zbu" eventType="touchUpInside" id="eu1-Sn-emd"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="eN7-ks-Bqw" secondAttribute="trailing" constant="50" id="e6h-A2-1Q0"/>
+                                    <constraint firstItem="Dbf-Q1-rxH" firstAttribute="top" secondItem="fEk-l9-bDa" secondAttribute="top" constant="20" id="ndY-b9-THu"/>
+                                    <constraint firstItem="Dbf-Q1-rxH" firstAttribute="leading" secondItem="fEk-l9-bDa" secondAttribute="leading" constant="50" id="qgQ-dv-69J"/>
+                                    <constraint firstItem="eN7-ks-Bqw" firstAttribute="top" secondItem="fEk-l9-bDa" secondAttribute="top" constant="20" id="rxT-KO-GGW"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="U3q-3I-kWB" firstAttribute="leading" secondItem="JtV-SB-Rzg" secondAttribute="leading" constant="10" id="2Z4-hZ-bFM"/>
                             <constraint firstItem="JtV-SB-Rzg" firstAttribute="trailing" secondItem="Pc4-ON-I2U" secondAttribute="trailing" constant="10" id="86a-On-rGW"/>
-                            <constraint firstItem="U3q-3I-kWB" firstAttribute="leading" secondItem="JtV-SB-Rzg" secondAttribute="leading" constant="10" id="a2E-aD-hzg"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="fEk-l9-bDa" secondAttribute="bottom" constant="20" id="PvW-cf-Cfc"/>
+                            <constraint firstItem="JtV-SB-Rzg" firstAttribute="trailing" secondItem="U3q-3I-kWB" secondAttribute="trailing" constant="10" id="Ta2-an-eDX"/>
+                            <constraint firstItem="U3q-3I-kWB" firstAttribute="height" secondItem="Pc4-ON-I2U" secondAttribute="height" multiplier="7.04918" id="Unf-kR-z1H"/>
+                            <constraint firstItem="U3q-3I-kWB" firstAttribute="top" secondItem="Pc4-ON-I2U" secondAttribute="bottom" constant="10" id="V8w-L1-PbR"/>
                             <constraint firstItem="Pc4-ON-I2U" firstAttribute="leading" secondItem="JtV-SB-Rzg" secondAttribute="leading" constant="10" id="clb-wA-gYD"/>
-                            <constraint firstItem="U3q-3I-kWB" firstAttribute="top" secondItem="Pc4-ON-I2U" secondAttribute="bottom" constant="10" id="gAH-ax-nwm"/>
                             <constraint firstItem="Pc4-ON-I2U" firstAttribute="top" secondItem="JtV-SB-Rzg" secondAttribute="top" constant="10" id="ljS-bN-Jdd"/>
-                            <constraint firstItem="JtV-SB-Rzg" firstAttribute="trailing" secondItem="U3q-3I-kWB" secondAttribute="trailing" constant="10" id="nDA-ev-jfI"/>
+                            <constraint firstItem="fEk-l9-bDa" firstAttribute="leading" secondItem="U3q-3I-kWB" secondAttribute="trailing" constant="-394" id="ncz-ZK-ISq"/>
+                            <constraint firstItem="fEk-l9-bDa" firstAttribute="firstBaseline" secondItem="U3q-3I-kWB" secondAttribute="baseline" constant="8" symbolType="layoutAnchor" id="q5z-ln-2tO"/>
                             <constraint firstItem="Pc4-ON-I2U" firstAttribute="height" secondItem="dZZ-Ml-Jr2" secondAttribute="height" multiplier="1/11" id="tSb-V7-Nac"/>
-                            <constraint firstItem="JtV-SB-Rzg" firstAttribute="bottom" secondItem="U3q-3I-kWB" secondAttribute="bottom" constant="10" id="vGh-U8-iqx"/>
+                            <constraint firstItem="fEk-l9-bDa" firstAttribute="trailing" secondItem="Pc4-ON-I2U" secondAttribute="trailing" id="xNP-wK-DMT"/>
+                            <constraint firstItem="fEk-l9-bDa" firstAttribute="leading" secondItem="Pc4-ON-I2U" secondAttribute="leading" id="zDL-mC-Vnk"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="JtV-SB-Rzg"/>
                     </view>
@@ -280,7 +346,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wxe-f7-wiQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1497" y="139"/>
+            <point key="canvasLocation" x="1495.6521739130435" y="138.61607142857142"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="UEk-Yi-bZb">
@@ -303,6 +369,7 @@
     </scenes>
     <resources>
         <image name="fireworks" width="512" height="512"/>
+        <image name="quiz-time" width="1024" height="1024"/>
         <image name="signinfb" width="222" height="42"/>
         <image name="signingg" width="222" height="42"/>
     </resources>
