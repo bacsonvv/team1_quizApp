@@ -33,8 +33,8 @@ class GameViewController: UIViewController {
     var userChoice = ""
     var score = 0
     var isClicked = false
-    var category = ""
-    var userId = ""
+    var category = "Geography"
+    var userID = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -160,7 +160,7 @@ class GameViewController: UIViewController {
         endGameController.category = self.category
         endGameController.time = self.amountOfTime - self.timeRemaining
         endGameController.score = self.score
-        endGameController.userId = self.userId
+//        endGameController.userId = self.userId
         timer.invalidate()
         self.navigationController?.pushViewController(endGameController, animated: true)
     }

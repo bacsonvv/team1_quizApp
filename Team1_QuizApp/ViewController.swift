@@ -102,7 +102,7 @@ class ViewController: UIViewController {
                     let idOfUser = picutreDic.object(forKey: "id") as! String
                     
                     
-                    UserDefaults.standard.set(idOfUser, forKey: "idFB")
+                    UserDefaults.standard.set(idOfUser, forKey: "idUser")
                     UserDefaults.standard.set(nameOfUser, forKey: "nameUserSession")
                     UserDefaults.standard.set(1, forKey: "option")
                     
@@ -152,7 +152,7 @@ extension ViewController: GIDSignInDelegate {
                 
                 let userIDGoogle = currentUser?.userID
                 let nameIDGoogle = currentUser?.profile.name
-                UserDefaults.standard.set(userIDGoogle, forKey: "idGG")
+                UserDefaults.standard.set(userIDGoogle, forKey: "idUser")
                 UserDefaults.standard.set(nameIDGoogle, forKey: "nameUserSession")
                 UserDefaults.standard.set(2, forKey: "option")
                 
