@@ -19,7 +19,7 @@ class HistoryController: UIViewController, UITableViewDataSource, UITableViewDel
     
     var ref : DatabaseReference!
 
-        var listUser = [User]()
+    var listUser = [User]() 
         var userHistory = "Thanh"
 
         
@@ -92,7 +92,7 @@ class HistoryController: UIViewController, UITableViewDataSource, UITableViewDel
                         let q = User(category: category, score: score)
                         print("day la\(q)")
                         self.listUser.append(q)
-                        self.tableView.reloadData()
+//                        self.tableView.reloadData()
                      
                     }
                 }
