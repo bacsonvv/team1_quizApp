@@ -18,6 +18,9 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var lblEmail: UILabel!
     @IBOutlet weak var imageUser: UIImageView!
     
+
+    @IBOutlet weak var lblTitle: UILabel!
+
     @IBOutlet weak var btnDetail: UIButton!
     @IBOutlet weak var btnHistory: UIButton!
     @IBOutlet weak var btnStart: UIButton!
@@ -25,6 +28,7 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var loading: UIActivityIndicatorView!
     
     var timer = Timer()
+
     
     let cellID = "CategoryTableViewCell"
     
@@ -37,6 +41,8 @@ class HomeViewController: UIViewController {
     var spreadSheetId = "1urSOD9SR3lSD7WE1SF0CqKRa7c1INR9I-iMqQgwsKvM"
     
     var user = ""
+    
+    var id = ""
     
     //var tag = 0
     
@@ -54,7 +60,10 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        id = UserDefaults.standard.string(forKey: "idUser") ?? "kh"
+        print(id)
         setupNavigation()
+        
         
         lblEmail.text = "Name Player : \(UserDefaults.standard.string(forKey: "nameUserSession") ?? "Underfined")"
         //        if tag == 0 {
@@ -81,7 +90,7 @@ class HomeViewController: UIViewController {
         
         initComponent()
         
-        imageUser.tintColor = UIColor(red: 0.71, green: 0.61, blue: 0.71, alpha: 1)
+        lblTitle.font = UIFont.italicSystemFont(ofSize: 17)
         
     }
     
@@ -132,6 +141,7 @@ class HomeViewController: UIViewController {
     }
     
     @IBAction func showListQuestion(_ sender: Any) {
+        print("aloooo")
         if chooseCategory == -1 {
             showDialog()
         } else {
@@ -147,6 +157,7 @@ class HomeViewController: UIViewController {
     }
     
     @IBAction func startGame(_ sender: Any) {
+        print("ollllaaa")
         if chooseCategory == -1 {
             showDialog()
         } else {
@@ -157,7 +168,7 @@ class HomeViewController: UIViewController {
     func startGame() {
         let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "gameVC") as! GameViewController
         vc.category = listCollection[chooseCategory]
-        vc.userId = self.user
+//        vc.userId = self.user
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
