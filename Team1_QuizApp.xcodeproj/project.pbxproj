@@ -13,6 +13,9 @@
 		72ACDD1E2500EEB10020FBE7 /* CategoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72ACDD1C2500EEB10020FBE7 /* CategoryTableViewCell.xib */; };
 		7BA0B2CE9568D718E7DDB345 /* Pods_Team1_QuizAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48E96AC1D35EDEAFCE843697 /* Pods_Team1_QuizAppTests.framework */; };
 		8A1DC10F2501D61A009EC72E /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1DC10E2501D61A009EC72E /* Question.swift */; };
+		8A490C542505D52B00904EE7 /* EndGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A490C522505D52B00904EE7 /* EndGameViewController.swift */; };
+		8A490C562505D55E00904EE7 /* CategoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A490C552505D55E00904EE7 /* CategoryTableViewCell.xib */; };
+		8A490C582505D62000904EE7 /* AnswerViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A490C572505D62000904EE7 /* AnswerViewCell.xib */; };
 		8AC3DEFF2500AC5E0089A859 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC3DEFE2500AC5E0089A859 /* AppDelegate.swift */; };
 		8AC3DF012500AC5E0089A859 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC3DF002500AC5E0089A859 /* SceneDelegate.swift */; };
 		8AC3DF032500AC5E0089A859 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC3DF022500AC5E0089A859 /* ViewController.swift */; };
@@ -20,9 +23,7 @@
 		8AC3DF0B2500AC5F0089A859 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8AC3DF092500AC5F0089A859 /* LaunchScreen.storyboard */; };
 		8AC3DF162500AC5F0089A859 /* Team1_QuizAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC3DF152500AC5F0089A859 /* Team1_QuizAppTests.swift */; };
 		8AC3DF212500AC5F0089A859 /* Team1_QuizAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC3DF202500AC5F0089A859 /* Team1_QuizAppUITests.swift */; };
-		8ACED4002505C8EE00B959D5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8ACED3FE2505C8ED00B959D5 /* Main.storyboard */; };
-		8ACED4022505CC0A00B959D5 /* EndGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ACED4012505CC0A00B959D5 /* EndGameViewController.swift */; };
-		8ACED4042505CC5600B959D5 /* AnswerViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8ACED4032505CC5600B959D5 /* AnswerViewCell.xib */; };
+		8ADF67A12505D42F000700BA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8ADF679F2505D42F000700BA /* Main.storyboard */; };
 		8AE6956E2500FBA70052FE0A /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE6956D2500FBA70052FE0A /* GameViewController.swift */; };
 		8AE69573250106490052FE0A /* AnswerViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE69571250106490052FE0A /* AnswerViewCell.swift */; };
 		DAE078898D9F90DF8192711A /* Pods_Team1_QuizApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79CDB2DA6B1805AE7CBF2A38 /* Pods_Team1_QuizApp.framework */; };
@@ -57,6 +58,9 @@
 		79CDB2DA6B1805AE7CBF2A38 /* Pods_Team1_QuizApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Team1_QuizApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F86DACBF5E4B92094BBF2CF /* Pods-Team1_QuizApp-Team1_QuizAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Team1_QuizApp-Team1_QuizAppUITests.debug.xcconfig"; path = "Target Support Files/Pods-Team1_QuizApp-Team1_QuizAppUITests/Pods-Team1_QuizApp-Team1_QuizAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		8A1DC10E2501D61A009EC72E /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
+		8A490C522505D52B00904EE7 /* EndGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EndGameViewController.swift; sourceTree = "<group>"; };
+		8A490C552505D55E00904EE7 /* CategoryTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CategoryTableViewCell.xib; sourceTree = "<group>"; };
+		8A490C572505D62000904EE7 /* AnswerViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AnswerViewCell.xib; sourceTree = "<group>"; };
 		8AC3DEFB2500AC5E0089A859 /* Team1_QuizApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Team1_QuizApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8AC3DEFE2500AC5E0089A859 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8AC3DF002500AC5E0089A859 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -70,9 +74,7 @@
 		8AC3DF1C2500AC5F0089A859 /* Team1_QuizAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Team1_QuizAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8AC3DF202500AC5F0089A859 /* Team1_QuizAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Team1_QuizAppUITests.swift; sourceTree = "<group>"; };
 		8AC3DF222500AC5F0089A859 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8ACED3FF2505C8ED00B959D5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = ../../ForGit/Team1_QuizApp/Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		8ACED4012505CC0A00B959D5 /* EndGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EndGameViewController.swift; path = ../../ForGit/Team1_QuizApp/EndGameViewController.swift; sourceTree = "<group>"; };
-		8ACED4032505CC5600B959D5 /* AnswerViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AnswerViewCell.xib; path = ../../ForGit/Team1_QuizApp/AnswerViewCell.xib; sourceTree = "<group>"; };
+		8ADF67A02505D42F000700BA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8AE6956D2500FBA70052FE0A /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		8AE69571250106490052FE0A /* AnswerViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerViewCell.swift; sourceTree = "<group>"; };
 		8C621A4D10BBBFDEC0666949 /* Pods_Team1_QuizApp_Team1_QuizAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Team1_QuizApp_Team1_QuizAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -162,14 +164,15 @@
 				8AC3DF022500AC5E0089A859 /* ViewController.swift */,
 				72ACDD192500E7DD0020FBE7 /* HomeViewController.swift */,
 				8AE6956D2500FBA70052FE0A /* GameViewController.swift */,
-				8ACED4012505CC0A00B959D5 /* EndGameViewController.swift */,
-				8AC3DF072500AC5F0089A859 /* Assets.xcassets */,
-				8ACED3FE2505C8ED00B959D5 /* Main.storyboard */,
+				8A490C522505D52B00904EE7 /* EndGameViewController.swift */,
+				8ADF679F2505D42F000700BA /* Main.storyboard */,
 				8AC3DF092500AC5F0089A859 /* LaunchScreen.storyboard */,
+				8AC3DF072500AC5F0089A859 /* Assets.xcassets */,
 				72ACDD1B2500EEB10020FBE7 /* CategoryTableViewCell.swift */,
 				72ACDD1C2500EEB10020FBE7 /* CategoryTableViewCell.xib */,
 				8AE69571250106490052FE0A /* AnswerViewCell.swift */,
-				8ACED4032505CC5600B959D5 /* AnswerViewCell.xib */,
+				8A490C572505D62000904EE7 /* AnswerViewCell.xib */,
+				8A490C552505D55E00904EE7 /* CategoryTableViewCell.xib */,
 				8AC3DF0C2500AC5F0089A859 /* Info.plist */,
 				72ACDD172500E4360020FBE7 /* GoogleService-Info.plist */,
 				8A1DC10E2501D61A009EC72E /* Question.swift */,
@@ -306,10 +309,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8ACED4042505CC5600B959D5 /* AnswerViewCell.xib in Resources */,
 				8AC3DF0B2500AC5F0089A859 /* LaunchScreen.storyboard in Resources */,
 				72ACDD1E2500EEB10020FBE7 /* CategoryTableViewCell.xib in Resources */,
-				8ACED4002505C8EE00B959D5 /* Main.storyboard in Resources */,
+				8ADF67A12505D42F000700BA /* Main.storyboard in Resources */,
+				8A490C582505D62000904EE7 /* AnswerViewCell.xib in Resources */,
+				8A490C562505D55E00904EE7 /* CategoryTableViewCell.xib in Resources */,
 				72ACDD182500E4370020FBE7 /* GoogleService-Info.plist in Resources */,
 				8AC3DF082500AC5F0089A859 /* Assets.xcassets in Resources */,
 			);
@@ -475,13 +479,13 @@
 			files = (
 				72ACDD1D2500EEB10020FBE7 /* CategoryTableViewCell.swift in Sources */,
 				8A1DC10F2501D61A009EC72E /* Question.swift in Sources */,
+				8A490C542505D52B00904EE7 /* EndGameViewController.swift in Sources */,
 				8AC3DF032500AC5E0089A859 /* ViewController.swift in Sources */,
 				8AE69573250106490052FE0A /* AnswerViewCell.swift in Sources */,
 				8AC3DEFF2500AC5E0089A859 /* AppDelegate.swift in Sources */,
 				8AC3DF012500AC5E0089A859 /* SceneDelegate.swift in Sources */,
 				8AE6956E2500FBA70052FE0A /* GameViewController.swift in Sources */,
 				72ACDD1A2500E7DD0020FBE7 /* HomeViewController.swift in Sources */,
-				8ACED4022505CC0A00B959D5 /* EndGameViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -525,10 +529,10 @@
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
-		8ACED3FE2505C8ED00B959D5 /* Main.storyboard */ = {
+		8ADF679F2505D42F000700BA /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				8ACED3FF2505C8ED00B959D5 /* Base */,
+				8ADF67A02505D42F000700BA /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
