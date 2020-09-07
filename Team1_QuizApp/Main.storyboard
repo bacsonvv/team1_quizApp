@@ -347,6 +347,10 @@
                                 <rect key="frame" x="10" y="145.33333333333331" width="394" height="574.33333333333348"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </tableView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="yCc-KC-Cpm">
+                                <rect key="frame" x="197" y="438" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </activityIndicatorView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fEk-l9-bDa">
                                 <rect key="frame" x="10" y="727.66666666666663" width="394" height="114.33333333333337"/>
                                 <subviews>
@@ -417,9 +421,13 @@
                         <viewLayoutGuide key="safeArea" id="JtV-SB-Rzg"/>
                     </view>
                     <connections>
+                        <outlet property="btnDetail" destination="Dbf-Q1-rxH" id="YTv-cg-1am"/>
+                        <outlet property="btnHistory" destination="G52-Bg-aPR" id="Caz-K9-iQo"/>
+                        <outlet property="btnStart" destination="eN7-ks-Bqw" id="DMU-0V-mum"/>
                         <outlet property="categoryTableView" destination="U3q-3I-kWB" id="59p-Yt-IeY"/>
                         <outlet property="imageUser" destination="a8n-1X-vgo" id="i18-my-uqW"/>
                         <outlet property="lblEmail" destination="eQ3-2R-Qg9" id="pzN-Ab-z0U"/>
+                        <outlet property="loading" destination="yCc-KC-Cpm" id="7vZ-qN-IzU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wxe-f7-wiQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -524,6 +532,6 @@
         <image name="quiz-time" width="1024" height="1024"/>
         <image name="signinfb" width="222" height="42"/>
         <image name="signingg" width="222" height="42"/>
-        <image name="user" width="512" height="512"/>
+        <image name="user" width="50" height="50"/>
     </resources>
 </document>
