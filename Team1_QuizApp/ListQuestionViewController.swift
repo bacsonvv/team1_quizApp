@@ -21,7 +21,7 @@ class ListQuestionViewController: UIViewController {
     var questionForView = Array<Question>(repeating: Question(question: "Default", choice1: "Default", choice2: "Default", choice3: "Default", choice4: "Default", answer: "Default", id: 0), count: 30)
     var spreadSheetId = "1urSOD9SR3lSD7WE1SF0CqKRa7c1INR9I-iMqQgwsKvM"
     var ref: DatabaseReference!
-    var category = "History"
+    var category = "Civic Education"
     var timer = Timer()
     
     override func viewDidLoad() {

@@ -19,13 +19,22 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setupNavigation()
         
         GIDSignIn.sharedInstance()?.delegate = self
     
         if AccessToken.current != nil {
             firebaseFaceBookLogin(token: AccessToken.current!.tokenString)
         }
+        
     }
+    
+    func setupNavigation() {
+         navigationController?.navigationBar.backgroundColor = .clear
+         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+         navigationController?.navigationBar.shadowImage = UIImage()
+       }
+      
     
     @IBAction func signInWithGG(_ sender: Any) {
         GIDSignIn.sharedInstance()?.presentingViewController = self
@@ -106,7 +115,6 @@ extension ViewController: GIDSignInDelegate {
             } else {
                 let email1 = user.profile.email
                 let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "homeVC") as! HomeViewController
-                vc.modalPresentationStyle = .fullScreen
                 vc.user = email1!
                 vc.tag = 1
                 self.navigationController?.pushViewController(vc, animated: true)
