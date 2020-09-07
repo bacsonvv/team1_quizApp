@@ -33,7 +33,7 @@ class GameViewController: UIViewController {
     var userChoice = ""
     var score = 0
     var isClicked = false
-    var category = ""
+    var category = "Geography"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,7 +62,6 @@ class GameViewController: UIViewController {
     }
     
     func fetchData(category: String){
-        print(category)
         self.ref.child(self.spreadSheetId).child(category).observeSingleEvent(of: .value) { snapshot in
             for case let child as DataSnapshot in snapshot.children {
                 guard let dict = child.value as? [String:Any] else {
@@ -134,6 +133,7 @@ class GameViewController: UIViewController {
     }
     
     func setupQuestion() {
+        userChoice = ""
         answerForView.removeAll()
         txtQuestion.text = self.questionArray[self.currentQuestion].question
         txtQuestion.layer.cornerRadius = 15
@@ -156,7 +156,7 @@ class GameViewController: UIViewController {
     
     func moveToEndGame() {
         let endGameController = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(identifier: "endGameView") as! EndGameViewController
-                endGameController.category = "History"
+        endGameController.category = self.category
                 endGameController.time = self.amountOfTime - self.timeRemaining
                 endGameController.score = self.score
         //        self.navigationController?.pushViewController(endGameController, animated: true)
