@@ -188,9 +188,9 @@
 				8A490C572505D62000904EE7 /* AnswerViewCell.xib */,
 				8AE7C43525062DF300CF2E4F /* HistoryViewCell.swift */,
 				8AE7C43625062DF300CF2E4F /* HistoryViewCell.xib */,
+				8A1DC10E2501D61A009EC72E /* Question.swift */,
 				8AC3DF0C2500AC5F0089A859 /* Info.plist */,
 				72ACDD172500E4360020FBE7 /* GoogleService-Info.plist */,
-				8A1DC10E2501D61A009EC72E /* Question.swift */,
 			);
 			path = Team1_QuizApp;
 			sourceTree = "<group>";

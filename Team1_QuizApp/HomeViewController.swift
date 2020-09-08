@@ -16,36 +16,24 @@ class HomeViewController: UIViewController {
     
     @IBOutlet weak var categoryTableView: UITableView!
     @IBOutlet weak var lblEmail: UILabel!
+    @IBOutlet weak var lblTitle: UILabel!
     @IBOutlet weak var imageUser: UIImageView!
     
-
-    @IBOutlet weak var lblTitle: UILabel!
+    @IBOutlet weak var welcomeView: UIView!
+    @IBOutlet weak var lblLoading: UILabel!
+    @IBOutlet weak var loading: UIActivityIndicatorView!
 
     @IBOutlet weak var btnDetail: UIButton!
     @IBOutlet weak var btnHistory: UIButton!
     @IBOutlet weak var btnStart: UIButton!
-    
-    @IBOutlet weak var loading: UIActivityIndicatorView!
-    
-    var timer = Timer()
 
-    
+    var timer = Timer()
     let cellID = "CategoryTableViewCell"
-    
     var listCollection = [""]
-    
-    //var collection = [Collection]()
-    
     var ref = Database.database().reference()
-    
     var spreadSheetId = "1urSOD9SR3lSD7WE1SF0CqKRa7c1INR9I-iMqQgwsKvM"
-    
     var user = ""
-    
     var id = ""
-    
-    //var tag = 0
-    
     var chooseCategory = -1
     
     let titleNavigationLabel: UILabel = {
@@ -60,17 +48,13 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        id = UserDefaults.standard.string(forKey: "idUser") ?? "kh"
-        print(id)
+        id = UserDefaults.standard.string(forKey: "idUser") ?? "Undefined"
+        user = UserDefaults.standard.string(forKey: "nameUserSession") ?? "Undefined"
+        
         setupNavigation()
         
-        
-        lblEmail.text = "Name Player : \(UserDefaults.standard.string(forKey: "nameUserSession") ?? "Underfined")"
-        //        if tag == 0 {
-        //            lblEmail.text = "Name: \(user)"
-        //        } else {
-        //            lblEmail.text = "Email: \(user)"
-        //        }
+        lblEmail.text = "Name Player : \(user)"
+
         imageUser.tintColor = .blue
         categoryTableView.delegate = self
         categoryTableView.dataSource = self
@@ -78,6 +62,7 @@ class HomeViewController: UIViewController {
         setStateForView(state: true)
         
         loading.isHidden = false
+        lblLoading.isHidden = false
         loading.startAnimating()
         
         DispatchQueue.main.async {
@@ -100,6 +85,7 @@ class HomeViewController: UIViewController {
     @objc func setupData() {
         if listCollection.count == 3 {
             loading.isHidden = true
+            lblLoading.isHidden = true
             loading.stopAnimating()
             
             setStateForView(state: false)
@@ -109,6 +95,8 @@ class HomeViewController: UIViewController {
     }
     
     func setStateForView(state: Bool) {
+        welcomeView.isHidden = state
+        categoryTableView.isHidden = state
         lblEmail.isHidden = state
         imageUser.isHidden = state
         btnDetail.isHidden = state
@@ -121,7 +109,6 @@ class HomeViewController: UIViewController {
     }
     
     func setupNavigation() {
-        
         navigationController?.navigationBar.barTintColor = UIColor(red: 0.71, green: 0.61, blue: 0.71, alpha: 1)
         self.navigationItem.setHidesBackButton(true, animated: false)
         
@@ -141,7 +128,6 @@ class HomeViewController: UIViewController {
     }
     
     @IBAction func showListQuestion(_ sender: Any) {
-        print("aloooo")
         if chooseCategory == -1 {
             showDialog()
         } else {
@@ -153,11 +139,9 @@ class HomeViewController: UIViewController {
         let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "listQVC") as! ListQuestionViewController
         vc.category = listCollection[chooseCategory]
         self.navigationController?.pushViewController(vc, animated: true)
-        
     }
     
     @IBAction func startGame(_ sender: Any) {
-        print("ollllaaa")
         if chooseCategory == -1 {
             showDialog()
         } else {
@@ -168,7 +152,8 @@ class HomeViewController: UIViewController {
     func startGame() {
         let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "gameVC") as! GameViewController
         vc.category = listCollection[chooseCategory]
-//        vc.userId = self.user
+        print(self.id)
+        vc.userId = self.id
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
@@ -181,9 +166,10 @@ class HomeViewController: UIViewController {
         self.present(alert, animated: true, completion: nil)
         
     }
+    
     @IBAction func showHistory(_ sender: Any) {
         let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "historyView") as! HistoryViewController
-        vc.userId = self.user
+        vc.userId = self.id
         vc.categroy = listCollection[chooseCategory]
         self.navigationController?.pushViewController(vc, animated: true)
     }
@@ -201,22 +187,19 @@ class HomeViewController: UIViewController {
         })
     }    
 }
+
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
         return listCollection.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         let cell = categoryTableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath) as! CategoryTableViewCell
         cell.lblCategory.text = listCollection[indexPath.row]
         return cell
     }
     
     func tableView(_ tableView: UITableView, didHighlightRowAt indexPath: IndexPath) {
-        
         chooseCategory = indexPath.row
-        
     }
 }

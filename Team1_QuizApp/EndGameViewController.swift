@@ -12,11 +12,10 @@ import FirebaseDatabase
 class EndGameViewController: UIViewController {
     
     var ref: DatabaseReference!
-    
-    var category = "Default"
+    var category = ""
     var time = 0
     var score = 0
-    var userId = "123"
+    var userId = ""
 
     @IBOutlet weak var lblCategory: UILabel!
     @IBOutlet weak var lblTime: UILabel!
