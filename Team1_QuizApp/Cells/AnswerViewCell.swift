@@ -23,6 +23,7 @@ class AnswerViewCell: UITableViewCell {
     public func configure(imageName: String, answer: String) {
         imageCheckBox.image = UIImage(named: imageName)
         txtChoice.text = answer
+        txtChoice.isEditable = false
     }
     
     override func awakeFromNib() {

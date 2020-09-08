@@ -48,6 +48,8 @@ class GameViewController: UIViewController {
         
         initGame()
         
+        txtQuestion.isEditable = false
+        
         self.view.backgroundColor = .purple
         
         DispatchQueue.main.async {
