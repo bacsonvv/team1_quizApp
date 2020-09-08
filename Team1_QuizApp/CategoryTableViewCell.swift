@@ -14,6 +14,7 @@ class CategoryTableViewCell: UITableViewCell {
     @IBOutlet weak var lblTime: UILabel!
     @IBOutlet weak var lblNumberOfQuestion: UILabel!
     @IBOutlet weak var containerView: UIView!
+    @IBOutlet weak var imageCategory: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -23,5 +24,12 @@ class CategoryTableViewCell: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         
-    } 
+    }
+    
+//    func setImage(data: CategoryAttribute) {
+//        lblCategory.text = data.category
+//        imageCategory.image = data.image
+//        
+//        
+//    }
 }

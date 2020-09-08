@@ -77,11 +77,20 @@ class HomeViewController: UIViewController {
         
         lblTitle.font = UIFont.italicSystemFont(ofSize: 17)
         
+        setupButton()
+        
+    }
+    
+    func setupButton() {
+        btnStart.layer.cornerRadius = 10
+        btnDetail.layer.cornerRadius = 10
+        btnHistory.layer.cornerRadius = 10
     }
     
     func checkWhenDataIsReady() {
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: (#selector(HomeViewController.setupData)), userInfo: nil, repeats: true)
     }
+    
     @objc func setupData() {
         if listCollection.count == 3 {
             loading.isHidden = true
@@ -123,8 +132,8 @@ class HomeViewController: UIViewController {
         self.navigationController?.popViewController(animated: true)
         UserDefaults.standard.removeObject(forKey: "option")
         UserDefaults.standard.removeObject(forKey: "nameUserSession")
-        UserDefaults.standard.removeObject(forKey: "idGG")
-        UserDefaults.standard.removeObject(forKey: "idFB")
+        UserDefaults.standard.removeObject(forKey: "idUser")
+        //UserDefaults.standard.removeObject(forKey: "idFB")
     }
     
     @IBAction func showListQuestion(_ sender: Any) {
@@ -196,6 +205,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = categoryTableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath) as! CategoryTableViewCell
         cell.lblCategory.text = listCollection[indexPath.row]
+        cell.imageCategory.image = UIImage(named: listCollection[indexPath.row] )
         return cell
     }
     

@@ -10,16 +10,16 @@ import Foundation
 
 // Huong
 // collection là bộ đề
-struct Collection: Codable{
-    // chủ đề
-    let category: String
-    // Thời gian mỗi bộ đề
-    let time: String
-    // Số lượng câu hỏi trong bộ đề
-    let numberOfQuestion: String
-    // mảng câu hỏi có trong bộ đề
-    let questions: [Question]
-}
+//struct Collection: Codable{
+//    // chủ đề
+//    let category: String
+//    // Thời gian mỗi bộ đề
+//    let time: String
+//    // Số lượng câu hỏi trong bộ đề
+//    let numberOfQuestion: String
+//    // mảng câu hỏi có trong bộ đề
+//    let questions: [Question]
+//}
 
 // AUTHOR: Vuong Vu Bac Son
 struct Question: Codable {
