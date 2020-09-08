@@ -19,6 +19,9 @@ class GameViewController: UIViewController {
     @IBOutlet weak var lblCurrentQuestion: UILabel!
     @IBOutlet weak var lblScore: UILabel!
     @IBOutlet weak var btnNext: UIButton!
+    @IBOutlet weak var imageQuestion: UIImageView!
+    @IBOutlet weak var imageScore: UIImageView!
+    @IBOutlet weak var imageTime: UIImageView!
     
     var timer = Timer()
     var timer2 = Timer()
@@ -39,7 +42,7 @@ class GameViewController: UIViewController {
         super.viewDidLoad()
         
         self.navigationItem.setHidesBackButton(true, animated: false)
-
+        
         tableView.register(AnswerViewCell.nib(), forCellReuseIdentifier: AnswerViewCell.identifier)
         tableView.delegate = self
         tableView.dataSource = self
@@ -50,17 +53,38 @@ class GameViewController: UIViewController {
         
         txtQuestion.isEditable = false
         
-        self.view.backgroundColor = .purple
-        
         DispatchQueue.main.async {
             self.fetchData(category : self.category)
         }
+        
+        //        tableView.alwaysBounceVertical = false
         
         checkWhenDataIsReady()
         
         tableView.reloadData()
         
-        runTimer()  
+        runTimer()
+        
+        btnNext.layer.cornerRadius = 10
+        
+        setupNavigation()
+    }
+    
+    @objc func endVC(){
+        moveToEndGame()
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        txtQuestion.centerVertically()
+    }
+    
+    func setupNavigation() {
+        
+        let btnRightBar = UIBarButtonItem(image: UIImage(systemName: "arrow.left.square"), style: .plain, target: self, action: #selector(endVC))
+        self.navigationItem.rightBarButtonItem  = btnRightBar
+
+        self.title = category
     }
     
     func fetchData(category: String){
@@ -99,6 +123,9 @@ class GameViewController: UIViewController {
     }
     
     func setStateForView(state: Bool) {
+        imageQuestion.isHidden = state
+        imageScore.isHidden = state
+        imageTime.isHidden = state
         tableView.isHidden = state
         lblTimeRemain.isHidden = state
         txtQuestion.isHidden = state
@@ -108,6 +135,7 @@ class GameViewController: UIViewController {
     }
     
     func initGame() {
+        
         spinnerWaiting.isHidden = false
         spinnerWaiting.startAnimating()
         
@@ -146,8 +174,8 @@ class GameViewController: UIViewController {
         answerForView.append(self.questionArray[self.currentQuestion].choice4)
         answerForView.shuffle()
         
-        lblCurrentQuestion.text = "Current Question: \(self.currentQuestion + 1)/15"
-        lblScore.text = "Score: \(self.score)"
+        lblCurrentQuestion.text = "\(self.currentQuestion + 1)/15"
+        lblScore.text = "\(self.score)"
         
         isClicked = false
         
@@ -189,33 +217,45 @@ extension GameViewController: UITableViewDelegate, UITableViewDataSource {
         return 4
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 75
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: AnswerViewCell.identifier, for: indexPath) as! AnswerViewCell
         
         cell.configure(imageName: "uncheck", answer: answerForView[indexPath.row])
-        cell.txtChoice.textColor = .black
+        cell.lblChoice.textColor = .black
         
         return cell
-    }
-      
+    }    
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if !isClicked {
             let cell = tableView.cellForRow(at: indexPath) as! AnswerViewCell
-            self.userChoice = cell.txtChoice.text
+            self.userChoice = cell.lblChoice.text!
             
             
             if userChoice == String(questionArray[currentQuestion - 1].answer) {
                 cell.imageCheckBox.image = UIImage(named: "check")
-                cell.txtChoice.textColor = .green
+                cell.lblChoice.textColor = .green
                 score += 1
-                lblScore.text = "Score: \(self.score)"
+                lblScore.text = "\(self.score)"
             } else {
                 cell.imageCheckBox.image = UIImage(named: "wronganswer")
-                cell.txtChoice.textColor = .red
+                cell.lblChoice.textColor = .red
             }
             isClicked = true
         }
     }
-    
-    
+}
+
+extension UITextView {
+    func centerVertically() {
+        let fittingSize = CGSize(width: bounds.width, height: CGFloat.greatestFiniteMagnitude)
+        let size = sizeThatFits(fittingSize)
+        let topOffset = (bounds.size.height - size.height * zoomScale) / 2
+        let positiveTopOffset = max(1, topOffset)
+        contentOffset.y = -positiveTopOffset
+    }
 }
