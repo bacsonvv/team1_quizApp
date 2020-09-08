@@ -13,7 +13,6 @@ import FBSDKLoginKit
 class ViewController: UIViewController {
     
     @IBOutlet weak var sigInFb: UIButton!
-    
     @IBOutlet weak var signInGg: UIButton!
     
     var isLogined = UserDefaults.standard.integer(forKey: "option")
@@ -41,7 +40,6 @@ class ViewController: UIViewController {
     func autoLogin(){
         print(isLogined)
         if isLogined != 0 {
-            print("Logged in")
             nextToHomeViewController()
         }
     }
@@ -49,7 +47,6 @@ class ViewController: UIViewController {
     
     @IBAction func signInWithGG(_ sender: Any) {
         GIDSignIn.sharedInstance()?.presentingViewController = self
-        
         GIDSignIn.sharedInstance()?.signIn()
     }
     
@@ -76,10 +73,9 @@ class ViewController: UIViewController {
         let credential = FacebookAuthProvider.credential(withAccessToken: AccessToken.current!.tokenString)
         Auth.auth().signIn(with: credential) { (authResult, error) in
             if error != nil {
-                print("Error Login")
                 return
             }
-            print("Login Done")
+            
             if Auth.auth().currentUser != nil{
             }
         }
@@ -87,20 +83,15 @@ class ViewController: UIViewController {
     
     func returnUserData() {
         if ((AccessToken.current) != nil) {
-            
             GraphRequest(graphPath: "me", parameters: ["fields": "id, name, picture.type(large), email, gender"]).start(completionHandler: { (connection, result, error) -> Void in
                 
                 // nếu không xảy ra lỗi
                 if (error == nil){
-                    
                     let dict = result as! [String : AnyObject]
-                    
                     let picutreDic = dict as NSDictionary
-                    
                     
                     let nameOfUser = picutreDic.object(forKey: "name") as! String
                     let idOfUser = picutreDic.object(forKey: "id") as! String
-                    
                     
                     UserDefaults.standard.set(idOfUser, forKey: "idUser")
                     UserDefaults.standard.set(nameOfUser, forKey: "nameUserSession")
@@ -128,15 +119,13 @@ class ViewController: UIViewController {
         self.navigationController?.pushViewController(vc, animated: true)
     }
 }
+
 // Huong
 extension ViewController: GIDSignInDelegate {
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
         if let error = error {
             if (error as NSError).code == GIDSignInErrorCode.hasNoAuthInKeychain.rawValue {
-                print("The user has not signed in before or they have since signed out.")
             } else {
-                print("\(error.localizedDescription)")
-                
             }
             return
         }
@@ -146,7 +135,6 @@ extension ViewController: GIDSignInDelegate {
                                                        accessToken: authentication.accessToken)
         Auth.auth().signIn(with: credential) { (authResult, error) in
             if error != nil {
-                print("Error")
             } else {
                 let currentUser = GIDSignIn.sharedInstance()?.currentUser
                 

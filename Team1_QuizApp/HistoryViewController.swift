@@ -11,17 +11,18 @@ import FirebaseDatabase
 
 class HistoryViewController: UIViewController {
     
-    var userId = "123"
-    var categroy = "Geography"
+    
     
     @IBOutlet weak var lblCategory: UILabel!
     @IBOutlet weak var lblUsername: UILabel!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var imageCategory: UIImageView!
     
+    var userId = ""
+    var categroy = ""
     var ref: DatabaseReference!
-    var listUser: [UserHistory] = []{
-        didSet{
+    var listUser: [UserHistory] = [] {
+        didSet {
             tableView.reloadData()
         }
     }

@@ -9,7 +9,6 @@
 import Foundation
 
 // Huong
-
 // collection là bộ đề
 struct Collection: Codable{
     // chủ đề
@@ -20,12 +19,6 @@ struct Collection: Codable{
     let numberOfQuestion: String
     // mảng câu hỏi có trong bộ đề
     let questions: [Question]
-    
-//    init(category: String, time: Int, numberOfQuestion: Int) {
-//        self.category = category
-//        self.time = 60
-//        self.numberOfQuestion = 10
-//    }
 }
 
 // AUTHOR: Vuong Vu Bac Son
