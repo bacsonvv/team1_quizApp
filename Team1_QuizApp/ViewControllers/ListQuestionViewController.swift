@@ -36,6 +36,7 @@ class ListQuestionViewController: UIViewController {
         lblLoading.isHidden = false
         loadingView.startAnimating()
         setStateForView(state: true)
+        lblIntroduce.isEditable = false
         
         self.ref = Database.database().reference()
         
