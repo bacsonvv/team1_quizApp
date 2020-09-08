@@ -19,6 +19,7 @@ class HistoryViewController: UIViewController {
     @IBOutlet weak var imageCategory: UIImageView!
     
     var userId = ""
+    var username = ""
     var categroy = ""
     var ref: DatabaseReference!
     var listUser: [UserHistory] = [] {
@@ -32,7 +33,7 @@ class HistoryViewController: UIViewController {
         
         ref = Database.database().reference()
         
-        lblUsername.text = userId
+        lblUsername.text = username
         lblCategory.text = categroy
         imageCategory.image = UIImage(named: categroy)
 

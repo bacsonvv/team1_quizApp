@@ -17,6 +17,7 @@ class ListQuestionViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var loadingView: UIActivityIndicatorView!
     @IBOutlet weak var lblLoading: UILabel!
+    @IBOutlet weak var lblNote: UITextView!
     
     var listQuestion = [Question]()
     var questionForView = Array<Question>(repeating: Question(question: "Default", choice1: "Default", choice2: "Default", choice3: "Default", choice4: "Default", answer: "Default", id: 0), count: 30)
@@ -43,6 +44,8 @@ class ListQuestionViewController: UIViewController {
         DispatchQueue.main.async {
             self.fetchData(self.category)
         }
+        
+        lblNote.font = UIFont.italicSystemFont(ofSize: 17)
         
         checkWhenDataIsReady()
         
@@ -91,7 +94,7 @@ class ListQuestionViewController: UIViewController {
             
             setStateForView(state: false)
             
-            lblCategory.text = "Category: \(category)"
+            lblCategory.text = "\(category)"
             imageCategory.image = UIImage(named: category)
             
             tableView.reloadData()

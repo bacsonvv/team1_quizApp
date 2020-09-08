@@ -20,6 +20,7 @@ class EndGameViewController: UIViewController {
     @IBOutlet weak var lblCategory: UILabel!
     @IBOutlet weak var lblTime: UILabel!
     @IBOutlet weak var lblScore: UILabel!
+    @IBOutlet weak var btnPlayAgain: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,13 +28,14 @@ class EndGameViewController: UIViewController {
         ref = Database.database().reference()
 
         lblCategory.text = "Category: \(self.category)"
-        lblCategory.textColor = .white
-        lblTime.text = "Time: \(String(self.time)) seconds"
-        lblTime.textColor = .white
-        lblScore.text = "Score \(String(self.score))/15"
-        lblScore.textColor = .white
         
-        self.view.backgroundColor = .purple
+        lblTime.text = "Time: \(String(self.time)) seconds"
+
+        lblScore.text = "Score \(String(self.score))/15"
+        
+        self.navigationItem.setHidesBackButton(true, animated: false)
+        
+        btnPlayAgain.layer.cornerRadius = 10
         
         storeUserResult()
     }
