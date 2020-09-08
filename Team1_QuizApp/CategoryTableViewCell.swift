@@ -24,9 +24,4 @@ class CategoryTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
         
     } 
-//    func setupCategory(colection: Collection) {
-//        self.lblCategory.text = colection.category
-//        self.lblTime.text = "60"
-//        self.lblNumberOfQuestion.text = "20"
-//    }
 }

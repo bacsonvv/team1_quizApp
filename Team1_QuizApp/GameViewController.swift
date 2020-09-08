@@ -12,7 +12,6 @@ import FirebaseDatabase
 class GameViewController: UIViewController {
     
     // AUTHOR: Vuong Vu Bac Son
-    // ALO
     @IBOutlet weak var lblTimeRemain: UILabel!
     @IBOutlet weak var txtQuestion: UITextView!
     @IBOutlet weak var tableView: UITableView!
@@ -33,8 +32,8 @@ class GameViewController: UIViewController {
     var userChoice = ""
     var score = 0
     var isClicked = false
-    var category = "Geography"
-    var userID = ""
+    var category = ""
+    var userId = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -66,7 +65,6 @@ class GameViewController: UIViewController {
         self.ref.child(self.spreadSheetId).child(category).observeSingleEvent(of: .value) { snapshot in
             for case let child as DataSnapshot in snapshot.children {
                 guard let dict = child.value as? [String:Any] else {
-                    print("Error")
                     return
                 }
                 
@@ -160,7 +158,8 @@ class GameViewController: UIViewController {
         endGameController.category = self.category
         endGameController.time = self.amountOfTime - self.timeRemaining
         endGameController.score = self.score
-//        endGameController.userId = self.userId
+        endGameController.userId = self.userId
+        print(self.userId)
         timer.invalidate()
         self.navigationController?.pushViewController(endGameController, animated: true)
     }
