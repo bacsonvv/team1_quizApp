@@ -61,11 +61,6 @@ class HistoryViewController: UIViewController {
     }
 }
 
-struct UserHistory {
-    var score: Int
-    var time: Int
-}
-
 extension HistoryViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return listUser.count
