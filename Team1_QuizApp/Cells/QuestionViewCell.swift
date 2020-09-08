@@ -20,6 +20,7 @@ class QuestionViewCell: UITableViewCell {
     
     func configure(question: String) {
         txtQuestion.text = question
+        txtQuestion.isEditable = false
     }
     
     override func awakeFromNib() {
