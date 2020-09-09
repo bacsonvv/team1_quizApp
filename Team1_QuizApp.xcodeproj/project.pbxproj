@@ -23,6 +23,11 @@
 		8A4C69BC250890A5002B72D9 /* ListQuestionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A4C69BB250890A5002B72D9 /* ListQuestionHeaderView.swift */; };
 		8A4C69BE250890B3002B72D9 /* ListQuestionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A4C69BD250890B3002B72D9 /* ListQuestionHeaderView.xib */; };
 		8A4C69C025089711002B72D9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A4C69BF25089711002B72D9 /* Main.storyboard */; };
+		8A4C69C22508C8DC002B72D9 /* RankingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A4C69C12508C8DC002B72D9 /* RankingViewController.swift */; };
+		8A4C69C52508C9B0002B72D9 /* RankViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A4C69C32508C9B0002B72D9 /* RankViewCell.swift */; };
+		8A4C69C62508C9B0002B72D9 /* RankViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A4C69C42508C9B0002B72D9 /* RankViewCell.xib */; };
+		8A4C69C82508CC1D002B72D9 /* RankingHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A4C69C72508CC1D002B72D9 /* RankingHeaderView.swift */; };
+		8A4C69CA2508CD7F002B72D9 /* RankingHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A4C69C92508CD7F002B72D9 /* RankingHeaderView.xib */; };
 		8AC3DEFF2500AC5E0089A859 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC3DEFE2500AC5E0089A859 /* AppDelegate.swift */; };
 		8AC3DF012500AC5E0089A859 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC3DF002500AC5E0089A859 /* SceneDelegate.swift */; };
 		8AC3DF032500AC5E0089A859 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC3DF022500AC5E0089A859 /* ViewController.swift */; };
@@ -79,6 +84,11 @@
 		8A4C69BB250890A5002B72D9 /* ListQuestionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListQuestionHeaderView.swift; sourceTree = "<group>"; };
 		8A4C69BD250890B3002B72D9 /* ListQuestionHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListQuestionHeaderView.xib; sourceTree = "<group>"; };
 		8A4C69BF25089711002B72D9 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		8A4C69C12508C8DC002B72D9 /* RankingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingViewController.swift; sourceTree = "<group>"; };
+		8A4C69C32508C9B0002B72D9 /* RankViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankViewCell.swift; sourceTree = "<group>"; };
+		8A4C69C42508C9B0002B72D9 /* RankViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RankViewCell.xib; sourceTree = "<group>"; };
+		8A4C69C72508CC1D002B72D9 /* RankingHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingHeaderView.swift; sourceTree = "<group>"; };
+		8A4C69C92508CD7F002B72D9 /* RankingHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RankingHeaderView.xib; sourceTree = "<group>"; };
 		8AC3DEFB2500AC5E0089A859 /* Team1_QuizApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Team1_QuizApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8AC3DEFE2500AC5E0089A859 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8AC3DF002500AC5E0089A859 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -163,6 +173,8 @@
 				8A4C69B825087C2D002B72D9 /* HistoryHeaderView.xib */,
 				8A4C69BB250890A5002B72D9 /* ListQuestionHeaderView.swift */,
 				8A4C69BD250890B3002B72D9 /* ListQuestionHeaderView.xib */,
+				8A4C69C72508CC1D002B72D9 /* RankingHeaderView.swift */,
+				8A4C69C92508CD7F002B72D9 /* RankingHeaderView.xib */,
 			);
 			path = TableHeaders;
 			sourceTree = "<group>";
@@ -234,6 +246,7 @@
 				8AE6956D2500FBA70052FE0A /* GameViewController.swift */,
 				8A490C522505D52B00904EE7 /* EndGameViewController.swift */,
 				8AE7C43125062D1200CF2E4F /* HistoryViewController.swift */,
+				8A4C69C12508C8DC002B72D9 /* RankingViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -249,6 +262,8 @@
 				8A490C572505D62000904EE7 /* AnswerViewCell.xib */,
 				8AE7C43525062DF300CF2E4F /* HistoryViewCell.swift */,
 				8AE7C43625062DF300CF2E4F /* HistoryViewCell.xib */,
+				8A4C69C32508C9B0002B72D9 /* RankViewCell.swift */,
+				8A4C69C42508C9B0002B72D9 /* RankViewCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -378,6 +393,8 @@
 				8A4C69C025089711002B72D9 /* Main.storyboard in Resources */,
 				8AE7C43825062DF300CF2E4F /* HistoryViewCell.xib in Resources */,
 				8A490C602505D9DE00904EE7 /* QuestionViewCell.xib in Resources */,
+				8A4C69CA2508CD7F002B72D9 /* RankingHeaderView.xib in Resources */,
+				8A4C69C62508C9B0002B72D9 /* RankViewCell.xib in Resources */,
 				8A4C69B925087C2D002B72D9 /* HistoryHeaderView.xib in Resources */,
 				8AC3DF0B2500AC5F0089A859 /* LaunchScreen.storyboard in Resources */,
 				8A490C582505D62000904EE7 /* AnswerViewCell.xib in Resources */,
@@ -557,11 +574,14 @@
 				8AC3DF032500AC5E0089A859 /* ViewController.swift in Sources */,
 				8AE69573250106490052FE0A /* AnswerViewCell.swift in Sources */,
 				8AC3DEFF2500AC5E0089A859 /* AppDelegate.swift in Sources */,
+				8A4C69C82508CC1D002B72D9 /* RankingHeaderView.swift in Sources */,
 				8A490C5A2505D8CF00904EE7 /* ListQuestionViewController.swift in Sources */,
 				8AC3DF012500AC5E0089A859 /* SceneDelegate.swift in Sources */,
 				8AE6956E2500FBA70052FE0A /* GameViewController.swift in Sources */,
+				8A4C69C52508C9B0002B72D9 /* RankViewCell.swift in Sources */,
 				72ACDD1A2500E7DD0020FBE7 /* HomeViewController.swift in Sources */,
 				8A4C69BC250890A5002B72D9 /* ListQuestionHeaderView.swift in Sources */,
+				8A4C69C22508C8DC002B72D9 /* RankingViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

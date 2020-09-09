@@ -153,7 +153,7 @@ class GameViewController: UIViewController {
             spinnerWaiting.stopAnimating()
             
             setStateForView(state: false)
-            
+             
             questionArray.shuffle()
             setupQuestion()
             
