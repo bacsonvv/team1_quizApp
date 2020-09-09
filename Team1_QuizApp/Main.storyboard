@@ -734,7 +734,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W2B-nA-C4f" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2456.521739130435" y="862.5"/>
+            <point key="canvasLocation" x="309" y="1649"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="odI-Vh-vNx">
@@ -761,8 +761,8 @@
         <image name="homeicon" width="42.666667938232422" height="42.666667938232422"/>
         <image name="information" width="512" height="512"/>
         <image name="quiz-time" width="1024" height="1024"/>
-
         <image name="rankingicon" width="42.666667938232422" height="42.666667938232422"/>
+        <image name="score" width="512" height="512"/>
         <image name="selected-categoryicon" width="42.666667938232422" height="42.666667938232422"/>
         <image name="selected-homeicon" width="42.666667938232422" height="42.666667938232422"/>
         <image name="selected-settingsicon" width="42.666667938232422" height="42.666667938232422"/>
@@ -770,9 +770,6 @@
         <image name="selected-trophyicon" width="42.666667938232422" height="42.666667938232422"/>
         <image name="settingsicon" width="42.666667938232422" height="42.666667938232422"/>
         <image name="shopicon" width="42.666667938232422" height="42.666667938232422"/>
-
-        <image name="score" width="512" height="512"/>
-
         <image name="signinfb" width="222" height="42"/>
         <image name="signingg" width="222" height="42"/>
         <image name="stopwatch" width="512" height="512"/>
