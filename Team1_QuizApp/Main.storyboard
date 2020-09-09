@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Alh-SN-69i">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="0gI-Qx-kcm">
     <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -599,6 +599,36 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PFu-i2-IlM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1495.6521739130435" y="862.5"/>
+        </scene>
+        <!--Ranking View Controller-->
+        <scene sceneID="kb0-Q9-KXd">
+            <objects>
+                <viewController id="0gI-Qx-kcm" customClass="RankingViewController" customModule="Team1_QuizApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5j8-Uy-PPL">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="DSn-Re-soP">
+                                <rect key="frame" x="20" y="64" width="374" height="778"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="ffd-Kf-wln" firstAttribute="bottom" secondItem="DSn-Re-soP" secondAttribute="bottom" constant="20" id="77e-tD-XfW"/>
+                            <constraint firstItem="ffd-Kf-wln" firstAttribute="trailing" secondItem="DSn-Re-soP" secondAttribute="trailing" constant="20" id="89l-0h-1D0"/>
+                            <constraint firstItem="DSn-Re-soP" firstAttribute="top" secondItem="ffd-Kf-wln" secondAttribute="top" constant="20" id="e5a-F7-n2c"/>
+                            <constraint firstItem="DSn-Re-soP" firstAttribute="leading" secondItem="ffd-Kf-wln" secondAttribute="leading" constant="20" id="maR-iH-frJ"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="ffd-Kf-wln"/>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="DSn-Re-soP" id="Vba-DO-TQt"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="W2B-nA-C4f" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2456.521739130435" y="862.5"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="UEk-Yi-bZb">
