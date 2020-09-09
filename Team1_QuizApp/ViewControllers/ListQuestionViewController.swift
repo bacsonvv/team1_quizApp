@@ -29,7 +29,10 @@ class ListQuestionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        let nib = UINib(nibName: "ListQuestionHeaderView", bundle: nil)
+        
         tableView.register(QuestionViewCell.nib(), forCellReuseIdentifier: QuestionViewCell.identifier)
+        tableView.register(nib, forHeaderFooterViewReuseIdentifier: "listQuestionHeader")
         tableView.delegate = self
         tableView.dataSource = self
         
