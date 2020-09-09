@@ -32,6 +32,7 @@ class CategoryTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
         
     }
+<<<<<<< HEAD
     
     func setupLayout() {
           self.layer.borderWidth = 1
@@ -47,4 +48,6 @@ class CategoryTableViewCell: UITableViewCell {
 //        
 //        
 //    }
+=======
+>>>>>>> 720cd80d9861d4e46c6d83e86448724cd3b95bc2
 }

@@ -15,6 +15,7 @@ class EndGameViewController: UIViewController {
     var category = ""
     var time = 0
     var score = 0
+    var playDate = ""
     var userId = ""
 
     @IBOutlet weak var lblCategory: UILabel!
@@ -28,9 +29,7 @@ class EndGameViewController: UIViewController {
         ref = Database.database().reference()
 
         lblCategory.text = "Category: \(self.category)"
-        
         lblTime.text = "Time: \(String(self.time)) seconds"
-
         lblScore.text = "Score \(String(self.score))/15"
         
         self.navigationItem.setHidesBackButton(true, animated: false)
@@ -48,7 +47,8 @@ class EndGameViewController: UIViewController {
     func storeUserResult() {
         let userHistory = [
             "score": self.score,
-            "time": self.time] as [String : Any]
+            "time": self.time,
+            "playDate": self.playDate] as [String : Any]
         
         
         self.ref.child("PlayHistory").child(userId).child(category).childByAutoId().setValue(userHistory, withCompletionBlock: { error, ref in
