@@ -16,18 +16,17 @@ class QuestionViewCell: UITableViewCell {
         return UINib(nibName: "QuestionViewCell", bundle: nil)
     }
 
-    @IBOutlet weak var txtQuestion: UITextView!
+    @IBOutlet weak var txtQuestion: UILabel!
     @IBOutlet weak var containerView: UIView!
     
     func configure(question: String) {
         txtQuestion.text = question
-        txtQuestion.isEditable = false
     }
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        containerView.layer.cornerRadius = 20
+        containerView.layer.cornerRadius = 30
         containerView.layer.borderWidth = 1
         containerView.layer.borderColor = UIColor.darkGray.cgColor
     }
