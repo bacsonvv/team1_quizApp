@@ -28,11 +28,4 @@ class CategoryTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
         
     }
-    
-//    func setImage(data: CategoryAttribute) {
-//        lblCategory.text = data.category
-//        imageCategory.image = data.image
-//        
-//        
-//    }
 }

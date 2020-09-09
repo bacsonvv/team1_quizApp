@@ -148,12 +148,12 @@ class GameViewController: UIViewController {
         timer2 = Timer.scheduledTimer(timeInterval: 1, target: self, selector: (#selector(GameViewController.setupData)), userInfo: nil, repeats: true)
     }
     @objc func setupData() {
-        if questionArray.count == 30 {
+        if questionArray.count != 0 {
             spinnerWaiting.isHidden = true
             spinnerWaiting.stopAnimating()
             
             setStateForView(state: false)
-            
+             
             questionArray.shuffle()
             setupQuestion()
             
@@ -189,9 +189,18 @@ class GameViewController: UIViewController {
         endGameController.time = self.amountOfTime - self.timeRemaining
         endGameController.score = self.score
         endGameController.userId = self.userId
+        endGameController.playDate = setPlayDate()
         print(self.userId)
         timer.invalidate()
         self.navigationController?.pushViewController(endGameController, animated: true)
+    }
+    
+    func setPlayDate() -> String {
+        let date = Date()
+        let format = DateFormatter()
+        format.dateFormat = "dd-MM-yyyy"
+        let formattedDate = format.string(from: date)
+        return formattedDate
     }
     
     func runTimer() {

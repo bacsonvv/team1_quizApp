@@ -11,4 +11,5 @@ import Foundation
 struct UserHistory: Codable {
     var score: Int
     var time: Int
+    var playDate: String
 }

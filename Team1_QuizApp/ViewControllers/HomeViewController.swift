@@ -92,7 +92,7 @@ class HomeViewController: UIViewController {
     }
     
     @objc func setupData() {
-        if listCollection.count == 3 {
+        if listCollection.count != 0 {
             loading.isHidden = true
             lblLoading.isHidden = true
             loading.stopAnimating()
@@ -179,8 +179,7 @@ class HomeViewController: UIViewController {
     @IBAction func showHistory(_ sender: Any) {
         let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "historyView") as! HistoryViewController
         vc.userId = self.id
-        vc.username = self.user
-        vc.categroy = listCollection[chooseCategory]
+        vc.category = listCollection[chooseCategory]
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
