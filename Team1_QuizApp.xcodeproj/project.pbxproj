@@ -28,6 +28,7 @@
 		8A4C69C62508C9B0002B72D9 /* RankViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A4C69C42508C9B0002B72D9 /* RankViewCell.xib */; };
 		8A4C69C82508CC1D002B72D9 /* RankingHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A4C69C72508CC1D002B72D9 /* RankingHeaderView.swift */; };
 		8A4C69CA2508CD7F002B72D9 /* RankingHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A4C69C92508CD7F002B72D9 /* RankingHeaderView.xib */; };
+		8A4C69CC2508CFDB002B72D9 /* UserRank.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A4C69CB2508CFDB002B72D9 /* UserRank.swift */; };
 		8AC3DEFF2500AC5E0089A859 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC3DEFE2500AC5E0089A859 /* AppDelegate.swift */; };
 		8AC3DF012500AC5E0089A859 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC3DF002500AC5E0089A859 /* SceneDelegate.swift */; };
 		8AC3DF032500AC5E0089A859 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC3DF022500AC5E0089A859 /* ViewController.swift */; };
@@ -89,6 +90,7 @@
 		8A4C69C42508C9B0002B72D9 /* RankViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RankViewCell.xib; sourceTree = "<group>"; };
 		8A4C69C72508CC1D002B72D9 /* RankingHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingHeaderView.swift; sourceTree = "<group>"; };
 		8A4C69C92508CD7F002B72D9 /* RankingHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RankingHeaderView.xib; sourceTree = "<group>"; };
+		8A4C69CB2508CFDB002B72D9 /* UserRank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRank.swift; sourceTree = "<group>"; };
 		8AC3DEFB2500AC5E0089A859 /* Team1_QuizApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Team1_QuizApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8AC3DEFE2500AC5E0089A859 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8AC3DF002500AC5E0089A859 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -274,6 +276,7 @@
 				8A1DC10E2501D61A009EC72E /* Question.swift */,
 				8AFF6B3D2507228D009F6FF5 /* Collection.swift */,
 				8AFF6B3F250722B4009F6FF5 /* UserHistory.swift */,
+				8A4C69CB2508CFDB002B72D9 /* UserRank.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -565,6 +568,7 @@
 				8AE7C43725062DF300CF2E4F /* HistoryViewCell.swift in Sources */,
 				72ACDD1D2500EEB10020FBE7 /* CategoryTableViewCell.swift in Sources */,
 				8A1DC10F2501D61A009EC72E /* Question.swift in Sources */,
+				8A4C69CC2508CFDB002B72D9 /* UserRank.swift in Sources */,
 				8AFF6B40250722B4009F6FF5 /* UserHistory.swift in Sources */,
 				8A490C542505D52B00904EE7 /* EndGameViewController.swift in Sources */,
 				8AE7C43225062D1200CF2E4F /* HistoryViewController.swift in Sources */,

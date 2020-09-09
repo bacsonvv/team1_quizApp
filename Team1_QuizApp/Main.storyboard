@@ -608,6 +608,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="SGS-Zz-8Cc">
+                                <rect key="frame" x="197" y="438" width="20" height="20"/>
+                            </activityIndicatorView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wait for a moment..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G90-IU-hdk">
+                                <rect key="frame" x="129.66666666666666" y="457" width="154.99999999999997" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" systemColor="systemGray2Color" red="0.68235294120000001" green="0.68235294120000001" blue="0.69803921570000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="DSn-Re-soP">
                                 <rect key="frame" x="20" y="64" width="374" height="778"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -615,14 +624,20 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="ffd-Kf-wln" firstAttribute="bottom" secondItem="DSn-Re-soP" secondAttribute="bottom" constant="20" id="77e-tD-XfW"/>
-                            <constraint firstItem="ffd-Kf-wln" firstAttribute="trailing" secondItem="DSn-Re-soP" secondAttribute="trailing" constant="20" id="89l-0h-1D0"/>
-                            <constraint firstItem="DSn-Re-soP" firstAttribute="top" secondItem="ffd-Kf-wln" secondAttribute="top" constant="20" id="e5a-F7-n2c"/>
-                            <constraint firstItem="DSn-Re-soP" firstAttribute="leading" secondItem="ffd-Kf-wln" secondAttribute="leading" constant="20" id="maR-iH-frJ"/>
+                            <constraint firstItem="DSn-Re-soP" firstAttribute="leading" secondItem="ffd-Kf-wln" secondAttribute="leading" constant="20" id="0tW-01-A93"/>
+                            <constraint firstItem="ffd-Kf-wln" firstAttribute="bottom" secondItem="DSn-Re-soP" secondAttribute="bottom" constant="20" id="3wM-yk-89U"/>
+                            <constraint firstItem="G90-IU-hdk" firstAttribute="centerX" secondItem="5j8-Uy-PPL" secondAttribute="centerX" id="E0B-jT-Hkp"/>
+                            <constraint firstItem="ffd-Kf-wln" firstAttribute="trailing" secondItem="DSn-Re-soP" secondAttribute="trailing" constant="20" id="LY2-OX-NL1"/>
+                            <constraint firstItem="G90-IU-hdk" firstAttribute="bottom" secondItem="SGS-Zz-8Cc" secondAttribute="bottom" constant="20" id="SMQ-nU-X1W"/>
+                            <constraint firstItem="SGS-Zz-8Cc" firstAttribute="centerX" secondItem="5j8-Uy-PPL" secondAttribute="centerX" id="VXb-uM-hEH"/>
+                            <constraint firstItem="SGS-Zz-8Cc" firstAttribute="centerY" secondItem="5j8-Uy-PPL" secondAttribute="centerY" id="tP5-2A-5pJ"/>
+                            <constraint firstItem="DSn-Re-soP" firstAttribute="top" secondItem="ffd-Kf-wln" secondAttribute="top" constant="20" id="uSt-wd-TI0"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ffd-Kf-wln"/>
                     </view>
                     <connections>
+                        <outlet property="lblLoading" destination="G90-IU-hdk" id="8pF-bf-HjO"/>
+                        <outlet property="loading" destination="SGS-Zz-8Cc" id="vuY-Zv-1E9"/>
                         <outlet property="tableView" destination="DSn-Re-soP" id="Vba-DO-TQt"/>
                     </connections>
                 </viewController>

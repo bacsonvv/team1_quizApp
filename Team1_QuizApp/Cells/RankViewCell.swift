@@ -9,16 +9,39 @@
 import UIKit
 
 class RankViewCell: UITableViewCell {
+    
+    @IBOutlet weak var imageRanking: UIImageView!
+    @IBOutlet weak var lblScore: UILabel!
+    @IBOutlet weak var lblTime: UILabel!
+    @IBOutlet weak var containerView: UIView!
+    
+    static let identifier = "rankCell"
+    
+    static func nib() -> UINib {
+        return UINib(nibName: "RankViewCell", bundle: nil)
+    }
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        customizeLayout()
+    }
+    
+    func configure(imageName: String, score: Int, time: Int) {
+        imageRanking.image = UIImage(named: imageName)
+        lblScore.text = "Score: \(score)"
+        lblTime.text = "Time: \(time)"
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    }
+    
+    func customizeLayout(){
+        containerView.backgroundColor = UIColor.init(displayP3Red: 122, green: 134, blue: 125, alpha: 1)
+        containerView.layer.shadowRadius = 10
+        containerView.layer.cornerRadius = 10
+        containerView.layer.shadowOpacity = 0.5
+        containerView.layer.shadowOffset = CGSize(width: 1, height: 1)
     }
     
 }
