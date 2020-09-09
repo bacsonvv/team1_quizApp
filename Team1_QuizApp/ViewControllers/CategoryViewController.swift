@@ -202,7 +202,7 @@ class CategoryViewController: UIViewController {
             
             self.categoryTableView.reloadData()
         })
-    }    
+    }
 }
 
 extension CategoryViewController: UITableViewDelegate, UITableViewDataSource {

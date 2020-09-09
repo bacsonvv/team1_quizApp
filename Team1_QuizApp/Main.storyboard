@@ -361,12 +361,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wgc-7e-NCb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1479.7101449275362" y="157.36607142857142"/>
+            <point key="canvasLocation" x="484" y="1649"/>
         </scene>
         <!--Setting View Controller-->
         <scene sceneID="JLd-II-dTU">
             <objects>
-                <viewController id="mM3-d9-cd3" customClass="SettingViewController" customModule="Team1_QuizApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="settingVC" id="mM3-d9-cd3" customClass="SettingViewController" customModule="Team1_QuizApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="PAF-9m-gJv">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -394,22 +394,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zYl-dc-APk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="309" y="963"/>
-        </scene>
-        <!--Ranking View Controller-->
-        <scene sceneID="GGK-kD-1C6">
-            <objects>
-                <viewController storyboardIdentifier="rankingVC" id="8bl-tj-vcT" customClass="RankingViewController" customModule="Team1_QuizApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="vWM-aZ-QiR">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <viewLayoutGuide key="safeArea" id="d6B-k5-lah"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="" image="rankingicon" selectedImage="selected-trophyicon" id="6xb-4f-Mow"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="cO6-OF-IEM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1363.768115942029" y="962.94642857142856"/>
         </scene>
         <!--History View Controller-->
         <scene sceneID="a79-hC-W0p">
@@ -683,8 +667,8 @@
                         <segue destination="1tm-i1-Gx7" kind="relationship" relationship="viewControllers" id="yMx-I7-313"/>
                         <segue destination="wAw-IK-zbu" kind="relationship" relationship="viewControllers" id="3k0-04-7Ik"/>
                         <segue destination="har-Fq-Hex" kind="relationship" relationship="viewControllers" id="CqT-Rh-CUS"/>
-                        <segue destination="8bl-tj-vcT" kind="relationship" relationship="viewControllers" id="M1N-Wh-w9s"/>
-                        <segue destination="mM3-d9-cd3" kind="relationship" relationship="viewControllers" id="1iH-Xk-PpP"/>
+                        <segue destination="0gI-Qx-kcm" kind="relationship" relationship="viewControllers" id="wwF-eS-38F"/>
+                        <segue destination="mM3-d9-cd3" kind="relationship" relationship="viewControllers" id="zrx-Ac-oce"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PG8-fQ-PXX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -694,7 +678,8 @@
         <!--Ranking View Controller-->
         <scene sceneID="kb0-Q9-KXd">
             <objects>
-                <viewController id="0gI-Qx-kcm" customClass="RankingViewController" customModule="Team1_QuizApp" customModuleProvider="target" sceneMemberID="viewController">
+                <placeholder placeholderIdentifier="IBFirstResponder" id="W2B-nA-C4f" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <viewController storyboardIdentifier="rankingVC" id="0gI-Qx-kcm" customClass="RankingViewController" customModule="Team1_QuizApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5j8-Uy-PPL">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -709,7 +694,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="DSn-Re-soP">
-                                <rect key="frame" x="20" y="64" width="374" height="778"/>
+                                <rect key="frame" x="20" y="64" width="374" height="729"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </tableView>
                         </subviews>
@@ -726,15 +711,15 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ffd-Kf-wln"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="" image="trophyicon" selectedImage="selected-trophyicon" id="3IG-yF-q5K"/>
                     <connections>
                         <outlet property="lblLoading" destination="G90-IU-hdk" id="8pF-bf-HjO"/>
                         <outlet property="loading" destination="SGS-Zz-8Cc" id="vuY-Zv-1E9"/>
                         <outlet property="tableView" destination="DSn-Re-soP" id="Vba-DO-TQt"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="W2B-nA-C4f" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="309" y="1649"/>
+            <point key="canvasLocation" x="1381" y="963"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="odI-Vh-vNx">
@@ -761,7 +746,6 @@
         <image name="homeicon" width="42.666667938232422" height="42.666667938232422"/>
         <image name="information" width="512" height="512"/>
         <image name="quiz-time" width="1024" height="1024"/>
-        <image name="rankingicon" width="42.666667938232422" height="42.666667938232422"/>
         <image name="score" width="512" height="512"/>
         <image name="selected-categoryicon" width="42.666667938232422" height="42.666667938232422"/>
         <image name="selected-homeicon" width="42.666667938232422" height="42.666667938232422"/>
@@ -774,6 +758,7 @@
         <image name="signingg" width="222" height="42"/>
         <image name="stopwatch" width="512" height="512"/>
         <image name="thinking" width="48" height="48"/>
+        <image name="trophyicon" width="42.666667938232422" height="42.666667938232422"/>
         <image name="user" width="50" height="50"/>
     </resources>
 </document>

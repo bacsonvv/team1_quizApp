@@ -7,14 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		72853DBF2508E8AA009184FE /* HomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72853DBE2508E8AA009184FE /* HomePageViewController.swift */; };
+		72853DC12508E8BA009184FE /* ShopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72853DC02508E8BA009184FE /* ShopViewController.swift */; };
+		72853DC32508E8C6009184FE /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72853DC22508E8C6009184FE /* SettingViewController.swift */; };
 		72ACDD182500E4370020FBE7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 72ACDD172500E4360020FBE7 /* GoogleService-Info.plist */; };
 		72ACDD1A2500E7DD0020FBE7 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72ACDD192500E7DD0020FBE7 /* CategoryViewController.swift */; };
 		72ACDD1D2500EEB10020FBE7 /* CategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72ACDD1B2500EEB10020FBE7 /* CategoryTableViewCell.swift */; };
-		72B0A193250884DD0003B27D /* SetTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B0A192250884DD0003B27D /* SetTabBarController.swift */; };
-		72B0A195250887200003B27D /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B0A194250887200003B27D /* SettingViewController.swift */; };
-		72B0A197250887610003B27D /* HomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B0A196250887610003B27D /* HomePageViewController.swift */; };
-		72B0A1992508889C0003B27D /* ShopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B0A1982508889C0003B27D /* ShopViewController.swift */; };
-		72B0A19B250888EF0003B27D /* RankingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B0A19A250888EF0003B27D /* RankingViewController.swift */; };
 		7BA0B2CE9568D718E7DDB345 /* Pods_Team1_QuizAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48E96AC1D35EDEAFCE843697 /* Pods_Team1_QuizAppTests.framework */; };
 		8A1DC10F2501D61A009EC72E /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1DC10E2501D61A009EC72E /* Question.swift */; };
 		8A490C542505D52B00904EE7 /* EndGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A490C522505D52B00904EE7 /* EndGameViewController.swift */; };
@@ -72,15 +70,13 @@
 /* Begin PBXFileReference section */
 		00A62B68F8B9B163850919D0 /* Pods-Team1_QuizAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Team1_QuizAppTests.release.xcconfig"; path = "Target Support Files/Pods-Team1_QuizAppTests/Pods-Team1_QuizAppTests.release.xcconfig"; sourceTree = "<group>"; };
 		48E96AC1D35EDEAFCE843697 /* Pods_Team1_QuizAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Team1_QuizAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		72853DBE2508E8AA009184FE /* HomePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageViewController.swift; sourceTree = "<group>"; };
+		72853DC02508E8BA009184FE /* ShopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopViewController.swift; sourceTree = "<group>"; };
+		72853DC22508E8C6009184FE /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		7295B855847E7CD8FE8BEF6C /* Pods-Team1_QuizApp-Team1_QuizAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Team1_QuizApp-Team1_QuizAppUITests.release.xcconfig"; path = "Target Support Files/Pods-Team1_QuizApp-Team1_QuizAppUITests/Pods-Team1_QuizApp-Team1_QuizAppUITests.release.xcconfig"; sourceTree = "<group>"; };
 		72ACDD172500E4360020FBE7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		72ACDD192500E7DD0020FBE7 /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
 		72ACDD1B2500EEB10020FBE7 /* CategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewCell.swift; sourceTree = "<group>"; };
-		72B0A192250884DD0003B27D /* SetTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetTabBarController.swift; sourceTree = "<group>"; };
-		72B0A194250887200003B27D /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
-		72B0A196250887610003B27D /* HomePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageViewController.swift; sourceTree = "<group>"; };
-		72B0A1982508889C0003B27D /* ShopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopViewController.swift; sourceTree = "<group>"; };
-		72B0A19A250888EF0003B27D /* RankingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingViewController.swift; sourceTree = "<group>"; };
 		79CDB2DA6B1805AE7CBF2A38 /* Pods_Team1_QuizApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Team1_QuizApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F86DACBF5E4B92094BBF2CF /* Pods-Team1_QuizApp-Team1_QuizAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Team1_QuizApp-Team1_QuizAppUITests.debug.xcconfig"; path = "Target Support Files/Pods-Team1_QuizApp-Team1_QuizAppUITests/Pods-Team1_QuizApp-Team1_QuizAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		8A1DC10E2501D61A009EC72E /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
@@ -155,14 +151,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		72B0A191250884990003B27D /* Shared */ = {
-			isa = PBXGroup;
-			children = (
-				72B0A192250884DD0003B27D /* SetTabBarController.swift */,
-			);
-			path = Shared;
-			sourceTree = "<group>";
-		};
 		7B53AEA6EF70F9381B921E33 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -224,7 +212,6 @@
 		8AC3DEFD2500AC5E0089A859 /* Team1_QuizApp */ = {
 			isa = PBXGroup;
 			children = (
-				72B0A191250884990003B27D /* Shared */,
 				8AC3DEFE2500AC5E0089A859 /* AppDelegate.swift */,
 				8AC3DF002500AC5E0089A859 /* SceneDelegate.swift */,
 				8A4C69BA2508907F002B72D9 /* TableHeaders */,
@@ -262,19 +249,15 @@
 			isa = PBXGroup;
 			children = (
 				8AC3DF022500AC5E0089A859 /* ViewController.swift */,
-				72B0A1982508889C0003B27D /* ShopViewController.swift */,
 				72ACDD192500E7DD0020FBE7 /* CategoryViewController.swift */,
+				72853DC22508E8C6009184FE /* SettingViewController.swift */,
 				8A490C592505D8CF00904EE7 /* ListQuestionViewController.swift */,
 				8AE6956D2500FBA70052FE0A /* GameViewController.swift */,
 				8A490C522505D52B00904EE7 /* EndGameViewController.swift */,
 				8AE7C43125062D1200CF2E4F /* HistoryViewController.swift */,
-<<<<<<< HEAD
-				72B0A194250887200003B27D /* SettingViewController.swift */,
-				72B0A196250887610003B27D /* HomePageViewController.swift */,
-				72B0A19A250888EF0003B27D /* RankingViewController.swift */,
-=======
 				8A4C69C12508C8DC002B72D9 /* RankingViewController.swift */,
->>>>>>> 720cd80d9861d4e46c6d83e86448724cd3b95bc2
+				72853DBE2508E8AA009184FE /* HomePageViewController.swift */,
+				72853DC02508E8BA009184FE /* ShopViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -592,38 +575,29 @@
 			buildActionMask = 2147483647;
 			files = (
 				8AE7C43725062DF300CF2E4F /* HistoryViewCell.swift in Sources */,
-				72B0A193250884DD0003B27D /* SetTabBarController.swift in Sources */,
-				72B0A197250887610003B27D /* HomePageViewController.swift in Sources */,
 				72ACDD1D2500EEB10020FBE7 /* CategoryTableViewCell.swift in Sources */,
 				8A1DC10F2501D61A009EC72E /* Question.swift in Sources */,
 				8A4C69CC2508CFDB002B72D9 /* UserRank.swift in Sources */,
 				8AFF6B40250722B4009F6FF5 /* UserHistory.swift in Sources */,
-				72B0A195250887200003B27D /* SettingViewController.swift in Sources */,
 				8A490C542505D52B00904EE7 /* EndGameViewController.swift in Sources */,
 				8AE7C43225062D1200CF2E4F /* HistoryViewController.swift in Sources */,
 				8AFF6B3E2507228D009F6FF5 /* Collection.swift in Sources */,
-				72B0A1992508889C0003B27D /* ShopViewController.swift in Sources */,
 				8A490C5F2505D9DE00904EE7 /* QuestionViewCell.swift in Sources */,
 				8A4C69B725087B37002B72D9 /* HistoryHeaderView.swift in Sources */,
 				8AC3DF032500AC5E0089A859 /* ViewController.swift in Sources */,
+				72853DC32508E8C6009184FE /* SettingViewController.swift in Sources */,
 				8AE69573250106490052FE0A /* AnswerViewCell.swift in Sources */,
 				8AC3DEFF2500AC5E0089A859 /* AppDelegate.swift in Sources */,
-<<<<<<< HEAD
-				72B0A19B250888EF0003B27D /* RankingViewController.swift in Sources */,
-				8A490C5A2505D8CF00904EE7 /* ListQuestionViewController.swift in Sources */,
-				8AC3DF012500AC5E0089A859 /* SceneDelegate.swift in Sources */,
-				8AE6956E2500FBA70052FE0A /* GameViewController.swift in Sources */,
-				72ACDD1A2500E7DD0020FBE7 /* CategoryViewController.swift in Sources */,
-=======
 				8A4C69C82508CC1D002B72D9 /* RankingHeaderView.swift in Sources */,
 				8A490C5A2505D8CF00904EE7 /* ListQuestionViewController.swift in Sources */,
 				8AC3DF012500AC5E0089A859 /* SceneDelegate.swift in Sources */,
 				8AE6956E2500FBA70052FE0A /* GameViewController.swift in Sources */,
 				8A4C69C52508C9B0002B72D9 /* RankViewCell.swift in Sources */,
-				72ACDD1A2500E7DD0020FBE7 /* HomeViewController.swift in Sources */,
+				72853DBF2508E8AA009184FE /* HomePageViewController.swift in Sources */,
+				72ACDD1A2500E7DD0020FBE7 /* CategoryViewController.swift in Sources */,
 				8A4C69BC250890A5002B72D9 /* ListQuestionHeaderView.swift in Sources */,
+				72853DC12508E8BA009184FE /* ShopViewController.swift in Sources */,
 				8A4C69C22508C8DC002B72D9 /* RankingViewController.swift in Sources */,
->>>>>>> 720cd80d9861d4e46c6d83e86448724cd3b95bc2
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

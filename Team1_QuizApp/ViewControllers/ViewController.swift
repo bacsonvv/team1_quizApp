@@ -20,7 +20,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        setupNavigation()
+        setupNavigation()
         
         GIDSignIn.sharedInstance()?.delegate = self
         
@@ -30,19 +30,20 @@ class ViewController: UIViewController {
         
         autoLogin()
     }
-//
-//    func setupNavigation() {
-//        navigationController?.navigationBar.backgroundColor = .clear
-//        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
-//        navigationController?.navigationBar.shadowImage = UIImage()
-//    }
+    
+    func setupNavigation() {
+        navigationController?.navigationBar.backgroundColor = .clear
+        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        navigationController?.navigationBar.shadowImage = UIImage()
+    }
     
     func autoLogin(){
         print(isLogined)
         if isLogined != 0 {
-            nextToHomePageViewController()
+            nextToHomeViewController()
         }
     }
+    
     
     @IBAction func signInWithGG(_ sender: Any) {
         GIDSignIn.sharedInstance()?.presentingViewController = self
@@ -96,7 +97,7 @@ class ViewController: UIViewController {
                     UserDefaults.standard.set(nameOfUser, forKey: "nameUserSession")
                     UserDefaults.standard.set(1, forKey: "option")
                     
-                    self.nextToHomePageViewController()
+                    self.nextToHomeViewController()
                     var tmpEmailAdd = ""
                     
                     if let emailAddress = picutreDic.object(forKey: "email") {
@@ -113,11 +114,9 @@ class ViewController: UIViewController {
         }
     }
     
-    func nextToHomePageViewController(){
+    func nextToHomeViewController(){
         let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "tabBarVC")
-        self.navigationController?.pushViewController(vc, animated: false)
-//        vc.modalPresentationStyle = .fullScreen
-//        self.present(vc, animated: true, completion: nil)
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 }
 
@@ -145,7 +144,7 @@ extension ViewController: GIDSignInDelegate {
                 UserDefaults.standard.set(nameIDGoogle, forKey: "nameUserSession")
                 UserDefaults.standard.set(2, forKey: "option")
                 
-                self.nextToHomePageViewController()
+                self.nextToHomeViewController()
             }
             
         }
