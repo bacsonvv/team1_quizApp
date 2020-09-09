@@ -10,7 +10,7 @@ import FirebaseCore
 import FirebaseDatabase
 import GoogleSignIn
 
-class HomeViewController: UIViewController {
+class CategoryViewController: UIViewController {
     
     // Huong
     
@@ -22,11 +22,11 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var welcomeView: UIView!
     @IBOutlet weak var lblLoading: UILabel!
     @IBOutlet weak var loading: UIActivityIndicatorView!
-
+    
     @IBOutlet weak var btnDetail: UIButton!
     @IBOutlet weak var btnHistory: UIButton!
     @IBOutlet weak var btnStart: UIButton!
-
+    
     var timer = Timer()
     let cellID = "CategoryTableViewCell"
     var listCollection = [""]
@@ -36,14 +36,14 @@ class HomeViewController: UIViewController {
     var id = ""
     var chooseCategory = -1
     
-    let titleNavigationLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Master Subject"
-        label.font = .boldSystemFont(ofSize: 16)
-        label.textColor = .black
-        label.textAlignment = .center
-        return label
-    }()
+//    let titleNavigationLabel: UILabel = {
+//        let label = UILabel()
+//        label.text = "Master Subject"
+//        label.font = .boldSystemFont(ofSize: 16)
+//        label.textColor = .black
+//        label.textAlignment = .center
+//        return label
+//    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,7 +54,7 @@ class HomeViewController: UIViewController {
         setupNavigation()
         
         lblEmail.text = "Name Player : \(user)"
-
+        
         imageUser.tintColor = .blue
         categoryTableView.delegate = self
         categoryTableView.dataSource = self
@@ -88,7 +88,7 @@ class HomeViewController: UIViewController {
     }
     
     func checkWhenDataIsReady() {
-        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: (#selector(HomeViewController.setupData)), userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: (#selector(CategoryViewController.setupData)), userInfo: nil, repeats: true)
     }
     
     @objc func setupData() {
@@ -98,7 +98,7 @@ class HomeViewController: UIViewController {
             loading.stopAnimating()
             
             setStateForView(state: false)
-
+            
             timer.invalidate()
         }
     }
@@ -118,12 +118,12 @@ class HomeViewController: UIViewController {
     }
     
     func setupNavigation() {
-        navigationController?.navigationBar.barTintColor = UIColor(red: 0.71, green: 0.61, blue: 0.71, alpha: 1)
+        //navigationController?.navigationBar.barTintColor = UIColor(red: 0.71, green: 0.61, blue: 0.71, alpha: 1)
         self.navigationItem.setHidesBackButton(true, animated: false)
         
-        self.title = "Subject Matter"
-        navigationItem.titleView = titleNavigationLabel
-        
+//        self.title = "Subject Matter"
+//        navigationItem.titleView = titleNavigationLabel
+
         let btnRightBar = UIBarButtonItem(image: UIImage(systemName: "arrow.left.square"), style: .plain, target: self, action: #selector(signOut))
         self.navigationItem.rightBarButtonItem  = btnRightBar
     }
@@ -173,14 +173,22 @@ class HomeViewController: UIViewController {
         }
         alert.addAction(action)
         self.present(alert, animated: true, completion: nil)
-        
     }
     
     @IBAction func showHistory(_ sender: Any) {
+        if chooseCategory == -1 {
+            showDialog()
+        } else {
+            showHistory()
+        }
+    }
+    
+    func showHistory() {
         let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "historyView") as! HistoryViewController
         vc.userId = self.id
         vc.category = listCollection[chooseCategory]
         self.navigationController?.pushViewController(vc, animated: true)
+        
     }
     
     func GetListCategory(){
@@ -194,10 +202,10 @@ class HomeViewController: UIViewController {
             
             self.categoryTableView.reloadData()
         })
-    }    
+    }
 }
 
-extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
+extension CategoryViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return listCollection.count
     }

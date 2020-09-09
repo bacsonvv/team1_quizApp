@@ -115,7 +115,7 @@ class ViewController: UIViewController {
     }
     
     func nextToHomeViewController(){
-        let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "homeVC") as! HomeViewController
+        let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "tabBarVC")
         self.navigationController?.pushViewController(vc, animated: true)
     }
 }
