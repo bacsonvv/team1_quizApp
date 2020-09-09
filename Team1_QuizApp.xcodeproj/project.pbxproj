@@ -22,6 +22,7 @@
 		8A4C69B925087C2D002B72D9 /* HistoryHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A4C69B825087C2D002B72D9 /* HistoryHeaderView.xib */; };
 		8A4C69BC250890A5002B72D9 /* ListQuestionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A4C69BB250890A5002B72D9 /* ListQuestionHeaderView.swift */; };
 		8A4C69BE250890B3002B72D9 /* ListQuestionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A4C69BD250890B3002B72D9 /* ListQuestionHeaderView.xib */; };
+		8A4C69C025089711002B72D9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A4C69BF25089711002B72D9 /* Main.storyboard */; };
 		8AC3DEFF2500AC5E0089A859 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC3DEFE2500AC5E0089A859 /* AppDelegate.swift */; };
 		8AC3DF012500AC5E0089A859 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC3DF002500AC5E0089A859 /* SceneDelegate.swift */; };
 		8AC3DF032500AC5E0089A859 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC3DF022500AC5E0089A859 /* ViewController.swift */; };
@@ -77,6 +78,7 @@
 		8A4C69B825087C2D002B72D9 /* HistoryHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HistoryHeaderView.xib; sourceTree = "<group>"; };
 		8A4C69BB250890A5002B72D9 /* ListQuestionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListQuestionHeaderView.swift; sourceTree = "<group>"; };
 		8A4C69BD250890B3002B72D9 /* ListQuestionHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListQuestionHeaderView.xib; sourceTree = "<group>"; };
+		8A4C69BF25089711002B72D9 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		8AC3DEFB2500AC5E0089A859 /* Team1_QuizApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Team1_QuizApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8AC3DEFE2500AC5E0089A859 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8AC3DF002500AC5E0089A859 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -196,6 +198,7 @@
 				8AFF6B3C25072217009F6FF5 /* Models */,
 				8AFF6B3A250721C5009F6FF5 /* ViewControllers */,
 				8AFF6B3B250721F3009F6FF5 /* Cells */,
+				8A4C69BF25089711002B72D9 /* Main.storyboard */,
 				8AC3DF092500AC5F0089A859 /* LaunchScreen.storyboard */,
 				8AC3DF072500AC5F0089A859 /* Assets.xcassets */,
 				8AC3DF0C2500AC5F0089A859 /* Info.plist */,
@@ -372,6 +375,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8A4C69BE250890B3002B72D9 /* ListQuestionHeaderView.xib in Resources */,
+				8A4C69C025089711002B72D9 /* Main.storyboard in Resources */,
 				8AE7C43825062DF300CF2E4F /* HistoryViewCell.xib in Resources */,
 				8A490C602505D9DE00904EE7 /* QuestionViewCell.xib in Resources */,
 				8A4C69B925087C2D002B72D9 /* HistoryHeaderView.xib in Resources */,
