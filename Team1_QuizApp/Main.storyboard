@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="0gI-Qx-kcm">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="hCg-AT-RCf">
     <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -10,16 +10,16 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Team1_QuizApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="loginVC" id="BYZ-38-t0r" customClass="ViewController" customModule="Team1_QuizApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="92S-RU-hu1">
-                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="68B-T4-fYl">
-                                        <rect key="frame" x="20" y="674" width="374" height="50"/>
+                                        <rect key="frame" x="20" y="718" width="374" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="xp4-8j-56F"/>
                                         </constraints>
@@ -29,7 +29,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tif-1H-Hc5">
-                                        <rect key="frame" x="20" y="604" width="374" height="50"/>
+                                        <rect key="frame" x="20" y="648" width="374" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="780-TP-uOM"/>
                                         </constraints>
@@ -76,7 +76,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="552.17391304347825" y="138.61607142857142"/>
+            <point key="canvasLocation" x="-823.1884057971015" y="138.61607142857142"/>
         </scene>
         <!--Game View Controller-->
         <scene sceneID="GUF-AM-pe5">
@@ -90,7 +90,7 @@
                                 <rect key="frame" x="197" y="438" width="20" height="20"/>
                             </activityIndicatorView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wait for a moment..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QoP-5b-v76">
-                                <rect key="frame" x="130" y="457" width="154.33333333333337" height="21"/>
+                                <rect key="frame" x="130" y="457" width="154" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" systemColor="systemGray2Color" red="0.68235294120000001" green="0.68235294120000001" blue="0.69803921570000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -273,7 +273,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KH4-7K-ueB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2456.521739130435" y="138.61607142857142"/>
+            <point key="canvasLocation" x="-1626" y="1623"/>
         </scene>
         <!--End Game View Controller-->
         <scene sceneID="Qk4-l1-HkZ">
@@ -351,6 +351,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="pdQ-Qa-mXg"/>
                     </view>
+                    <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="btnPlayAgain" destination="THx-5Y-CZ9" id="jH7-iO-VcN"/>
                         <outlet property="lblCategory" destination="120-VE-LSp" id="Wud-IZ-byu"/>
@@ -360,7 +361,55 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wgc-7e-NCb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3463.7681159420295" y="138.61607142857142"/>
+            <point key="canvasLocation" x="1479.7101449275362" y="157.36607142857142"/>
+        </scene>
+        <!--Setting View Controller-->
+        <scene sceneID="JLd-II-dTU">
+            <objects>
+                <viewController id="mM3-d9-cd3" customClass="SettingViewController" customModule="Team1_QuizApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="PAF-9m-gJv">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="9Pd-aU-q5E"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="" image="settingsicon" selectedImage="selected-settingsicon" id="2Q5-Ay-XKe"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ggc-Kl-yT8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2318.840579710145" y="962.94642857142856"/>
+        </scene>
+        <!--Shop View Controller-->
+        <scene sceneID="4yn-1y-GDK">
+            <objects>
+                <viewController storyboardIdentifier="shopVC" id="har-Fq-Hex" customClass="ShopViewController" customModule="Team1_QuizApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Tj8-D8-LHh">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="de9-64-aA5"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="" image="shopicon" selectedImage="selected-shopicon" id="y2q-Ug-XwM"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zYl-dc-APk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="309" y="963"/>
+        </scene>
+        <!--Ranking View Controller-->
+        <scene sceneID="GGK-kD-1C6">
+            <objects>
+                <viewController storyboardIdentifier="rankingVC" id="8bl-tj-vcT" customClass="RankingViewController" customModule="Team1_QuizApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="vWM-aZ-QiR">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="d6B-k5-lah"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="" image="rankingicon" selectedImage="selected-trophyicon" id="6xb-4f-Mow"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cO6-OF-IEM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1363.768115942029" y="962.94642857142856"/>
         </scene>
         <!--History View Controller-->
         <scene sceneID="a79-hC-W0p">
@@ -389,12 +438,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zws-SE-2W5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1495.6521739130435" y="-620.08928571428567"/>
+            <point key="canvasLocation" x="-2578" y="1623"/>
         </scene>
-        <!--Home View Controller-->
+        <!--Category View Controller-->
         <scene sceneID="Qf6-hc-TOY">
             <objects>
-                <viewController storyboardIdentifier="homeVC" id="wAw-IK-zbu" customClass="HomeViewController" customModule="Team1_QuizApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="categoryVC" id="wAw-IK-zbu" customClass="CategoryViewController" customModule="Team1_QuizApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dZZ-Ml-Jr2">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -426,7 +475,7 @@
                                     <constraint firstAttribute="bottom" secondItem="eQ3-2R-Qg9" secondAttribute="bottom" constant="8" id="qjA-oP-FVg"/>
                                 </constraints>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="U3q-3I-kWB">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="U3q-3I-kWB">
                                 <rect key="frame" x="10" y="143.66666666666669" width="394" height="597.33333333333326"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </tableView>
@@ -482,7 +531,7 @@
                                 <rect key="frame" x="0.0" y="103.66666666666667" width="414" height="40.000000000000014"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Which one do you want to choose? " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7LH-pE-DMI">
-                                        <rect key="frame" x="30" y="0.0" width="271.66666666666669" height="40"/>
+                                        <rect key="frame" x="30" y="0.0" width="272" height="40"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -504,7 +553,7 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wait for a moment..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kon-8a-aYb">
-                                <rect key="frame" x="130" y="457" width="154.33333333333337" height="21"/>
+                                <rect key="frame" x="130" y="457" width="154" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" systemColor="systemGray2Color" red="0.68235294120000001" green="0.68235294120000001" blue="0.69803921570000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -538,6 +587,8 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="JtV-SB-Rzg"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="" image="categoryicon" selectedImage="selected-categoryicon" id="tdb-It-Gt3"/>
+                    <navigationItem key="navigationItem" id="HcA-hV-dUy"/>
                     <connections>
                         <outlet property="btnDetail" destination="Dbf-Q1-rxH" id="YTv-cg-1am"/>
                         <outlet property="btnHistory" destination="G52-Bg-aPR" id="Caz-K9-iQo"/>
@@ -553,7 +604,24 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wxe-f7-wiQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1495.6521739130435" y="138.61607142857142"/>
+            <point key="canvasLocation" x="-823" y="963"/>
+        </scene>
+        <!--Home Page View Controller-->
+        <scene sceneID="5tL-ap-ex2">
+            <objects>
+                <viewController storyboardIdentifier="homeVC" id="1tm-i1-Gx7" customClass="HomePageViewController" customModule="Team1_QuizApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="t7G-gy-8Ae">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="Up9-s9-eBT"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="" image="homeicon" selectedImage="selected-homeicon" id="X8y-aM-wR8"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZTf-zT-vhE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1733" y="963"/>
         </scene>
         <!--List Question View Controller-->
         <scene sceneID="wzx-39-dHA">
@@ -567,7 +635,7 @@
                                 <rect key="frame" x="197" y="438" width="20" height="20"/>
                             </activityIndicatorView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wait for a moment..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="boG-y0-n4x">
-                                <rect key="frame" x="130" y="457.66666666666669" width="154.33333333333337" height="20.333333333333314"/>
+                                <rect key="frame" x="130" y="457.66666666666669" width="154" height="20.333333333333314"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" systemColor="systemGray2Color" red="0.68235294120000001" green="0.68235294120000001" blue="0.69803921570000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -598,7 +666,30 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PFu-i2-IlM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1495.6521739130435" y="862.5"/>
+            <point key="canvasLocation" x="-601" y="1649"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="QAs-D8-iD8">
+            <objects>
+                <tabBarController storyboardIdentifier="tabBarVC" automaticallyAdjustsScrollViewInsets="NO" id="Qm6-ds-kUf" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="xUy-8G-tZe"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Thu-NM-S1g">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="1tm-i1-Gx7" kind="relationship" relationship="viewControllers" id="yMx-I7-313"/>
+                        <segue destination="wAw-IK-zbu" kind="relationship" relationship="viewControllers" id="3k0-04-7Ik"/>
+                        <segue destination="har-Fq-Hex" kind="relationship" relationship="viewControllers" id="CqT-Rh-CUS"/>
+                        <segue destination="8bl-tj-vcT" kind="relationship" relationship="viewControllers" id="M1N-Wh-w9s"/>
+                        <segue destination="mM3-d9-cd3" kind="relationship" relationship="viewControllers" id="1iH-Xk-PpP"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PG8-fQ-PXX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="308.69565217391306" y="138.61607142857142"/>
         </scene>
         <!--Ranking View Controller-->
         <scene sceneID="kb0-Q9-KXd">
@@ -643,32 +734,42 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W2B-nA-C4f" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2456.521739130435" y="862.5"/>
+            <point key="canvasLocation" x="309" y="1649"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="UEk-Yi-bZb">
+        <scene sceneID="odI-Vh-vNx">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Alh-SN-69i" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="hCg-AT-RCf" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="O0T-Xm-A54">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="AAs-bh-QaN">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="0ON-gb-MmX"/>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="XQf-Eb-gpR"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="rDg-BO-Amo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xSa-0T-ziv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-357.97101449275362" y="138.61607142857142"/>
+            <point key="canvasLocation" x="-1733.3333333333335" y="138.61607142857142"/>
         </scene>
     </scenes>
     <resources>
+        <image name="categoryicon" width="42.666667938232422" height="42.666667938232422"/>
         <image name="congrat" width="512" height="386"/>
+        <image name="homeicon" width="42.666667938232422" height="42.666667938232422"/>
         <image name="information" width="512" height="512"/>
         <image name="quiz-time" width="1024" height="1024"/>
+        <image name="rankingicon" width="42.666667938232422" height="42.666667938232422"/>
         <image name="score" width="512" height="512"/>
+        <image name="selected-categoryicon" width="42.666667938232422" height="42.666667938232422"/>
+        <image name="selected-homeicon" width="42.666667938232422" height="42.666667938232422"/>
+        <image name="selected-settingsicon" width="42.666667938232422" height="42.666667938232422"/>
+        <image name="selected-shopicon" width="42.666667938232422" height="42.666667938232422"/>
+        <image name="selected-trophyicon" width="42.666667938232422" height="42.666667938232422"/>
+        <image name="settingsicon" width="42.666667938232422" height="42.666667938232422"/>
+        <image name="shopicon" width="42.666667938232422" height="42.666667938232422"/>
         <image name="signinfb" width="222" height="42"/>
         <image name="signingg" width="222" height="42"/>
         <image name="stopwatch" width="512" height="512"/>

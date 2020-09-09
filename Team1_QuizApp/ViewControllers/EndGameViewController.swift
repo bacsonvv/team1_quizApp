@@ -40,7 +40,7 @@ class EndGameViewController: UIViewController {
     }
     
     @IBAction func playAgain(_ sender: Any) {
-        let homeViewController = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(identifier: "homeVC") as! HomeViewController
+        let homeViewController = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(identifier: "tabBarVC")
         self.navigationController?.pushViewController(homeViewController, animated: true)
     }
     
