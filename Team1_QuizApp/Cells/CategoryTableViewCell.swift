@@ -11,22 +11,34 @@ import UIKit
 class CategoryTableViewCell: UITableViewCell {
     
     @IBOutlet weak var lblCategory: UILabel!
-    @IBOutlet weak var lblTime: UILabel!
-    @IBOutlet weak var lblNumberOfQuestion: UILabel!
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var imageCategory: UIImageView!
-    
+    @IBOutlet weak var btnDetail: UIButton!
+    @IBOutlet weak var btnTest: UIButton!
+    @IBOutlet weak var btnHistory: UIButton!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        containerView.layer.cornerRadius = 20
-        containerView.layer.borderWidth = 1
-        containerView.layer.borderColor = UIColor.darkGray.cgColor
+        
+//        imageCategory.layer.borderWidth = 1
+//        imageCategory.layer.masksToBounds = false
+//        imageCategory.layer.borderColor = UIColor.gray.cgColor
+//        imageCategory.layer.cornerRadius = 20
+//        imageCategory.clipsToBounds = true
+
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         
+    }
+    
+    func setupLayout() {
+          self.layer.borderWidth = 1
+              self.layer.masksToBounds = false
+              self.layer.borderColor = UIColor.gray.cgColor
+              self.layer.cornerRadius = 20
+              self.clipsToBounds = true
     }
     
 //    func setImage(data: CategoryAttribute) {
