@@ -45,8 +45,6 @@ class HistoryViewCell: UITableViewCell {
          containerView.layer.shadowOpacity = 0.5
          containerView.layer.shadowOffset = CGSize(width: 1, height: 1)
      }
-     
-    
 }
 
 

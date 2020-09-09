@@ -75,7 +75,6 @@ extension HistoryViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        // Dequeue with the reuse identifier
         let header = self.tableView.dequeueReusableHeaderFooterView(withIdentifier: "historyHeader") as! HistoryHeaderView
         header.imageCategory.image = UIImage(named: self.category)
         

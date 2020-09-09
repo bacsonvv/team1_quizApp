@@ -10,77 +10,67 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="ListQuestionHeaderView" customModule="Team1_QuizApp" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="501" height="220"/>
+            <rect key="frame" x="0.0" y="0.0" width="449" height="150"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vmt-Uw-pN9">
-                    <rect key="frame" x="0.0" y="0.0" width="501" height="186"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BwT-Ti-j7T">
+                    <rect key="frame" x="0.0" y="0.0" width="449" height="150"/>
                     <subviews>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GE4-FQ-uIm">
-                            <rect key="frame" x="20" y="20" width="461" height="146"/>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cXp-P9-4ir">
+                            <rect key="frame" x="8" y="8" width="433" height="134"/>
                             <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your quiz will have 15 randomize questions from the following list." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NTP-rc-HDe">
-                                    <rect key="frame" x="15" y="5" width="431" height="30"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="30" id="soL-cD-ZYu"/>
-                                    </constraints>
-                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                    <nil key="textColor"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qbK-CT-I5a">
-                                    <rect key="frame" x="15" y="40" width="431" height="101"/>
-                                    <subviews>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="baf-8G-Y1i">
-                                            <rect key="frame" x="143.66666666666669" y="0.0" width="143.66666666666669" height="101"/>
-                                            <accessibility key="accessibilityConfiguration" identifier="listQuestionHeader"/>
-                                        </imageView>
-                                    </subviews>
+                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Your quiz will have 15 randomize questions from the following list." textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="jrK-Df-i7d">
+                                    <rect key="frame" x="5" y="0.0" width="423" height="39"/>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                    <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                </textView>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="baf-8G-Y1i">
+                                    <rect key="frame" x="186.66666666666666" y="44" width="60" height="60"/>
+                                    <accessibility key="accessibilityConfiguration" identifier="listQuestionHeader"/>
                                     <constraints>
-                                        <constraint firstAttribute="bottom" secondItem="baf-8G-Y1i" secondAttribute="bottom" id="APJ-a9-fs8"/>
-                                        <constraint firstItem="baf-8G-Y1i" firstAttribute="centerX" secondItem="qbK-CT-I5a" secondAttribute="centerX" id="BbT-2e-XRs"/>
-                                        <constraint firstItem="baf-8G-Y1i" firstAttribute="top" secondItem="qbK-CT-I5a" secondAttribute="top" id="O3a-lD-TaT"/>
-                                        <constraint firstItem="baf-8G-Y1i" firstAttribute="width" secondItem="qbK-CT-I5a" secondAttribute="width" multiplier="1/3" id="VgY-Mh-vo8"/>
-                                        <constraint firstItem="baf-8G-Y1i" firstAttribute="height" secondItem="qbK-CT-I5a" secondAttribute="height" id="baI-6L-gnP"/>
+                                        <constraint firstAttribute="height" constant="60" id="L3f-Mc-WVB"/>
+                                        <constraint firstAttribute="width" constant="60" id="zFU-kH-2F5"/>
                                     </constraints>
-                                </view>
+                                </imageView>
                             </subviews>
                             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             <constraints>
-                                <constraint firstAttribute="bottom" secondItem="qbK-CT-I5a" secondAttribute="bottom" constant="5" id="0Vz-zy-xIr"/>
-                                <constraint firstItem="NTP-rc-HDe" firstAttribute="leading" secondItem="GE4-FQ-uIm" secondAttribute="leading" constant="15" id="4sM-ec-cYh"/>
-                                <constraint firstItem="NTP-rc-HDe" firstAttribute="top" secondItem="GE4-FQ-uIm" secondAttribute="top" constant="5" id="a27-ZW-Trt"/>
-                                <constraint firstItem="qbK-CT-I5a" firstAttribute="top" secondItem="NTP-rc-HDe" secondAttribute="bottom" constant="5" id="dzi-T9-qfw"/>
-                                <constraint firstAttribute="trailing" secondItem="NTP-rc-HDe" secondAttribute="trailing" constant="15" id="f5k-J9-z1S"/>
-                                <constraint firstItem="qbK-CT-I5a" firstAttribute="leading" secondItem="GE4-FQ-uIm" secondAttribute="leading" constant="15" id="igJ-ws-5tN"/>
-                                <constraint firstAttribute="trailing" secondItem="qbK-CT-I5a" secondAttribute="trailing" constant="15" id="l2Y-Sv-kKv"/>
+                                <constraint firstItem="baf-8G-Y1i" firstAttribute="top" secondItem="jrK-Df-i7d" secondAttribute="bottom" constant="5" id="5eb-bB-IHn"/>
+                                <constraint firstItem="jrK-Df-i7d" firstAttribute="leading" secondItem="cXp-P9-4ir" secondAttribute="leading" constant="5" id="8NS-XY-pJZ"/>
+                                <constraint firstAttribute="width" constant="433" id="Es2-U2-Vih"/>
+                                <constraint firstItem="baf-8G-Y1i" firstAttribute="centerX" secondItem="jrK-Df-i7d" secondAttribute="centerX" id="Owq-7b-Qv3"/>
+                                <constraint firstItem="jrK-Df-i7d" firstAttribute="top" secondItem="cXp-P9-4ir" secondAttribute="top" id="aPs-5y-5Es"/>
+                                <constraint firstAttribute="trailing" secondItem="jrK-Df-i7d" secondAttribute="trailing" constant="5" id="bmD-kF-uS9"/>
+                                <constraint firstAttribute="bottom" secondItem="baf-8G-Y1i" secondAttribute="bottom" constant="30" id="m8h-9Q-lB7"/>
                             </constraints>
                         </view>
                     </subviews>
                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                     <constraints>
-                        <constraint firstAttribute="bottom" secondItem="baf-8G-Y1i" secondAttribute="bottom" constant="25" id="Es6-wR-yBs"/>
-                        <constraint firstAttribute="trailing" secondItem="GE4-FQ-uIm" secondAttribute="trailing" constant="20" id="J5X-ce-hSO"/>
-                        <constraint firstAttribute="bottom" secondItem="GE4-FQ-uIm" secondAttribute="bottom" constant="20" id="VpD-hD-5rU"/>
-                        <constraint firstItem="GE4-FQ-uIm" firstAttribute="leading" secondItem="vmt-Uw-pN9" secondAttribute="leading" constant="20" id="agq-IR-zQE"/>
-                        <constraint firstItem="GE4-FQ-uIm" firstAttribute="top" secondItem="vmt-Uw-pN9" secondAttribute="top" constant="20" id="nlf-Vc-Fxc"/>
+                        <constraint firstItem="cXp-P9-4ir" firstAttribute="top" secondItem="BwT-Ti-j7T" secondAttribute="top" constant="8" id="0Sq-7K-GhR"/>
+                        <constraint firstAttribute="bottom" secondItem="cXp-P9-4ir" secondAttribute="bottom" constant="8" id="YxL-bf-6IK"/>
+                        <constraint firstItem="cXp-P9-4ir" firstAttribute="leading" secondItem="BwT-Ti-j7T" secondAttribute="leading" constant="8" id="i5L-1x-hu7"/>
+                        <constraint firstAttribute="trailing" secondItem="cXp-P9-4ir" secondAttribute="trailing" constant="8" id="tdK-ZV-QiA"/>
                     </constraints>
                 </view>
             </subviews>
             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+            <accessibility key="accessibilityConfiguration" identifier="listQuestionHeader"/>
             <constraints>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="vmt-Uw-pN9" secondAttribute="trailing" id="FCW-zJ-YOp"/>
-                <constraint firstItem="vmt-Uw-pN9" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="ROO-4F-maw"/>
-                <constraint firstItem="vmt-Uw-pN9" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="v4I-gl-ve3"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="vmt-Uw-pN9" secondAttribute="bottom" id="whN-Pp-3bi"/>
+                <constraint firstItem="BwT-Ti-j7T" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="9Fq-63-DbA"/>
+                <constraint firstItem="BwT-Ti-j7T" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="BgS-hm-alq"/>
+                <constraint firstItem="BwT-Ti-j7T" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="RBN-qT-vnD"/>
+                <constraint firstAttribute="bottom" secondItem="BwT-Ti-j7T" secondAttribute="bottom" id="b1d-AO-D1w"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <connections>
                 <outlet property="imageCategory" destination="baf-8G-Y1i" id="wwY-Mp-z4o"/>
+                <outlet property="lblNote" destination="jrK-Df-i7d" id="PtB-M3-AA5"/>
             </connections>
-            <point key="canvasLocation" x="6.5217391304347831" y="75"/>
+            <point key="canvasLocation" x="13.768115942028986" y="30.803571428571427"/>
         </view>
     </objects>
 </document>

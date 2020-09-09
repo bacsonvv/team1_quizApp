@@ -148,7 +148,7 @@ class GameViewController: UIViewController {
         timer2 = Timer.scheduledTimer(timeInterval: 1, target: self, selector: (#selector(GameViewController.setupData)), userInfo: nil, repeats: true)
     }
     @objc func setupData() {
-        if questionArray.count == 30 {
+        if questionArray.count != 0 {
             spinnerWaiting.isHidden = true
             spinnerWaiting.stopAnimating()
             

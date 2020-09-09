@@ -92,7 +92,7 @@ class HomeViewController: UIViewController {
     }
     
     @objc func setupData() {
-        if listCollection.count == 3 {
+        if listCollection.count != 0 {
             loading.isHidden = true
             lblLoading.isHidden = true
             loading.stopAnimating()
