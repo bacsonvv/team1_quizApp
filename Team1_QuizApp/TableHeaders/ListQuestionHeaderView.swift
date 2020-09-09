@@ -11,4 +11,6 @@ import UIKit
 class ListQuestionHeaderView: UITableViewHeaderFooterView {
 
     @IBOutlet weak var imageCategory: UIImageView!
+    @IBOutlet weak var lblNote: UITextView!
+    
 }

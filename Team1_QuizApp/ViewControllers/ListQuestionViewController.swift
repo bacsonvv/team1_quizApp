@@ -11,13 +11,9 @@ import FirebaseDatabase
 
 class ListQuestionViewController: UIViewController {
 
-    @IBOutlet weak var lblIntroduce: UITextView!
-    @IBOutlet weak var imageCategory: UIImageView!
-    @IBOutlet weak var lblCategory: UILabel!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var loadingView: UIActivityIndicatorView!
     @IBOutlet weak var lblLoading: UILabel!
-    @IBOutlet weak var lblNote: UITextView!
     
     var listQuestion = [Question]()
     var questionForView = Array<Question>(repeating: Question(question: "Default", choice1: "Default", choice2: "Default", choice3: "Default", choice4: "Default", answer: "Default", id: 0), count: 30)
@@ -40,7 +36,6 @@ class ListQuestionViewController: UIViewController {
         lblLoading.isHidden = false
         loadingView.startAnimating()
         setStateForView(state: true)
-        lblIntroduce.isEditable = false
         
         self.ref = Database.database().reference()
         
@@ -48,7 +43,7 @@ class ListQuestionViewController: UIViewController {
             self.fetchData(self.category)
         }
         
-        lblNote.font = UIFont.italicSystemFont(ofSize: 17)
+        self.title = category
         
         checkWhenDataIsReady()
         
@@ -78,16 +73,13 @@ class ListQuestionViewController: UIViewController {
     
     func setStateForView(state: Bool) {
         tableView.isHidden = state
-        lblCategory.isHidden = state
-        imageCategory.isHidden = state
-        lblIntroduce.isHidden = state
     }
 
     func checkWhenDataIsReady() {
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: (#selector(ListQuestionViewController.finishLoading)), userInfo: nil, repeats: true)
     }
     @objc func finishLoading() {
-        if listQuestion.count == 30 {
+        if listQuestion.count != 0 {
             loadingView.isHidden = true
             lblLoading.isHidden = true
             loadingView.stopAnimating()
@@ -96,9 +88,6 @@ class ListQuestionViewController: UIViewController {
             questionForView = listQuestion
             
             setStateForView(state: false)
-            
-            lblCategory.text = "\(category)"
-            imageCategory.image = UIImage(named: category)
             
             tableView.reloadData()
             
@@ -119,5 +108,17 @@ extension ListQuestionViewController: UITableViewDelegate, UITableViewDataSource
         cell.configure(question: questionForView[indexPath.row].question)
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 200
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let header = self.tableView.dequeueReusableHeaderFooterView(withIdentifier: "listQuestionHeader") as! ListQuestionHeaderView
+        header.imageCategory.image = UIImage(named: self.category)
+        header.lblNote.font = UIFont.italicSystemFont(ofSize: 17)
+        
+        return header
     }
 }

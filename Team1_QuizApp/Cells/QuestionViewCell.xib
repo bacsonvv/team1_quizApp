@@ -17,65 +17,71 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="avp-bR-j3H">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="150"/>
+                        <rect key="frame" x="0.0" y="0.0" width="263" height="150"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h1O-nO-tPi">
-                                <rect key="frame" x="0.0" y="0.0" width="80" height="150"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z2A-GZ-dpG">
+                                <rect key="frame" x="10" y="10" width="243" height="130"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j42-O9-uLh">
+                                        <rect key="frame" x="100" y="0.0" width="143" height="130"/>
+                                        <subviews>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" text="Question goes here" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="mpg-Hb-ofs">
+                                                <rect key="frame" x="5" y="5" width="136" height="120"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="mpg-Hb-ofs" secondAttribute="bottom" constant="5" id="8Wb-pw-TBq"/>
+                                            <constraint firstItem="mpg-Hb-ofs" firstAttribute="height" secondItem="j42-O9-uLh" secondAttribute="height" multiplier="0.923077" id="A0z-FY-0t2"/>
+                                            <constraint firstItem="mpg-Hb-ofs" firstAttribute="leading" secondItem="j42-O9-uLh" secondAttribute="leading" constant="5" id="HR5-xt-zFs"/>
+                                            <constraint firstItem="mpg-Hb-ofs" firstAttribute="top" secondItem="j42-O9-uLh" secondAttribute="top" constant="5" id="WCZ-3H-pto"/>
+                                            <constraint firstAttribute="trailing" secondItem="mpg-Hb-ofs" secondAttribute="trailing" constant="5" id="nI6-UU-daW"/>
+                                            <constraint firstItem="mpg-Hb-ofs" firstAttribute="width" secondItem="j42-O9-uLh" secondAttribute="width" multiplier="0.95" id="orb-3k-V2B"/>
+                                        </constraints>
+                                    </view>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="question_mark" translatesAutoresizingMaskIntoConstraints="NO" id="yEe-MI-iNU">
+                                        <rect key="frame" x="0.0" y="0.0" width="100" height="130"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="100" id="ta2-cD-7AK"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="80" id="l9y-nU-YYk"/>
+                                    <constraint firstItem="j42-O9-uLh" firstAttribute="top" secondItem="Z2A-GZ-dpG" secondAttribute="top" id="3De-S8-5yh"/>
+                                    <constraint firstItem="yEe-MI-iNU" firstAttribute="top" secondItem="Z2A-GZ-dpG" secondAttribute="top" id="DU7-ke-p6n"/>
+                                    <constraint firstItem="j42-O9-uLh" firstAttribute="leading" secondItem="yEe-MI-iNU" secondAttribute="trailing" id="Ndb-Nh-uLb"/>
+                                    <constraint firstAttribute="bottom" secondItem="yEe-MI-iNU" secondAttribute="bottom" id="Rcu-fB-VbT"/>
+                                    <constraint firstAttribute="trailing" secondItem="j42-O9-uLh" secondAttribute="trailing" id="iGk-3L-6tQ"/>
+                                    <constraint firstAttribute="bottom" secondItem="j42-O9-uLh" secondAttribute="bottom" id="tTQ-cI-UUW"/>
+                                    <constraint firstItem="yEe-MI-iNU" firstAttribute="leading" secondItem="Z2A-GZ-dpG" secondAttribute="leading" id="vRK-Y3-8rv"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="h1O-nO-tPi" secondAttribute="bottom" id="tdD-tf-Jbc"/>
-                            <constraint firstItem="h1O-nO-tPi" firstAttribute="top" secondItem="avp-bR-j3H" secondAttribute="top" id="ufa-3i-p4m"/>
-                            <constraint firstItem="h1O-nO-tPi" firstAttribute="leading" secondItem="avp-bR-j3H" secondAttribute="leading" id="x7P-0g-jTG"/>
-                        </constraints>
-                    </view>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="question_mark" translatesAutoresizingMaskIntoConstraints="NO" id="yEe-MI-iNU">
-                        <rect key="frame" x="20" y="55" width="40" height="40"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="40" id="WfF-Aq-YL1"/>
-                            <constraint firstAttribute="width" constant="40" id="eis-qH-wez"/>
-                        </constraints>
-                    </imageView>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aaO-TY-VBO">
-                        <rect key="frame" x="80" y="0.0" width="240" height="150"/>
-                        <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" text="Question goes here" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="mpg-Hb-ofs">
-                                <rect key="frame" x="0.0" y="0.0" width="240" height="150"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="mpg-Hb-ofs" firstAttribute="top" secondItem="aaO-TY-VBO" secondAttribute="top" id="bkM-D5-TSW"/>
-                            <constraint firstItem="mpg-Hb-ofs" firstAttribute="leading" secondItem="aaO-TY-VBO" secondAttribute="leading" id="itw-0u-MlR"/>
-                            <constraint firstAttribute="bottom" secondItem="mpg-Hb-ofs" secondAttribute="bottom" id="pSE-gm-jAO"/>
-                            <constraint firstAttribute="trailing" secondItem="mpg-Hb-ofs" secondAttribute="trailing" id="qY9-21-rGf"/>
+                            <constraint firstItem="Z2A-GZ-dpG" firstAttribute="leading" secondItem="avp-bR-j3H" secondAttribute="leading" constant="10" id="2Vm-Re-vEG"/>
+                            <constraint firstAttribute="bottom" secondItem="Z2A-GZ-dpG" secondAttribute="bottom" constant="10" id="6OU-l5-tKc"/>
+                            <constraint firstItem="Z2A-GZ-dpG" firstAttribute="top" secondItem="avp-bR-j3H" secondAttribute="top" constant="10" id="ecd-av-4OB"/>
+                            <constraint firstAttribute="bottom" secondItem="mpg-Hb-ofs" secondAttribute="bottom" constant="15" id="eo6-N4-54G"/>
+                            <constraint firstAttribute="trailing" secondItem="Z2A-GZ-dpG" secondAttribute="trailing" constant="10" id="nps-WO-63z"/>
                         </constraints>
                     </view>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="aaO-TY-VBO" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="80" id="4IM-47-9ek"/>
-                    <constraint firstItem="yEe-MI-iNU" firstAttribute="centerY" secondItem="h1O-nO-tPi" secondAttribute="centerY" id="4iO-9h-YrR"/>
                     <constraint firstAttribute="bottom" secondItem="avp-bR-j3H" secondAttribute="bottom" id="Czd-pU-pOz"/>
-                    <constraint firstItem="yEe-MI-iNU" firstAttribute="centerX" secondItem="h1O-nO-tPi" secondAttribute="centerX" id="LJh-IM-s17"/>
                     <constraint firstAttribute="trailing" secondItem="avp-bR-j3H" secondAttribute="trailing" id="WYT-k1-usb"/>
-                    <constraint firstAttribute="bottom" secondItem="aaO-TY-VBO" secondAttribute="bottom" id="bzs-yR-NGY"/>
-                    <constraint firstAttribute="trailing" secondItem="aaO-TY-VBO" secondAttribute="trailing" id="cT8-dY-YBA"/>
-                    <constraint firstItem="aaO-TY-VBO" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="kNg-22-DsJ"/>
                     <constraint firstItem="avp-bR-j3H" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="qLo-ry-MdE"/>
                     <constraint firstItem="avp-bR-j3H" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="u9J-A7-URW"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="containerView" destination="Z2A-GZ-dpG" id="Du4-hY-8ra"/>
                 <outlet property="txtQuestion" destination="mpg-Hb-ofs" id="4FL-na-GHl"/>
             </connections>
             <point key="canvasLocation" x="131.8840579710145" y="92.410714285714278"/>
