@@ -99,7 +99,7 @@ class ListQuestionViewController: UIViewController {
 
 extension ListQuestionViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return listQuestion.count
+        return questionForView.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
