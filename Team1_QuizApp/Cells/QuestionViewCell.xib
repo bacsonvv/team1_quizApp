@@ -16,34 +16,62 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="150"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="question_mark" translatesAutoresizingMaskIntoConstraints="NO" id="yEe-MI-iNU">
-                        <rect key="frame" x="0.0" y="0.0" width="100" height="150"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="150" id="dGd-Tj-RLe"/>
-                            <constraint firstAttribute="width" constant="100" id="i90-xN-NYR"/>
-                        </constraints>
-                    </imageView>
-                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Question goes here" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="mpg-Hb-ofs">
-                        <rect key="frame" x="100" y="0.0" width="220" height="150"/>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="avp-bR-j3H">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="150"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h1O-nO-tPi">
+                                <rect key="frame" x="0.0" y="0.0" width="80" height="150"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="80" id="l9y-nU-YYk"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="220" id="dJr-IU-HJ2"/>
-                            <constraint firstAttribute="height" constant="150" id="w6b-va-537"/>
+                            <constraint firstAttribute="bottom" secondItem="h1O-nO-tPi" secondAttribute="bottom" id="tdD-tf-Jbc"/>
+                            <constraint firstItem="h1O-nO-tPi" firstAttribute="top" secondItem="avp-bR-j3H" secondAttribute="top" id="ufa-3i-p4m"/>
+                            <constraint firstItem="h1O-nO-tPi" firstAttribute="leading" secondItem="avp-bR-j3H" secondAttribute="leading" id="x7P-0g-jTG"/>
                         </constraints>
-                        <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                    </textView>
+                    </view>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="question_mark" translatesAutoresizingMaskIntoConstraints="NO" id="yEe-MI-iNU">
+                        <rect key="frame" x="20" y="55" width="40" height="40"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="40" id="WfF-Aq-YL1"/>
+                            <constraint firstAttribute="width" constant="40" id="eis-qH-wez"/>
+                        </constraints>
+                    </imageView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aaO-TY-VBO">
+                        <rect key="frame" x="80" y="0.0" width="240" height="150"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" text="Question goes here" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="mpg-Hb-ofs">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="150"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="mpg-Hb-ofs" firstAttribute="top" secondItem="aaO-TY-VBO" secondAttribute="top" id="bkM-D5-TSW"/>
+                            <constraint firstItem="mpg-Hb-ofs" firstAttribute="leading" secondItem="aaO-TY-VBO" secondAttribute="leading" id="itw-0u-MlR"/>
+                            <constraint firstAttribute="bottom" secondItem="mpg-Hb-ofs" secondAttribute="bottom" id="pSE-gm-jAO"/>
+                            <constraint firstAttribute="trailing" secondItem="mpg-Hb-ofs" secondAttribute="trailing" id="qY9-21-rGf"/>
+                        </constraints>
+                    </view>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="mpg-Hb-ofs" firstAttribute="leading" secondItem="yEe-MI-iNU" secondAttribute="trailing" id="FpL-kg-AXJ"/>
-                    <constraint firstItem="mpg-Hb-ofs" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="MfF-am-jIb"/>
-                    <constraint firstAttribute="bottom" secondItem="yEe-MI-iNU" secondAttribute="bottom" id="SUv-dX-jxg"/>
-                    <constraint firstItem="mpg-Hb-ofs" firstAttribute="leading" secondItem="yEe-MI-iNU" secondAttribute="trailing" id="Tf2-KH-wNZ"/>
-                    <constraint firstAttribute="trailing" secondItem="mpg-Hb-ofs" secondAttribute="trailing" id="hcM-BS-LJ6"/>
-                    <constraint firstItem="yEe-MI-iNU" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="l0V-ux-Hhg"/>
-                    <constraint firstItem="yEe-MI-iNU" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="sYw-i1-5pZ"/>
-                    <constraint firstAttribute="bottom" secondItem="mpg-Hb-ofs" secondAttribute="bottom" id="uAQ-nS-Syb"/>
+                    <constraint firstItem="aaO-TY-VBO" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="80" id="4IM-47-9ek"/>
+                    <constraint firstItem="yEe-MI-iNU" firstAttribute="centerY" secondItem="h1O-nO-tPi" secondAttribute="centerY" id="4iO-9h-YrR"/>
+                    <constraint firstAttribute="bottom" secondItem="avp-bR-j3H" secondAttribute="bottom" id="Czd-pU-pOz"/>
+                    <constraint firstItem="yEe-MI-iNU" firstAttribute="centerX" secondItem="h1O-nO-tPi" secondAttribute="centerX" id="LJh-IM-s17"/>
+                    <constraint firstAttribute="trailing" secondItem="avp-bR-j3H" secondAttribute="trailing" id="WYT-k1-usb"/>
+                    <constraint firstAttribute="bottom" secondItem="aaO-TY-VBO" secondAttribute="bottom" id="bzs-yR-NGY"/>
+                    <constraint firstAttribute="trailing" secondItem="aaO-TY-VBO" secondAttribute="trailing" id="cT8-dY-YBA"/>
+                    <constraint firstItem="aaO-TY-VBO" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="kNg-22-DsJ"/>
+                    <constraint firstItem="avp-bR-j3H" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="qLo-ry-MdE"/>
+                    <constraint firstItem="avp-bR-j3H" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="u9J-A7-URW"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
