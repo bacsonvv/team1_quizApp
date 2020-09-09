@@ -189,9 +189,18 @@ class GameViewController: UIViewController {
         endGameController.time = self.amountOfTime - self.timeRemaining
         endGameController.score = self.score
         endGameController.userId = self.userId
+        endGameController.playDate = setPlayDate()
         print(self.userId)
         timer.invalidate()
         self.navigationController?.pushViewController(endGameController, animated: true)
+    }
+    
+    func setPlayDate() -> String {
+        let date = Date()
+        let format = DateFormatter()
+        format.dateFormat = "dd-MM-yyyy"
+        let formattedDate = format.string(from: date)
+        return formattedDate
     }
     
     func runTimer() {

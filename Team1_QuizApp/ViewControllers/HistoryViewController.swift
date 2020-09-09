@@ -11,16 +11,10 @@ import FirebaseDatabase
 
 class HistoryViewController: UIViewController {
     
-    
-    
-    @IBOutlet weak var lblCategory: UILabel!
-    @IBOutlet weak var lblUsername: UILabel!
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var imageCategory: UIImageView!
     
     var userId = ""
-    var username = ""
-    var categroy = ""
+    var category = ""
     var ref: DatabaseReference!
     var listUser: [UserHistory] = [] {
         didSet {
@@ -31,21 +25,22 @@ class HistoryViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        ref = Database.database().reference()
+        let nib = UINib(nibName: "HistoryHeaderView", bundle: nil)
         
-        lblUsername.text = username
-        lblCategory.text = categroy
-        imageCategory.image = UIImage(named: categroy)
+        ref = Database.database().reference()
 
         tableView.register(HistoryViewCell.nib(), forCellReuseIdentifier: HistoryViewCell.identifier)
+        tableView.register(nib, forHeaderFooterViewReuseIdentifier: "historyHeader")
         tableView.delegate = self
         tableView.dataSource = self
+        
+        self.title = category
         
         getUserHistory()
     }
     
     func getUserHistory() {
-        self.ref.child("PlayHistory").child(userId).child(categroy).observeSingleEvent(of: .value) { snapshot in
+        self.ref.child("PlayHistory").child(userId).child(category).observeSingleEvent(of: .value) { snapshot in
             for case let child as DataSnapshot in snapshot.children {
                 guard let dict = child.value as? [String:Any] else {
                     print("Error")
@@ -54,8 +49,9 @@ class HistoryViewController: UIViewController {
                 
                 let score = dict["score"] as! Int
                 let time = dict["time"] as! Int
+                let playDate = dict["playDate"] as! String
                 
-                let user = UserHistory(score: score, time: time)
+                let user = UserHistory(score: score, time: time, playDate: playDate)
                 self.listUser.append(user)
             }
         }
@@ -69,8 +65,20 @@ extension HistoryViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: HistoryViewCell.identifier, for: indexPath) as! HistoryViewCell
-        cell.configure(numberOfQuiz: indexPath.row + 1, score: self.listUser[indexPath.row].score, time: self.listUser[indexPath.row].time)
+        cell.configure(score: self.listUser[indexPath.row].score, time: self.listUser[indexPath.row].time, playDate: self.listUser[indexPath.row].playDate)
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 100
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        // Dequeue with the reuse identifier
+        let header = self.tableView.dequeueReusableHeaderFooterView(withIdentifier: "historyHeader") as! HistoryHeaderView
+        header.imageCategory.image = UIImage(named: self.category)
+        
+        return header
     }
 }
