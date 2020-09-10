@@ -66,7 +66,5 @@ class EndGameViewController: UIViewController {
             } else {
             }
         })
-        
     }
-    
 }

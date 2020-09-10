@@ -32,7 +32,7 @@ class RankingViewController: UIViewController {
 
         tableView.delegate = self
         tableView.dataSource = self
-        
+        	
         loading.isHidden = false
         loading.startAnimating()
         lblLoading.isHidden = false
