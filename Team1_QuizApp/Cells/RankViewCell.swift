@@ -15,6 +15,7 @@ class RankViewCell: UITableViewCell {
     @IBOutlet weak var lblTime: UILabel!
     @IBOutlet weak var lblUsername: UILabel!
     @IBOutlet weak var containerView: UIView!
+    @IBOutlet weak var viewContent: UIView!
     
     static let identifier = "rankCell"
     
@@ -44,6 +45,8 @@ class RankViewCell: UITableViewCell {
         containerView.layer.cornerRadius = 10
         containerView.layer.shadowOpacity = 0.5
         containerView.layer.shadowOffset = CGSize(width: 1, height: 1)
+        
+        viewContent.layer.cornerRadius = 10
     }
     
 }

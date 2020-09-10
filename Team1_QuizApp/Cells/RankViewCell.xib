@@ -136,6 +136,7 @@
                 <outlet property="lblScore" destination="Z26-W8-l6J" id="foe-f0-8Hz"/>
                 <outlet property="lblTime" destination="Smi-WP-xWF" id="uEK-oT-dFf"/>
                 <outlet property="lblUsername" destination="NEp-H1-3UX" id="s3V-r4-xS3"/>
+                <outlet property="viewContent" destination="1Ic-YO-VJq" id="HZd-M4-qYj"/>
             </connections>
             <point key="canvasLocation" x="131.8840579710145" y="92.410714285714278"/>
         </tableViewCell>

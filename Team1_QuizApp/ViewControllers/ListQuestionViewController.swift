@@ -24,11 +24,8 @@ class ListQuestionViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        let nib = UINib(nibName: "ListQuestionHeaderView", bundle: nil)
         
         tableView.register(QuestionViewCell.nib(), forCellReuseIdentifier: QuestionViewCell.identifier)
-        tableView.register(nib, forHeaderFooterViewReuseIdentifier: "listQuestionHeader")
         tableView.delegate = self
         tableView.dataSource = self
         
@@ -78,6 +75,7 @@ class ListQuestionViewController: UIViewController {
     func checkWhenDataIsReady() {
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: (#selector(ListQuestionViewController.finishLoading)), userInfo: nil, repeats: true)
     }
+    
     @objc func finishLoading() {
         if listQuestion.count != 0 {
             loadingView.isHidden = true
@@ -94,7 +92,13 @@ class ListQuestionViewController: UIViewController {
             timer.invalidate()
         }
     }
-
+    
+    @IBAction func backToHome(_ sender: Any) {
+        
+        let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(identifier: "tabBarVC")
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
 }
 
 extension ListQuestionViewController: UITableViewDelegate, UITableViewDataSource {
@@ -108,17 +112,5 @@ extension ListQuestionViewController: UITableViewDelegate, UITableViewDataSource
         cell.configure(question: questionForView[indexPath.row].question)
         
         return cell
-    }
-    
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 200
-    }
-    
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let header = self.tableView.dequeueReusableHeaderFooterView(withIdentifier: "listQuestionHeader") as! ListQuestionHeaderView
-        header.imageCategory.image = UIImage(named: "\(self.category)-1")
-        header.lblNote.font = UIFont.italicSystemFont(ofSize: 17)
-        
-        return header
     }
 }
