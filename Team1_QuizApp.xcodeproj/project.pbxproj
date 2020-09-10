@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		722EC4062509DD5F00F6423E /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722EC4052509DD5F00F6423E /* CustomTabBarController.swift */; };
 		72853DBF2508E8AA009184FE /* HomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72853DBE2508E8AA009184FE /* HomePageViewController.swift */; };
 		72853DC12508E8BA009184FE /* ShopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72853DC02508E8BA009184FE /* ShopViewController.swift */; };
 		72853DC32508E8C6009184FE /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72853DC22508E8C6009184FE /* SettingViewController.swift */; };
@@ -68,6 +69,7 @@
 /* Begin PBXFileReference section */
 		00A62B68F8B9B163850919D0 /* Pods-Team1_QuizAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Team1_QuizAppTests.release.xcconfig"; path = "Target Support Files/Pods-Team1_QuizAppTests/Pods-Team1_QuizAppTests.release.xcconfig"; sourceTree = "<group>"; };
 		48E96AC1D35EDEAFCE843697 /* Pods_Team1_QuizAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Team1_QuizAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		722EC4052509DD5F00F6423E /* CustomTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarController.swift; sourceTree = "<group>"; };
 		72853DBE2508E8AA009184FE /* HomePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageViewController.swift; sourceTree = "<group>"; };
 		72853DC02508E8BA009184FE /* ShopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopViewController.swift; sourceTree = "<group>"; };
 		72853DC22508E8C6009184FE /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
@@ -147,6 +149,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		722EC4042509DD1000F6423E /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				722EC4052509DD5F00F6423E /* CustomTabBarController.swift */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
 		7B53AEA6EF70F9381B921E33 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -185,6 +195,7 @@
 			isa = PBXGroup;
 			children = (
 				8AC3DEFD2500AC5E0089A859 /* Team1_QuizApp */,
+				722EC4042509DD1000F6423E /* Shared */,
 				8AC3DF142500AC5F0089A859 /* Team1_QuizAppTests */,
 				8AC3DF1F2500AC5F0089A859 /* Team1_QuizAppUITests */,
 				8AC3DEFC2500AC5E0089A859 /* Products */,
@@ -579,6 +590,7 @@
 				8A4C69B725087B37002B72D9 /* HistoryHeaderView.swift in Sources */,
 				8AC3DF032500AC5E0089A859 /* ViewController.swift in Sources */,
 				72853DC32508E8C6009184FE /* SettingViewController.swift in Sources */,
+				722EC4062509DD5F00F6423E /* CustomTabBarController.swift in Sources */,
 				8AE69573250106490052FE0A /* AnswerViewCell.swift in Sources */,
 				8AC3DEFF2500AC5E0089A859 /* AppDelegate.swift in Sources */,
 				8A490C5A2505D8CF00904EE7 /* ListQuestionViewController.swift in Sources */,

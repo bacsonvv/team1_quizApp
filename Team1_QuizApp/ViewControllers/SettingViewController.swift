@@ -25,12 +25,16 @@ class SettingViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
         
         ref = Database.database().reference()
         
         inputUsername.text = self.username
         inputTime.text = "\(self.timeLimit)"
         inputQuestion.text = "\(self.questions)"
+
+
+        tabBarItem.tag = TabbarItemTag.fifthViewConroller.rawValue
     }
     
     @IBAction func btnSubmitClicked(_ sender: Any) {

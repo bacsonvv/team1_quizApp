@@ -8,15 +8,37 @@
 
 import UIKit
 
+protocol CategoryDelegate: class {
+    func didTapButton(with: String , nameCat : String)
+}
+
 class CategoryTableViewCell: UITableViewCell {
     
     @IBOutlet weak var lblCategory: UILabel!
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var imageCategory: UIImageView!
+    @IBOutlet weak var blurCategory: UIVisualEffectView!
+    @IBOutlet weak var lblTime: UILabel!
+    @IBOutlet weak var lblNumberOfQuestion: UILabel!
     
+    @IBOutlet weak var btnDetail: UIButton!
+    @IBOutlet weak var btnTest: UIButton!
+    @IBOutlet weak var btnHistory: UIButton!
+    
+    var nameCategory = "History"
+         
+    weak var delegate: CategoryDelegate?
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+     
+        
+        imageCategory.layer.cornerRadius = 10
+        imageCategory.clipsToBounds = true
+        
+        blurCategory.layer.cornerRadius = 5
+        blurCategory.clipsToBounds = true
         
     }
     
@@ -24,4 +46,20 @@ class CategoryTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
         
     }
+    
+    @IBAction func seeListQuestion(_ sender: Any) {
+        
+        delegate?.didTapButton(with: "see", nameCat: self.nameCategory)
+    }
+    
+    @IBAction func qickTest(_ sender: Any) {
+        
+        delegate?.didTapButton(with: "test", nameCat: self.nameCategory)
+    }
+    
+    @IBAction func viewHistory(_ sender: Any) {
+        
+        delegate?.didTapButton(with: "view", nameCat: self.nameCategory)
+    }
 }
+

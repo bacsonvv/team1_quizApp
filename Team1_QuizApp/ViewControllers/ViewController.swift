@@ -23,8 +23,6 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setupNavigation()
-        
         GIDSignIn.sharedInstance()?.delegate = self
         
         if AccessToken.current != nil {
@@ -32,12 +30,6 @@ class ViewController: UIViewController {
         }
         
         autoLogin()
-    }
-    
-    func setupNavigation() {
-        navigationController?.navigationBar.backgroundColor = .clear
-        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
-        navigationController?.navigationBar.shadowImage = UIImage()
     }
     
     func autoLogin(){

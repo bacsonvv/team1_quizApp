@@ -39,6 +39,16 @@ class EndGameViewController: UIViewController {
         storeUserResult()
     }
     
+    override var hidesBottomBarWhenPushed: Bool {
+              get {
+                  return true
+              }
+              set {
+                  super.hidesBottomBarWhenPushed = newValue
+              }
+          }
+       
+    
     @IBAction func playAgain(_ sender: Any) {
         let homeViewController = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(identifier: "tabBarVC")
         self.navigationController?.pushViewController(homeViewController, animated: true)
