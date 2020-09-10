@@ -7,24 +7,32 @@
 //
 
 import UIKit
+import FirebaseDatabase
 
 class HomePageViewController: UIViewController {
+    
+    var ref: DatabaseReference!
 
+    var userId = ""
+    var username = ""
+    var numberOfQuiz = 15
+    var timeLimit = 150
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        ref = Database.database().reference()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func storeUserSetting() {
+        let userSettings = [
+            "username": self.username,
+            "numberOfQuiz": self.numberOfQuiz,
+            "timeLimit": self.timeLimit] as [String: Any]
+        
+        self.ref.child("Users").child(userId).setValue(userSettings, withCompletionBlock: { error, ref in
+            if error == nil {}
+            else {}
+        })
     }
-    */
-
 }
