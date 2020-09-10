@@ -22,6 +22,7 @@ class GameViewController: UIViewController {
     @IBOutlet weak var imageQuestion: UIImageView!
     @IBOutlet weak var imageScore: UIImageView!
     @IBOutlet weak var imageTime: UIImageView!
+    @IBOutlet weak var imageQuestions: UIImageView!
     
     var timer = Timer()
     var timer2 = Timer()
@@ -139,6 +140,7 @@ class GameViewController: UIViewController {
         btnNext.isHidden = state
         lblCurrentQuestion.isHidden = state
         lblScore.isHidden = state
+        imageQuestions.isHidden = state
     }
     
     func initGame() {
@@ -173,8 +175,6 @@ class GameViewController: UIViewController {
         userChoice = ""
         answerForView.removeAll()
         txtQuestion.text = self.questionArray[self.currentQuestion].question
-        txtQuestion.layer.cornerRadius = 15
-        txtQuestion.layer.borderWidth = 0.5
         
         answerForView.append(self.questionArray[self.currentQuestion].choice1)
         answerForView.append(self.questionArray[self.currentQuestion].choice2)
