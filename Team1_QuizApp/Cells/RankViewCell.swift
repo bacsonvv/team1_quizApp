@@ -45,6 +45,8 @@ class RankViewCell: UITableViewCell {
         containerView.layer.cornerRadius = 10
         containerView.layer.shadowOpacity = 0.5
         containerView.layer.shadowOffset = CGSize(width: 1, height: 1)
+        
+        viewContent.layer.cornerRadius = 10
     }
     
 }

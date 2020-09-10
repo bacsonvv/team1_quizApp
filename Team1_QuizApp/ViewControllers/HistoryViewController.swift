@@ -14,7 +14,7 @@ class HistoryViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     var userId = ""
-    var category = ""
+    var category = "Geography"
     var ref: DatabaseReference!
     var listUser: [UserHistory] = [] {
         didSet {
@@ -25,12 +25,9 @@ class HistoryViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let nib = UINib(nibName: "HistoryHeaderView", bundle: nil)
-        
         ref = Database.database().reference()
 
         tableView.register(HistoryViewCell.nib(), forCellReuseIdentifier: HistoryViewCell.identifier)
-        tableView.register(nib, forHeaderFooterViewReuseIdentifier: "historyHeader")
         tableView.delegate = self
         tableView.dataSource = self
         
@@ -56,6 +53,12 @@ class HistoryViewController: UIViewController {
             }
         }
     }
+    
+    @IBAction func backToHome(_ sender: Any) {
+        let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(identifier: "tabBarVC")
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
 }
 
 extension HistoryViewController: UITableViewDelegate, UITableViewDataSource {
@@ -69,15 +72,5 @@ extension HistoryViewController: UITableViewDelegate, UITableViewDataSource {
         
         return cell
     }
-    
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 100
-    }
-    
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let header = self.tableView.dequeueReusableHeaderFooterView(withIdentifier: "historyHeader") as! HistoryHeaderView
-        header.imageCategory.image = UIImage(named: "\(self.category)-1")
-        
-        return header
-    }
+
 }
