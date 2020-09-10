@@ -26,11 +26,12 @@ class GameViewController: UIViewController {
     
     var timer = Timer()
     var timer2 = Timer()
-    var amountOfTime = 150
-    var timeRemaining = 150
+    var amountOfTime = 0
+    var timeRemaining = 0
     var questionArray = [Question]()
     var spreadSheetId = "1urSOD9SR3lSD7WE1SF0CqKRa7c1INR9I-iMqQgwsKvM"
     var ref: DatabaseReference!
+    var numberOfQuestions = 0
     var currentQuestion = 0
     var answerForView = ["Choice1", "Choice2", "Choice3", "Choice4"]
     var userChoice = ""
@@ -38,6 +39,7 @@ class GameViewController: UIViewController {
     var isClicked = false
     var category = ""
     var userId = ""
+    var username = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -122,7 +124,7 @@ class GameViewController: UIViewController {
             alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
             self.present(alert, animated: true, completion: nil)
         } else {
-            if currentQuestion == 15 {
+            if currentQuestion == numberOfQuestions {
                 moveToEndGame()
             } else {
                 setupQuestion()
@@ -150,7 +152,10 @@ class GameViewController: UIViewController {
         
         setStateForView(state: true)
         
-        timeRemaining = 150
+        timeRemaining = UserDefaults.standard.integer(forKey: "timeLimit")
+        numberOfQuestions = UserDefaults.standard.integer(forKey: "numberOfQuestions")
+        
+        amountOfTime = timeRemaining
     }
     
     func checkWhenDataIsReady() {
@@ -182,7 +187,7 @@ class GameViewController: UIViewController {
         answerForView.append(self.questionArray[self.currentQuestion].choice4)
         answerForView.shuffle()
         
-        lblCurrentQuestion.text = "\(self.currentQuestion + 1)/15"
+        lblCurrentQuestion.text = "\(self.currentQuestion + 1)/\(numberOfQuestions)"
         lblScore.text = "\(self.score)"
         
         isClicked = false
@@ -197,8 +202,8 @@ class GameViewController: UIViewController {
         endGameController.time = self.amountOfTime - self.timeRemaining
         endGameController.score = self.score
         endGameController.userId = self.userId
+        endGameController.username = self.username
         endGameController.playDate = setPlayDate()
-        print(self.userId)
         timer.invalidate()
         self.navigationController?.pushViewController(endGameController, animated: true)
     }
