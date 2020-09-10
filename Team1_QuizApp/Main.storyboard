@@ -104,11 +104,11 @@
                                     <constraint firstAttribute="width" constant="80" id="w0W-5Q-Bbx"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                <state key="normal" title="Next">
+                                <state key="normal" title="Quit">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <action selector="btnNextClick:" destination="xTH-we-t0e" eventType="touchUpInside" id="OVn-LT-6dK"/>
+                                    <action selector="btnQuitClicked:" destination="xTH-we-t0e" eventType="touchUpInside" id="SJE-GE-soz"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PuC-rc-0wE">
@@ -268,7 +268,7 @@
                         <barButtonItem key="leftBarButtonItem" title="Item" image="chevron.left" catalog="system" id="A8a-wO-gBB"/>
                     </navigationItem>
                     <connections>
-                        <outlet property="btnNext" destination="t8B-un-hwS" id="3XM-cc-18K"/>
+                        <outlet property="btnQuit" destination="t8B-un-hwS" id="YhB-dB-qlz"/>
                         <outlet property="imageQuestion" destination="XKe-ki-Xxl" id="2JD-AA-Jce"/>
                         <outlet property="imageQuestions" destination="RzM-6e-6a7" id="Rqs-NO-uCt"/>
                         <outlet property="imageScore" destination="Mux-kc-oON" id="v49-vR-kDO"/>
