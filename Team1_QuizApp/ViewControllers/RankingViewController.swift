@@ -27,10 +27,9 @@ class RankingViewController: UIViewController {
         tabBarItem.tag = TabbarItemTag.fourthViewConroller.rawValue
         
         ref = Database.database().reference()
-        
-        let nib = UINib(nibName: "RankingHeaderView", bundle: nil)
+
         tableView.register(RankViewCell.nib(), forCellReuseIdentifier: RankViewCell.identifier)
-        tableView.register(nib, forHeaderFooterViewReuseIdentifier: "rankingHeaderView")
+
         tableView.delegate = self
         tableView.dataSource = self
         
@@ -63,7 +62,10 @@ class RankingViewController: UIViewController {
             lblLoading.isHidden = true
             setStateForView(state: false)
             
-            self.listRanking.sort(by: {$0.score > $1.score})
+            self.listRanking = self.listRanking.sorted{
+                a1, a2 in
+                return (a1.score, a2.time) > (a2.score, a1.time)
+            }
             
             listRankingForView.removeAll()
             listRankingForView = listRanking
@@ -116,20 +118,12 @@ extension RankingViewController: UITableViewDelegate, UITableViewDataSource {
             imageName = "2ndplace"
         } else if indexPath.row == 2 {
             imageName = "3rdplace"
+        } else {
+            imageName = "unranked"
         }
         
         cell.configure(imageName: imageName, score: listRankingForView[indexPath.row].score, time: listRankingForView[indexPath.row].time)
         
         return cell
-    }
-    
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 150
-    }
-    
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let header = self.tableView.dequeueReusableHeaderFooterView(withIdentifier: "rankingHeaderView") as! RankingHeaderView
-        
-        return header
     }
 }

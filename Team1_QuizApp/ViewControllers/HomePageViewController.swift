@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseDatabase
 
 class HomePageViewController: UIViewController {
     
@@ -14,8 +15,17 @@ class HomePageViewController: UIViewController {
     var user = ""
     var id = ""
 
+    var ref: DatabaseReference!
+
+
+    var userId = ""
+    var username = ""
+    var numberOfQuiz = 15
+    var timeLimit = 150
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+
         
         tabBarItem.tag = TabbarItemTag.firstViewController.rawValue
         
@@ -23,6 +33,18 @@ class HomePageViewController: UIViewController {
         user = UserDefaults.standard.string(forKey: "nameUserSession") ?? "Undefined"
         
         lblName.text = user
+        ref = Database.database().reference()
+    }
+    
+    func storeUserSetting() {
+        let userSettings = [
+            "username": self.username,
+            "numberOfQuiz": self.numberOfQuiz,
+            "timeLimit": self.timeLimit] as [String: Any]
         
+        self.ref.child("Users").child(userId).setValue(userSettings, withCompletionBlock: { error, ref in
+            if error == nil {}
+            else {}
+        })
     }
 }
