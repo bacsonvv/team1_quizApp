@@ -116,7 +116,7 @@ extension ListQuestionViewController: UITableViewDelegate, UITableViewDataSource
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let header = self.tableView.dequeueReusableHeaderFooterView(withIdentifier: "listQuestionHeader") as! ListQuestionHeaderView
-        header.imageCategory.image = UIImage(named: self.category)
+        header.imageCategory.image = UIImage(named: "\(self.category)-1")
         header.lblNote.font = UIFont.italicSystemFont(ofSize: 17)
         
         return header

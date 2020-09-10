@@ -15,6 +15,9 @@ class ViewController: UIViewController {
     @IBOutlet weak var sigInFb: UIButton!
     @IBOutlet weak var signInGg: UIButton!
     
+    var nameOfUser: String?
+    var idOfUser: String?
+    
     var isLogined = UserDefaults.standard.integer(forKey: "option")
     
     override func viewDidLoad() {
@@ -38,7 +41,6 @@ class ViewController: UIViewController {
     }
     
     func autoLogin(){
-        print(isLogined)
         if isLogined != 0 {
             nextToHomeViewController()
         }
@@ -90,11 +92,11 @@ class ViewController: UIViewController {
                     let dict = result as! [String : AnyObject]
                     let picutreDic = dict as NSDictionary
                     
-                    let nameOfUser = picutreDic.object(forKey: "name") as! String
-                    let idOfUser = picutreDic.object(forKey: "id") as! String
+                    self.nameOfUser = picutreDic.object(forKey: "name") as? String
+                    self.idOfUser = picutreDic.object(forKey: "id") as? String
                     
-                    UserDefaults.standard.set(idOfUser, forKey: "idUser")
-                    UserDefaults.standard.set(nameOfUser, forKey: "nameUserSession")
+                    UserDefaults.standard.set(self.idOfUser, forKey: "idUser")
+                    UserDefaults.standard.set(self.nameOfUser, forKey: "nameUserSession")
                     UserDefaults.standard.set(1, forKey: "option")
                     
                     self.nextToHomeViewController()
@@ -105,9 +107,9 @@ class ViewController: UIViewController {
                         print(tmpEmailAdd)
                     }
                     else {
-                        var usrName = nameOfUser
-                        usrName = usrName.replacingOccurrences(of: " ", with: "")
-                        tmpEmailAdd = usrName+"@facebook.com"
+                        var usrName = self.nameOfUser
+                        usrName = usrName!.replacingOccurrences(of: " ", with: "")
+                        tmpEmailAdd = usrName!+"@facebook.com"
                     }
                 }
             })
