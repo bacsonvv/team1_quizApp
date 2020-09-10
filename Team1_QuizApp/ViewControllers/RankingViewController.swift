@@ -24,6 +24,8 @@ class RankingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        tabBarItem.tag = TabbarItemTag.fourthViewConroller.rawValue
+        
         ref = Database.database().reference()
 
         tableView.register(RankViewCell.nib(), forCellReuseIdentifier: RankViewCell.identifier)

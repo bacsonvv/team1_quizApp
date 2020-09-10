@@ -15,17 +15,10 @@ class CategoryViewController: UIViewController {
     // Huong
     
     @IBOutlet weak var categoryTableView: UITableView!
-    @IBOutlet weak var lblEmail: UILabel!
-    @IBOutlet weak var lblTitle: UILabel!
-    @IBOutlet weak var imageUser: UIImageView!
     
-    @IBOutlet weak var welcomeView: UIView!
-    @IBOutlet weak var lblLoading: UILabel!
     @IBOutlet weak var loading: UIActivityIndicatorView!
     
-    @IBOutlet weak var btnDetail: UIButton!
-    @IBOutlet weak var btnHistory: UIButton!
-    @IBOutlet weak var btnStart: UIButton!
+    @IBOutlet weak var lblLoading: UILabel!
     
     var timer = Timer()
     let cellID = "CategoryTableViewCell"
@@ -36,26 +29,27 @@ class CategoryViewController: UIViewController {
     var id = ""
     var chooseCategory = -1
     
-//    let titleNavigationLabel: UILabel = {
-//        let label = UILabel()
-//        label.text = "Master Subject"
-//        label.font = .boldSystemFont(ofSize: 16)
-//        label.textColor = .black
-//        label.textAlignment = .center
-//        return label
-//    }()
+    //    let titleNavigationLabel: UILabel = {
+    //        let label = UILabel()
+    //        label.text = "Master Subject"
+    //        label.font = .boldSystemFont(ofSize: 16)
+    //        label.textColor = .black
+    //        label.textAlignment = .center
+    //        return label
+    //    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        tabBarItem.tag = TabbarItemTag.secondViewConroller.rawValue
+        
         id = UserDefaults.standard.string(forKey: "idUser") ?? "Undefined"
         user = UserDefaults.standard.string(forKey: "nameUserSession") ?? "Undefined"
+//
         
-        setupNavigation()
+        //lblEmail.text = "Name Player : \(user)"
         
-        lblEmail.text = "Name Player : \(user)"
-        
-        imageUser.tintColor = .blue
+        //imageUser.tintColor = .blue
         categoryTableView.delegate = self
         categoryTableView.dataSource = self
         
@@ -75,16 +69,6 @@ class CategoryViewController: UIViewController {
         
         initComponent()
         
-        lblTitle.font = UIFont.italicSystemFont(ofSize: 17)
-        
-        setupButton()
-        
-    }
-    
-    func setupButton() {
-        btnStart.layer.cornerRadius = 10
-        btnDetail.layer.cornerRadius = 10
-        btnHistory.layer.cornerRadius = 10
     }
     
     func checkWhenDataIsReady() {
@@ -104,28 +88,11 @@ class CategoryViewController: UIViewController {
     }
     
     func setStateForView(state: Bool) {
-        welcomeView.isHidden = state
         categoryTableView.isHidden = state
-        lblEmail.isHidden = state
-        imageUser.isHidden = state
-        btnDetail.isHidden = state
-        btnHistory.isHidden = state
-        btnStart.isHidden = state
     }
     
     fileprivate func initComponent() {
         categoryTableView.register(UINib(nibName: "CategoryTableViewCell", bundle: nil), forCellReuseIdentifier: cellID)
-    }
-    
-    func setupNavigation() {
-        //navigationController?.navigationBar.barTintColor = UIColor(red: 0.71, green: 0.61, blue: 0.71, alpha: 1)
-        self.navigationItem.setHidesBackButton(true, animated: false)
-        
-//        self.title = "Subject Matter"
-//        navigationItem.titleView = titleNavigationLabel
-
-        let btnRightBar = UIBarButtonItem(image: UIImage(systemName: "arrow.left.square"), style: .plain, target: self, action: #selector(signOut))
-        self.navigationItem.rightBarButtonItem  = btnRightBar
     }
     
     @objc func signOut() {
@@ -134,35 +101,7 @@ class CategoryViewController: UIViewController {
         UserDefaults.standard.removeObject(forKey: "nameUserSession")
         UserDefaults.standard.removeObject(forKey: "idUser")
         //UserDefaults.standard.removeObject(forKey: "idFB")
-    }
-    
-    @IBAction func showListQuestion(_ sender: Any) {
-        if chooseCategory == -1 {
-            showDialog()
-        } else {
-            showListQ()
-        }
-    }
-    
-    func showListQ() {
-        let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "listQVC") as! ListQuestionViewController
-        vc.category = listCollection[chooseCategory]
-        self.navigationController?.pushViewController(vc, animated: true)
-    }
-    
-    @IBAction func startGame(_ sender: Any) {
-        if chooseCategory == -1 {
-            showDialog()
-        } else {
-            startGame()
-        }
-    }
-    
-    func startGame() {
-        let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "gameVC") as! GameViewController
-        vc.category = listCollection[chooseCategory]
-        print(self.id)
-        vc.userId = self.id
+        let vc = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "loginVC") as! ViewController
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
@@ -175,22 +114,6 @@ class CategoryViewController: UIViewController {
         self.present(alert, animated: true, completion: nil)
     }
     
-    @IBAction func showHistory(_ sender: Any) {
-        if chooseCategory == -1 {
-            showDialog()
-        } else {
-            showHistory()
-        }
-    }
-    
-    func showHistory() {
-        let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "historyView") as! HistoryViewController
-        vc.userId = self.id
-        vc.category = listCollection[chooseCategory]
-        self.navigationController?.pushViewController(vc, animated: true)
-        
-    }
-    
     func GetListCategory(){
         self.listCollection.removeAll()
         ref.child(spreadSheetId).observe(.value, with: {
@@ -199,7 +122,6 @@ class CategoryViewController: UIViewController {
                 self.listCollection.append((category as AnyObject).key)
                 print(self.listCollection.count)
             }
-            
             self.categoryTableView.reloadData()
         })
     }
@@ -214,10 +136,30 @@ extension CategoryViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = categoryTableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath) as! CategoryTableViewCell
         cell.lblCategory.text = listCollection[indexPath.row]
         cell.imageCategory.image = UIImage(named: listCollection[indexPath.row] )
+        cell.delegate  = self
         return cell
     }
-    
-    func tableView(_ tableView: UITableView, didHighlightRowAt indexPath: IndexPath) {
-        chooseCategory = indexPath.row
+}
+
+extension CategoryViewController : CategoryDelegate {
+    func didTapButton(with: String, nameCat: String) {
+        if with == "see" {
+            let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "listQVC") as! ListQuestionViewController
+            vc.category = nameCat
+            navigationController?.pushViewController(vc, animated: true)
+        } else if with == "test" {
+            let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "gameVC") as! GameViewController
+            vc.category = nameCat
+            vc.userId = self.id
+            self.navigationController?.pushViewController(vc, animated: true)
+            
+        } else {
+            let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "historyView") as! HistoryViewController
+            vc.userId = self.id
+            vc.category = nameCat
+            //vc.category = listCollection[chooseCategory]
+            self.navigationController?.pushViewController(vc, animated: false)
+        }
     }
+    
 }

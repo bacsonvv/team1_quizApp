@@ -70,6 +70,15 @@ class GameViewController: UIViewController {
         setupNavigation()
     }
     
+    override var hidesBottomBarWhenPushed: Bool {
+           get {
+               return true
+           }
+           set {
+               super.hidesBottomBarWhenPushed = newValue
+           }
+       }
+    
     @objc func endVC(){
         moveToEndGame()
     }
@@ -147,6 +156,7 @@ class GameViewController: UIViewController {
     func checkWhenDataIsReady() {
         timer2 = Timer.scheduledTimer(timeInterval: 1, target: self, selector: (#selector(GameViewController.setupData)), userInfo: nil, repeats: true)
     }
+    
     @objc func setupData() {
         if questionArray.count != 0 {
             spinnerWaiting.isHidden = true
@@ -206,6 +216,7 @@ class GameViewController: UIViewController {
     func runTimer() {
         timer = Timer.scheduledTimer(timeInterval: 1, target: self,   selector: (#selector(GameViewController.updateTimer)), userInfo: nil, repeats: true)
     }
+    
     @objc func updateTimer() {
         timeRemaining -= 1
         lblTimeRemain.text = "\(timeRemaining)"
