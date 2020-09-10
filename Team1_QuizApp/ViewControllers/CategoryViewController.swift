@@ -78,15 +78,6 @@ class CategoryViewController: UIViewController {
         categoryTableView.register(UINib(nibName: "CategoryTableViewCell", bundle: nil), forCellReuseIdentifier: cellID)
     }
     
-    @objc func signOut() {
-        self.navigationController?.popViewController(animated: true)
-        UserDefaults.standard.removeObject(forKey: "option")
-        UserDefaults.standard.removeObject(forKey: "nameUserSession")
-        UserDefaults.standard.removeObject(forKey: "idUser")
-        let vc = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "loginVC") as! ViewController
-        self.navigationController?.pushViewController(vc, animated: true)
-    }
-    
     func showDialog() {
         let alert = UIAlertController(title: "No category selected ", message: "Please pick any item to continue", preferredStyle: .alert)
         let action = UIAlertAction(title: "OK", style: UIAlertAction.Style.default) {

@@ -67,8 +67,8 @@ class HomePageViewController: UIViewController {
                     else {}
                 })
                 
-                UserDefaults.standard.set(self.numberOfQuestions, forKey: "numberOfQuestions")
-                UserDefaults.standard.set(self.timeLimit, forKey: "timeLimit")
+                UserDefaults.standard.set(15, forKey: "numberOfQuestions")
+                UserDefaults.standard.set(150, forKey: "timeLimit")
                 UserDefaults.standard.set(self.username, forKey: "username")
             }
         })

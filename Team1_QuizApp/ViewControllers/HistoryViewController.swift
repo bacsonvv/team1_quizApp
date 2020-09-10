@@ -14,7 +14,7 @@ class HistoryViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     var userId = ""
-    var category = ""
+    var category = "Geography"
     var ref: DatabaseReference!
     var listUser: [UserHistory] = [] {
         didSet {
