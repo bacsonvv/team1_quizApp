@@ -12,31 +12,73 @@ import FirebaseDatabase
 class HistoryViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var loading: UIActivityIndicatorView!
+    @IBOutlet weak var lblLoading: UILabel!
     
     var userId = ""
     var category = "Geography"
     var ref: DatabaseReference!
-    var listUser: [UserHistory] = [] {
-        didSet {
-            tableView.reloadData()
-        }
-    }
+    var listUser: [UserHistory] = []
+    var listUserForView: [UserHistory] = [UserHistory(score: 0, time: 0, playDate: "")]
+    var timer = Timer()
+    var loadingTime = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let nib = UINib(nibName: "HistoryHeaderView", bundle: nil)
-        
         ref = Database.database().reference()
 
         tableView.register(HistoryViewCell.nib(), forCellReuseIdentifier: HistoryViewCell.identifier)
-        tableView.register(nib, forHeaderFooterViewReuseIdentifier: "historyHeader")
         tableView.delegate = self
         tableView.dataSource = self
         
         self.title = category
         
-        getUserHistory()
+        loading.isHidden = false
+        lblLoading.isHidden = false
+        loading.startAnimating()
+        setStateForView(state: true)
+        
+        DispatchQueue.main.async {
+            self.getUserHistory()
+        }
+        
+        checkWhenDataIsReady()
+        
+        tableView.reloadData()
+    }
+    
+    func checkWhenDataIsReady() {
+        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: (#selector(HistoryViewController.finishLoading)), userInfo: nil, repeats: true)
+    }
+    
+    @objc func finishLoading() {
+        loadingTime += 1
+        
+        if loadingTime == 5 {
+            lblLoading.text = "No data to show."
+            loading.isHidden = true
+            loading.stopAnimating()
+        }
+        
+        if listUser.count != 0 {
+            loading.isHidden = true
+            lblLoading.isHidden = true
+            loading.stopAnimating()
+            
+            listUserForView.removeAll()
+            listUserForView = listUser
+            
+            setStateForView(state: false)
+            
+            tableView.reloadData()
+            
+            timer.invalidate()
+        }
+    }
+    
+    func setStateForView(state: Bool) {
+        tableView.isHidden = state
     }
     
     func getUserHistory() {
@@ -56,10 +98,17 @@ class HistoryViewController: UIViewController {
             }
         }
     }
+    
+    @IBAction func backToHome(_ sender: Any) {
+        let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(identifier: "tabBarVC")
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
 }
 
 extension HistoryViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        print(listUser.count)
         return listUser.count
     }
     
@@ -69,15 +118,5 @@ extension HistoryViewController: UITableViewDelegate, UITableViewDataSource {
         
         return cell
     }
-    
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 100
-    }
-    
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let header = self.tableView.dequeueReusableHeaderFooterView(withIdentifier: "historyHeader") as! HistoryHeaderView
-        header.imageCategory.image = UIImage(named: "\(self.category)-1")
-        
-        return header
-    }
+
 }

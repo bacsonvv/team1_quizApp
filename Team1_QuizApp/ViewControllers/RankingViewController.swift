@@ -24,6 +24,7 @@ class RankingViewController: UIViewController {
     var listRanking: [UserRank] = []
     var listRankingForView: [UserRank] = [UserRank(key: "Default", score: 0, time: 0, username: "Default")]
     var category = "Civic Education"
+    var loadingTime = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,11 +53,7 @@ class RankingViewController: UIViewController {
         
         civicEducationView.backgroundColor = .red
         
-        DispatchQueue.main.async {
-            self.getListUser(category: self.category)
-        }
-        
-        checkWhenDataIsReady()
+        initTableView()
         
         tableView.reloadData()
     }
@@ -86,6 +83,8 @@ class RankingViewController: UIViewController {
     @objc func civicEducationClicked(sender : UITapGestureRecognizer) {
         listRanking.removeAll()
         
+        reInitLoading()
+        
         civicEducationView.backgroundColor = .red
         geographyView.backgroundColor = .white
         historyView.backgroundColor = .white
@@ -98,6 +97,8 @@ class RankingViewController: UIViewController {
     
     @objc func geographyClicked(sender : UITapGestureRecognizer) {
         listRanking.removeAll()
+        
+        reInitLoading()
         
         geographyView.backgroundColor = .red
         historyView.backgroundColor = .white
@@ -112,23 +113,20 @@ class RankingViewController: UIViewController {
     @objc func historyClicked(sender : UITapGestureRecognizer) {
         listRanking.removeAll()
         
+        reInitLoading()
+        
         historyView.backgroundColor = .red
         civicEducationView.backgroundColor = .white
         geographyView.backgroundColor = .white
         
-        loading.isHidden = false
-        loading.startAnimating()
-        lblLoading.isHidden = false
-        
-        setStateForView(state: true)
-        
         self.category = "History"
         
-        DispatchQueue.main.async {
-            self.getListUser(category: self.category)
-        }
-        
-        checkWhenDataIsReady()
+        initTableView()
+    }
+    
+    func reInitLoading() {
+        lblLoading.text = "Wait for a moment..."
+        loadingTime = 0
     }
     
     func setStateForView(state: Bool) {
@@ -139,6 +137,14 @@ class RankingViewController: UIViewController {
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: (#selector(RankingViewController.setupData)), userInfo: nil, repeats: true)
     }
     @objc func setupData() {
+        loadingTime += 1
+        
+        if loadingTime == 5 {
+            lblLoading.text = "No data to show."
+            loading.isHidden = true
+            loading.stopAnimating()
+        }
+        
         if listRanking.count != 0 {
             loading.isHidden = true
             loading.stopAnimating()

@@ -122,9 +122,10 @@ class GameViewController: UIViewController {
         let quitAlert = UIAlertController(title: "WARNING", message: "Are you sure to quit the test? Your result will not be saved!", preferredStyle: UIAlertController.Style.alert)
 
         quitAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action: UIAlertAction!) in
-            let categoryController = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(identifier: "categoryVC") as! CategoryViewController
-            
-            self.navigationController?.pushViewController(categoryController, animated: true)
+//            let categoryController = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(identifier: "tabBarVC")
+//
+//            self.navigationController?.pushViewController(categoryController, animated: true)
+            self.navigationController?.popViewController(animated: true)
         }))
 
         quitAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction!) in
@@ -242,7 +243,7 @@ extension GameViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 75
+        return 60
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
