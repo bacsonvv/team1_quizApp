@@ -21,6 +21,7 @@ class ListQuestionViewController: UIViewController {
     var ref: DatabaseReference!
     var category = ""
     var timer = Timer()
+    var loadingTime = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -77,6 +78,14 @@ class ListQuestionViewController: UIViewController {
     }
     
     @objc func finishLoading() {
+        loadingTime += 1
+        
+        if loadingTime == 5 {
+            lblLoading.text = "No data to show."
+            loadingView.isHidden = true
+            loadingView.stopAnimating()
+        }
+        
         if listQuestion.count != 0 {
             loadingView.isHidden = true
             lblLoading.isHidden = true

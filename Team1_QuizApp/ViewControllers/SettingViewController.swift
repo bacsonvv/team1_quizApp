@@ -33,6 +33,8 @@ class SettingViewController: UIViewController {
         timeLimit = UserDefaults.standard.integer(forKey: "timeLimit")
         numberOfQuestions = UserDefaults.standard.integer(forKey: "numberOfQuestions")
         
+        print(userId)
+        
         inputUsername.text = self.username
         inputTime.text = "\(self.timeLimit)"
         inputQuestion.text = "\(self.numberOfQuestions)"
