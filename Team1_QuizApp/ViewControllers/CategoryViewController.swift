@@ -15,11 +15,9 @@ class CategoryViewController: UIViewController {
     // Huong
     
     @IBOutlet weak var categoryTableView: UITableView!
-    
     @IBOutlet weak var loading: UIActivityIndicatorView!
-    
     @IBOutlet weak var lblLoading: UILabel!
-    
+
     var timer = Timer()
     let cellID = "CategoryTableViewCell"
     var listCollection = [""]
@@ -27,7 +25,7 @@ class CategoryViewController: UIViewController {
     var spreadSheetId = "1urSOD9SR3lSD7WE1SF0CqKRa7c1INR9I-iMqQgwsKvM"
     var user = ""
     var id = ""
-    var chooseCategory = -1
+    //var chooseCategory = -1
     
     //    let titleNavigationLabel: UILabel = {
     //        let label = UILabel()
@@ -135,30 +133,32 @@ extension CategoryViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = categoryTableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath) as! CategoryTableViewCell
         cell.lblCategory.text = listCollection[indexPath.row]
+        cell.nameCategory = listCollection[indexPath.row]
         cell.imageCategory.image = UIImage(named: listCollection[indexPath.row] )
         cell.delegate  = self
         return cell
     }
+    
+
 }
 
 extension CategoryViewController : CategoryDelegate {
+    
     func didTapButton(with: String, nameCat: String) {
         if with == "see" {
+            print(id)
             let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "listQVC") as! ListQuestionViewController
+            print(nameCat)
             vc.category = nameCat
+            print("get nameCat \(nameCat)")
             navigationController?.pushViewController(vc, animated: true)
-        } else if with == "test" {
+        } else {
+            print(id)
+
             let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "gameVC") as! GameViewController
             vc.category = nameCat
             vc.userId = self.id
-            self.navigationController?.pushViewController(vc, animated: true)
-            
-        } else {
-            let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "historyView") as! HistoryViewController
-            vc.userId = self.id
-            vc.category = nameCat
-            //vc.category = listCollection[chooseCategory]
-            self.navigationController?.pushViewController(vc, animated: false)
+            self.navigationController?.pushViewController(vc, animated: false)   
         }
     }
     
