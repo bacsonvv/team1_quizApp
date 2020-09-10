@@ -83,8 +83,18 @@ class SettingViewController: UIViewController {
     }
     
     @IBAction func btnHistoryClicked(_ sender: Any) {
+        let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "historyView") as! HistoryViewController
+        vc.userId = self.userId
+        self.navigationController?.pushViewController(vc, animated: false)
     }
     
     @IBAction func btnLogoutClicked(_ sender: Any) {
+        UserDefaults.standard.removeObject(forKey: "option")
+        UserDefaults.standard.removeObject(forKey: "username")
+        UserDefaults.standard.removeObject(forKey: "idUser")
+        UserDefaults.standard.removeObject(forKey: "numberOfQuestions")
+        UserDefaults.standard.removeObject(forKey: "timeLimit")
+        let vc = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "loginVC") as! ViewController
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 }
