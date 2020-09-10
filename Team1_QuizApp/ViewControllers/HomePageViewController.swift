@@ -40,7 +40,6 @@ class HomePageViewController: UIViewController {
         ref.child("Users").observeSingleEvent(of: .value, with: {
             (snapshot) in
             if snapshot.hasChild(userId) {
-                print("hello")
                 for case let child as DataSnapshot in snapshot.children {
                     guard let dict = child.value as? [String:Any] else {
                         return
@@ -55,7 +54,6 @@ class HomePageViewController: UIViewController {
                     UserDefaults.standard.set(self.username, forKey: "username")
                 }
             } else {
-                print("hello from else")
                 let userSettings = [
                     "username": self.username ?? "",
                     "numberOfQuestions": 15,
