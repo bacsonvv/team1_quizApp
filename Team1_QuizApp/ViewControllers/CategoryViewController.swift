@@ -13,7 +13,6 @@ import GoogleSignIn
 class CategoryViewController: UIViewController {
     
     // Huong
-    
     @IBOutlet weak var categoryTableView: UITableView!
     @IBOutlet weak var loading: UIActivityIndicatorView!
     @IBOutlet weak var lblLoading: UILabel!
@@ -25,7 +24,6 @@ class CategoryViewController: UIViewController {
     var spreadSheetId = "1urSOD9SR3lSD7WE1SF0CqKRa7c1INR9I-iMqQgwsKvM"
     var user = ""
     var id = ""
-    //var chooseCategory = -1
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,7 +31,7 @@ class CategoryViewController: UIViewController {
         tabBarItem.tag = TabbarItemTag.secondViewConroller.rawValue
         
         id = UserDefaults.standard.string(forKey: "idUser") ?? "Undefined"
-        user = UserDefaults.standard.string(forKey: "nameUserSession") ?? "Undefined"
+        user = UserDefaults.standard.string(forKey: "username") ?? "Undefined"
 
         categoryTableView.delegate = self
         categoryTableView.dataSource = self
@@ -85,7 +83,6 @@ class CategoryViewController: UIViewController {
         UserDefaults.standard.removeObject(forKey: "option")
         UserDefaults.standard.removeObject(forKey: "nameUserSession")
         UserDefaults.standard.removeObject(forKey: "idUser")
-        //UserDefaults.standard.removeObject(forKey: "idFB")
         let vc = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "loginVC") as! ViewController
         self.navigationController?.pushViewController(vc, animated: true)
     }
@@ -125,28 +122,20 @@ extension CategoryViewController: UITableViewDelegate, UITableViewDataSource {
         cell.delegate  = self
         return cell
     }
-    
-
 }
 
 extension CategoryViewController : CategoryDelegate {
-    
     func didTapButton(with: String, nameCat: String) {
         if with == "see" {
-            print(id)
             let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "listQVC") as! ListQuestionViewController
-            print(nameCat)
             vc.category = nameCat
-            print("get nameCat \(nameCat)")
             navigationController?.pushViewController(vc, animated: true)
         } else {
-            print(id)
-
             let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "gameVC") as! GameViewController
             vc.category = nameCat
+            vc.username = self.user
             vc.userId = self.id
             self.navigationController?.pushViewController(vc, animated: false)
         }
     }
-    
 }
