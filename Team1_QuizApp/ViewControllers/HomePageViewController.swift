@@ -9,22 +9,20 @@
 import UIKit
 
 class HomePageViewController: UIViewController {
+    
+    @IBOutlet weak var lblName: UILabel!
+    var user = ""
+    var id = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        tabBarItem.tag = TabbarItemTag.firstViewController.rawValue
+        
+        id = UserDefaults.standard.string(forKey: "idUser") ?? "Undefined"
+        user = UserDefaults.standard.string(forKey: "nameUserSession") ?? "Undefined"
+        
+        lblName.text = user
+        
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

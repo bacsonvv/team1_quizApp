@@ -24,6 +24,8 @@ class RankingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        tabBarItem.tag = TabbarItemTag.fourthViewConroller.rawValue
+        
         ref = Database.database().reference()
         
         let nib = UINib(nibName: "RankingHeaderView", bundle: nil)
