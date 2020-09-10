@@ -23,8 +23,7 @@ class CategoryTableViewCell: UITableViewCell {
     
     @IBOutlet weak var btnDetail: UIButton!
     @IBOutlet weak var btnTest: UIButton!
-    @IBOutlet weak var btnHistory: UIButton!
-    
+
     var nameCategory = "History"
          
     weak var delegate: CategoryDelegate?
@@ -57,9 +56,5 @@ class CategoryTableViewCell: UITableViewCell {
         delegate?.didTapButton(with: "test", nameCat: self.nameCategory)
     }
     
-    @IBAction func viewHistory(_ sender: Any) {
-        
-        delegate?.didTapButton(with: "view", nameCat: self.nameCategory)
-    }
 }
 
