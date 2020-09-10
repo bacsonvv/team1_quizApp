@@ -9,6 +9,7 @@ import UIKit
 import GoogleSignIn
 import FirebaseAuth
 import FBSDKLoginKit
+import FirebaseDatabase
 
 class ViewController: UIViewController {
     
@@ -18,10 +19,17 @@ class ViewController: UIViewController {
     var nameOfUser: String?
     var idOfUser: String?
     
+    var userIDGoogle = ""
+    var nameIDGoogle = ""
+    
+    var ref: DatabaseReference!
+    
     var isLogined = UserDefaults.standard.integer(forKey: "option")
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        ref = Database.database().reference()
         
         GIDSignIn.sharedInstance()?.delegate = self
         
@@ -92,22 +100,11 @@ class ViewController: UIViewController {
                     UserDefaults.standard.set(1, forKey: "option")
                     
                     self.nextToHomeViewController()
-                    var tmpEmailAdd = ""
-                    
-                    if let emailAddress = picutreDic.object(forKey: "email") {
-                        tmpEmailAdd = emailAddress as! String
-                        print(tmpEmailAdd)
-                    }
-                    else {
-                        var usrName = self.nameOfUser
-                        usrName = usrName!.replacingOccurrences(of: " ", with: "")
-                        tmpEmailAdd = usrName!+"@facebook.com"
-                    }
                 }
             })
         }
     }
-    
+       
     func nextToHomeViewController(){
         let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "tabBarVC")
         self.navigationController?.pushViewController(vc, animated: true)
@@ -132,10 +129,10 @@ extension ViewController: GIDSignInDelegate {
             } else {
                 let currentUser = GIDSignIn.sharedInstance()?.currentUser
                 
-                let userIDGoogle = currentUser?.userID
-                let nameIDGoogle = currentUser?.profile.name
-                UserDefaults.standard.set(userIDGoogle, forKey: "idUser")
-                UserDefaults.standard.set(nameIDGoogle, forKey: "nameUserSession")
+                self.userIDGoogle = currentUser?.userID! as! String
+                self.nameIDGoogle = currentUser?.profile.name! as! String
+                UserDefaults.standard.set(self.userIDGoogle, forKey: "idUser")
+                UserDefaults.standard.set(self.nameIDGoogle, forKey: "nameUserSession")
                 UserDefaults.standard.set(2, forKey: "option")
                 
                 self.nextToHomeViewController()

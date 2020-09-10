@@ -27,15 +27,6 @@ class CategoryViewController: UIViewController {
     var id = ""
     //var chooseCategory = -1
     
-    //    let titleNavigationLabel: UILabel = {
-    //        let label = UILabel()
-    //        label.text = "Master Subject"
-    //        label.font = .boldSystemFont(ofSize: 16)
-    //        label.textColor = .black
-    //        label.textAlignment = .center
-    //        return label
-    //    }()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -43,11 +34,7 @@ class CategoryViewController: UIViewController {
         
         id = UserDefaults.standard.string(forKey: "idUser") ?? "Undefined"
         user = UserDefaults.standard.string(forKey: "nameUserSession") ?? "Undefined"
-//
-        
-        //lblEmail.text = "Name Player : \(user)"
-        
-        //imageUser.tintColor = .blue
+
         categoryTableView.delegate = self
         categoryTableView.dataSource = self
         
@@ -158,7 +145,7 @@ extension CategoryViewController : CategoryDelegate {
             let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "gameVC") as! GameViewController
             vc.category = nameCat
             vc.userId = self.id
-            self.navigationController?.pushViewController(vc, animated: false)   
+            self.navigationController?.pushViewController(vc, animated: false)
         }
     }
     

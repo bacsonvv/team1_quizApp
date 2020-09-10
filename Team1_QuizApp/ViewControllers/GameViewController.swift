@@ -58,8 +58,6 @@ class GameViewController: UIViewController {
             self.fetchData(category : self.category)
         }
         
-        //        tableView.alwaysBounceVertical = false
-        
         checkWhenDataIsReady()
         
         tableView.reloadData()
