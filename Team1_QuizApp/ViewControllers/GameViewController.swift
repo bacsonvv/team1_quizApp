@@ -18,7 +18,7 @@ class GameViewController: UIViewController {
     @IBOutlet weak var spinnerWaiting: UIActivityIndicatorView!
     @IBOutlet weak var lblCurrentQuestion: UILabel!
     @IBOutlet weak var lblScore: UILabel!
-    @IBOutlet weak var btnNext: UIButton!
+    @IBOutlet weak var btnQuit: UIButton!
     @IBOutlet weak var imageQuestion: UIImageView!
     @IBOutlet weak var imageScore: UIImageView!
     @IBOutlet weak var imageTime: UIImageView!
@@ -66,7 +66,7 @@ class GameViewController: UIViewController {
         
         runTimer()
         
-        btnNext.layer.cornerRadius = 10
+        btnQuit.layer.cornerRadius = 10
         
         setupNavigation()
     }
@@ -118,18 +118,19 @@ class GameViewController: UIViewController {
         }
     }
     
-    @IBAction func btnNextClick(_ sender: Any) {
-        if userChoice == "" {
-            let alert = UIAlertController(title: "No answer selected", message: "Please choose an answer", preferredStyle: UIAlertController.Style.alert)
-            alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
-            self.present(alert, animated: true, completion: nil)
-        } else {
-            if currentQuestion == numberOfQuestions {
-                moveToEndGame()
-            } else {
-                setupQuestion()
-            }
-        }
+    @IBAction func btnQuitClicked(_ sender: Any) {
+        let quitAlert = UIAlertController(title: "WARNING", message: "Are you sure to quit the test? Your result will not be saved!", preferredStyle: UIAlertController.Style.alert)
+
+        quitAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action: UIAlertAction!) in
+            let categoryController = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(identifier: "categoryVC") as! CategoryViewController
+            
+            self.navigationController?.pushViewController(categoryController, animated: true)
+        }))
+
+        quitAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction!) in
+        }))
+
+        present(quitAlert, animated: true, completion: nil)
     }
     
     func setStateForView(state: Bool) {
@@ -139,7 +140,7 @@ class GameViewController: UIViewController {
         tableView.isHidden = state
         lblTimeRemain.isHidden = state
         txtQuestion.isHidden = state
-        btnNext.isHidden = state
+        btnQuit.isHidden = state
         lblCurrentQuestion.isHidden = state
         lblScore.isHidden = state
         imageQuestions.isHidden = state
@@ -258,17 +259,30 @@ extension GameViewController: UITableViewDelegate, UITableViewDataSource {
             let cell = tableView.cellForRow(at: indexPath) as! AnswerViewCell
             self.userChoice = cell.lblChoice.text!
             
-            
-            if userChoice == String(questionArray[currentQuestion - 1].answer) {
-                cell.imageCheckBox.image = UIImage(named: "check")
-                cell.lblChoice.textColor = .green
-                score += 1
-                lblScore.text = "\(self.score)"
+            if userChoice == "" {
+                let alert = UIAlertController(title: "No answer selected", message: "Please choose an answer", preferredStyle: UIAlertController.Style.alert)
+                alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
             } else {
-                cell.imageCheckBox.image = UIImage(named: "wronganswer")
-                cell.lblChoice.textColor = .red
+                if currentQuestion == numberOfQuestions {
+                    moveToEndGame()
+                } else {
+                    if userChoice == String(questionArray[currentQuestion - 1].answer) {
+                        cell.imageCheckBox.image = UIImage(named: "check")
+                        cell.lblChoice.textColor = .green
+                        score += 1
+                        lblScore.text = "\(self.score)"
+                    } else {
+                        cell.imageCheckBox.image = UIImage(named: "wronganswer")
+                        cell.lblChoice.textColor = .red
+                    }
+                    isClicked = true
+                    
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.6, execute: {
+                        self.setupQuestion()
+                    })
+                }
             }
-            isClicked = true
         }
     }
 }
