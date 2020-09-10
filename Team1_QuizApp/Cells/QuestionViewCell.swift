@@ -26,7 +26,7 @@ class QuestionViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        containerView.layer.cornerRadius = 30
+        containerView.layer.cornerRadius = 10
         containerView.layer.borderWidth = 1
         containerView.layer.borderColor = UIColor.darkGray.cgColor
     }
