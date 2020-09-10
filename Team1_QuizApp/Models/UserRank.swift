@@ -15,7 +15,7 @@ class UserRank {
     init(key: String, score: Int, time: Int) {
         self.key = key
         self.score = score
-        self.time = score
+        self.time = time
     }
     init(key: String) {
         self.key = key

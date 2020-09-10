@@ -76,7 +76,7 @@ extension HistoryViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let header = self.tableView.dequeueReusableHeaderFooterView(withIdentifier: "historyHeader") as! HistoryHeaderView
-        header.imageCategory.image = UIImage(named: self.category)
+        header.imageCategory.image = UIImage(named: "\(self.category)-1")
         
         return header
     }
