@@ -12,39 +12,65 @@ import FirebaseDatabase
 class HomePageViewController: UIViewController {
     
     @IBOutlet weak var lblName: UILabel!
-    var user = ""
-    var id = ""
-
+    
     var ref: DatabaseReference!
 
-
     var userId = ""
-    var username = ""
-    var numberOfQuiz = 15
-    var timeLimit = 150
+    var username: String?
+    var numberOfQuestions: Int?
+    var timeLimit: Int?
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
         tabBarItem.tag = TabbarItemTag.firstViewController.rawValue
         
-        id = UserDefaults.standard.string(forKey: "idUser") ?? "Undefined"
-        user = UserDefaults.standard.string(forKey: "nameUserSession") ?? "Undefined"
+        userId = UserDefaults.standard.string(forKey: "idUser") ?? "Undefined"
+        username = UserDefaults.standard.string(forKey: "nameUserSession") ?? "Undefined"
         
-        lblName.text = user
+        lblName.text = username
         ref = Database.database().reference()
+        
+        DispatchQueue.main.async {
+            self.checkUserExist(userId: self.userId)
+        }
     }
     
-    func storeUserSetting() {
-        let userSettings = [
-            "username": self.username,
-            "numberOfQuiz": self.numberOfQuiz,
-            "timeLimit": self.timeLimit] as [String: Any]
-        
-        self.ref.child("Users").child(userId).setValue(userSettings, withCompletionBlock: { error, ref in
-            if error == nil {}
-            else {}
+    func checkUserExist(userId: String) {
+        ref.child("Users").observeSingleEvent(of: .value, with: {
+            (snapshot) in
+            if snapshot.hasChild(userId) {
+                print("hello")
+                for case let child as DataSnapshot in snapshot.children {
+                    guard let dict = child.value as? [String:Any] else {
+                        return
+                    }
+                    
+                    self.numberOfQuestions = (dict["numberOfQuestions"] as! Int)
+                    self.timeLimit = (dict["timeLimit"] as! Int)
+                    self.username = (dict["username"] as! String)
+                    
+                    UserDefaults.standard.set(self.numberOfQuestions, forKey: "numberOfQuestions")
+                    UserDefaults.standard.set(self.timeLimit, forKey: "timeLimit")
+                    UserDefaults.standard.set(self.username, forKey: "username")
+                }
+            } else {
+                print("hello from else")
+                let userSettings = [
+                    "username": self.username ?? "",
+                    "numberOfQuestions": 15,
+                "timeLimit": 150] as [String: Any]
+                
+                self.ref.child("Users").child(userId).setValue(userSettings, withCompletionBlock: {
+                    error, ref in
+                    if error == nil {}
+                    else {}
+                })
+                
+                UserDefaults.standard.set(self.numberOfQuestions, forKey: "numberOfQuestions")
+                UserDefaults.standard.set(self.timeLimit, forKey: "timeLimit")
+                UserDefaults.standard.set(self.username, forKey: "username")
+            }
         })
     }
 }

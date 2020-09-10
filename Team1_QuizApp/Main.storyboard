@@ -573,12 +573,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="9Pd-aU-q5E"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Settings" image="settings" selectedImage="selected-settings" id="2Q5-Ay-XKe"/>
                     <connections>
                         <outlet property="inputQuestion" destination="WbR-9a-RZA" id="9el-yE-Uh0"/>
                         <outlet property="inputTime" destination="MTc-VV-xKv" id="Lba-bd-P4j"/>
                         <outlet property="inputUsername" destination="KDF-hM-hMo" id="acY-pp-uCa"/>
+                        <outlet property="lblUsername" destination="gFS-CR-mur" id="FCA-MK-ZJf"/>
                     </connections>
-                    <tabBarItem key="tabBarItem" title="Settings" image="settings" selectedImage="selected-settings" id="2Q5-Ay-XKe"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ggc-Kl-yT8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
