@@ -13,6 +13,7 @@ class RankViewCell: UITableViewCell {
     @IBOutlet weak var imageRanking: UIImageView!
     @IBOutlet weak var lblScore: UILabel!
     @IBOutlet weak var lblTime: UILabel!
+    @IBOutlet weak var lblUsername: UILabel!
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var viewContent: UIView!
     
@@ -27,10 +28,11 @@ class RankViewCell: UITableViewCell {
         customizeLayout()
     }
     
-    func configure(imageName: String, score: Int, time: Int) {
+    func configure(imageName: String, score: Int, time: Int, username: String) {
         imageRanking.image = UIImage(named: imageName)
         lblScore.text = "Score: \(score)"
         lblTime.text = "Time: \(time)"
+        lblUsername.text = "\(username)"
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

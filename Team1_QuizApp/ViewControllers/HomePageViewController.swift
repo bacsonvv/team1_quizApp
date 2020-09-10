@@ -26,7 +26,7 @@ class HomePageViewController: UIViewController {
         tabBarItem.tag = TabbarItemTag.firstViewController.rawValue
         
         userId = UserDefaults.standard.string(forKey: "idUser") ?? "Undefined"
-        username = UserDefaults.standard.string(forKey: "nameUserSession") ?? "Undefined"
+        username = UserDefaults.standard.string(forKey: "username") ?? "Undefined"
         
         lblName.text = username
         ref = Database.database().reference()

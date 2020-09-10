@@ -17,6 +17,7 @@ class EndGameViewController: UIViewController {
     var score = 0
     var playDate = ""
     var userId = ""
+    var username = ""
 
     @IBOutlet weak var lblCategory: UILabel!
     @IBOutlet weak var lblTime: UILabel!
@@ -40,13 +41,13 @@ class EndGameViewController: UIViewController {
     }
     
     override var hidesBottomBarWhenPushed: Bool {
-              get {
-                  return true
-              }
-              set {
-                  super.hidesBottomBarWhenPushed = newValue
-              }
-          }
+        get {
+            return true
+        }
+        set {
+            super.hidesBottomBarWhenPushed = newValue
+        }
+    }
        
     
     @IBAction func playAgain(_ sender: Any) {
@@ -56,6 +57,7 @@ class EndGameViewController: UIViewController {
     
     func storeUserResult() {
         let userHistory = [
+            "username": self.username,
             "score": self.score,
             "time": self.time,
             "playDate": self.playDate] as [String : Any]
