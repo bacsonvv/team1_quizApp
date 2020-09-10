@@ -14,6 +14,7 @@ class RankViewCell: UITableViewCell {
     @IBOutlet weak var lblScore: UILabel!
     @IBOutlet weak var lblTime: UILabel!
     @IBOutlet weak var containerView: UIView!
+    @IBOutlet weak var viewContent: UIView!
     
     static let identifier = "rankCell"
     
