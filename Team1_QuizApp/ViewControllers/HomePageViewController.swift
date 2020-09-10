@@ -11,7 +11,12 @@ import FirebaseDatabase
 
 class HomePageViewController: UIViewController {
     
+    @IBOutlet weak var lblName: UILabel!
+    var user = ""
+    var id = ""
+
     var ref: DatabaseReference!
+
 
     var userId = ""
     var username = ""
@@ -21,6 +26,13 @@ class HomePageViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        
+        tabBarItem.tag = TabbarItemTag.firstViewController.rawValue
+        
+        id = UserDefaults.standard.string(forKey: "idUser") ?? "Undefined"
+        user = UserDefaults.standard.string(forKey: "nameUserSession") ?? "Undefined"
+        
+        lblName.text = user
         ref = Database.database().reference()
     }
     
