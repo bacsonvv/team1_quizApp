@@ -132,7 +132,7 @@ extension ViewController: GIDSignInDelegate {
                 self.userIDGoogle = currentUser?.userID! as! String
                 self.nameIDGoogle = currentUser?.profile.name! as! String
                 UserDefaults.standard.set(self.userIDGoogle, forKey: "idUser")
-                UserDefaults.standard.set(self.nameIDGoogle, forKey: "nameUserSession")
+                UserDefaults.standard.set(self.nameIDGoogle, forKey: "username")
                 UserDefaults.standard.set(2, forKey: "option")
                 
                 self.nextToHomeViewController()

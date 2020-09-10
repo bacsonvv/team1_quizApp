@@ -15,11 +15,11 @@ class RankingViewController: UIViewController {
     @IBOutlet weak var loading: UIActivityIndicatorView!
     @IBOutlet weak var lblLoading: UILabel!
     
-    var category = "History"
+    var category = "Geography"
     var ref: DatabaseReference!
     var timer = Timer()
     var listRanking: [UserRank] = []
-    var listRankingForView: [UserRank] = [UserRank(key: "Default", score: 0, time: 0)]
+    var listRankingForView: [UserRank] = [UserRank(key: "Default", score: 0, time: 0, username: "Default")]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -89,14 +89,15 @@ class RankingViewController: UIViewController {
     func getDataRank(user: String){
         self.ref.child("PlayHistory").child(user).child(category).queryOrdered(byChild: "score").queryLimited(toLast: 1).observe(.value) { snapshot in
             for case let child as DataSnapshot in snapshot.children {
-                guard let dict = child.value as? [String:Any] else {
+                guard let dict = child.value as? [String: Any] else {
                     return
                 }
                 
                 let score = dict["score"] as! Int
                 let time = dict["time"] as! Int
+                let username = dict["username"] as! String
                 
-                let q = UserRank(key: user,score: score, time: time)
+                let q = UserRank(key: user, score: score, time: time, username: username)
                 self.listRanking.append(q)
             }
         }
@@ -122,7 +123,7 @@ extension RankingViewController: UITableViewDelegate, UITableViewDataSource {
             imageName = "unranked"
         }
         
-        cell.configure(imageName: imageName, score: listRankingForView[indexPath.row].score, time: listRankingForView[indexPath.row].time)
+        cell.configure(imageName: imageName, score: listRankingForView[indexPath.row].score, time: listRankingForView[indexPath.row].time, username: listRankingForView[indexPath.row].username)
         
         return cell
     }

@@ -11,11 +11,13 @@ class UserRank {
     var key = ""
     var score = 0
     var time = 0
+    var username = ""
     
-    init(key: String, score: Int, time: Int) {
+    init(key: String, score: Int, time: Int, username: String) {
         self.key = key
         self.score = score
         self.time = time
+        self.username = username
     }
     init(key: String) {
         self.key = key
