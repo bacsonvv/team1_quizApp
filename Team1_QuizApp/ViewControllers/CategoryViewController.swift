@@ -16,22 +16,32 @@ class CategoryViewController: UIViewController {
     @IBOutlet weak var categoryTableView: UITableView!
     @IBOutlet weak var loading: UIActivityIndicatorView!
     @IBOutlet weak var lblLoading: UILabel!
+    
+    var refreshControl = UIRefreshControl()
 
     var timer = Timer()
     let cellID = "CategoryTableViewCell"
-    var listCollection = [""]
+    var listCollection = ["Default", "Default", "Default"]
     var ref = Database.database().reference()
     var spreadSheetId = "1urSOD9SR3lSD7WE1SF0CqKRa7c1INR9I-iMqQgwsKvM"
     var user = ""
     var id = ""
+    var timeLimit = 0
+    var numberOfQuestions = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         tabBarItem.tag = TabbarItemTag.secondViewConroller.rawValue
         
+        refreshControl.attributedTitle = NSAttributedString(string: "Reload data")
+        refreshControl.addTarget(self, action: #selector(self.refresh(_:)), for: .valueChanged)
+        categoryTableView.addSubview(refreshControl)
+        
         id = UserDefaults.standard.string(forKey: "idUser") ?? "Undefined"
         user = UserDefaults.standard.string(forKey: "username") ?? "Undefined"
+        timeLimit = UserDefaults.standard.integer(forKey: "timeLimit")
+        numberOfQuestions = UserDefaults.standard.integer(forKey: "numberOfQuestions")
 
         categoryTableView.delegate = self
         categoryTableView.dataSource = self
@@ -70,6 +80,14 @@ class CategoryViewController: UIViewController {
         }
     }
     
+    @objc func refresh(_ sender: AnyObject) {
+        DispatchQueue.main.async {
+            self.GetListCategory()
+        }
+        
+        refreshControl.endRefreshing()
+    }
+    
     func setStateForView(state: Bool) {
         categoryTableView.isHidden = state
     }
@@ -93,7 +111,6 @@ class CategoryViewController: UIViewController {
             snapshot in
             for category in snapshot.children {
                 self.listCollection.append((category as AnyObject).key)
-                print(self.listCollection.count)
             }
             self.categoryTableView.reloadData()
         })
@@ -109,7 +126,9 @@ extension CategoryViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = categoryTableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath) as! CategoryTableViewCell
         cell.lblCategory.text = listCollection[indexPath.row]
         cell.nameCategory = listCollection[indexPath.row]
-        cell.imageCategory.image = UIImage(named: listCollection[indexPath.row] )
+        cell.imageCategory.image = UIImage(named: listCollection[indexPath.row])
+        cell.lblTime.text = "Time: \(timeLimit)"
+        cell.lblNumberOfQuestion.text = "Questions: \(numberOfQuestions)"
         cell.delegate  = self
         return cell
     }
