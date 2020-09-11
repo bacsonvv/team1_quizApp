@@ -19,6 +19,10 @@ class RankingViewController: UIViewController {
     @IBOutlet weak var geographyView: UIView!
     @IBOutlet weak var historyView: UIView!
     
+    @IBOutlet weak var lblGeography: UILabel!
+    @IBOutlet weak var lblCivicEducation: UILabel!
+    @IBOutlet weak var lblHistory: UILabel!
+    
     var refreshControl = UIRefreshControl()
     
     var ref: DatabaseReference!
@@ -57,7 +61,8 @@ class RankingViewController: UIViewController {
         setupViewBorder(view: geographyView)
         setupViewBorder(view: historyView)
         
-        civicEducationView.backgroundColor = .red
+        civicEducationView.backgroundColor = .blue
+        lblCivicEducation.textColor = .white
         
         initTableView()
         
@@ -70,7 +75,7 @@ class RankingViewController: UIViewController {
         lblLoading.isHidden = false
         
         setStateForView(state: true)
-        
+
         DispatchQueue.main.async {
             self.getListUser(category: self.category)
         }
@@ -83,7 +88,7 @@ class RankingViewController: UIViewController {
         DispatchQueue.main.async {
             self.getListUser(category: self.category)
         }
-        
+
         refreshControl.endRefreshing()
     }
     
@@ -97,9 +102,14 @@ class RankingViewController: UIViewController {
     @objc func civicEducationClicked(sender : UITapGestureRecognizer) {
         reInitLoading()
         
-        civicEducationView.backgroundColor = .red
+        civicEducationView.backgroundColor = .blue
+        lblCivicEducation.textColor = .white
+        
         geographyView.backgroundColor = .white
+        lblGeography.textColor = .black
+        
         historyView.backgroundColor = .white
+        lblHistory.textColor = .black
         
         self.category = "Civic Education"
         
@@ -110,9 +120,14 @@ class RankingViewController: UIViewController {
     @objc func geographyClicked(sender : UITapGestureRecognizer) {
         reInitLoading()
         
-        geographyView.backgroundColor = .red
+        geographyView.backgroundColor = .purple
+        lblGeography.textColor = .white
+        
         historyView.backgroundColor = .white
+        lblHistory.textColor = .black
+        
         civicEducationView.backgroundColor = .white
+        lblCivicEducation.textColor = .black
 
         
         self.category = "Geography"
@@ -124,8 +139,13 @@ class RankingViewController: UIViewController {
         reInitLoading()
         
         historyView.backgroundColor = .red
+        lblHistory.textColor = .white
+        
         civicEducationView.backgroundColor = .white
+        lblCivicEducation.textColor = .black
+        
         geographyView.backgroundColor = .white
+        lblGeography.textColor = .black
         
         self.category = "History"
         
@@ -147,7 +167,7 @@ class RankingViewController: UIViewController {
     @objc func setupData() {
         loadingTime += 1
         
-        if loadingTime == 5 {
+        if loadingTime == 3 {
             lblLoading.text = "No data to show."
             loading.isHidden = true
             loading.stopAnimating()

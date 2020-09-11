@@ -12,7 +12,6 @@ import GoogleSignIn
 
 class CategoryViewController: UIViewController {
     
-    // Huong
     @IBOutlet weak var categoryTableView: UITableView!
     @IBOutlet weak var loading: UIActivityIndicatorView!
     @IBOutlet weak var lblLoading: UILabel!
@@ -61,7 +60,6 @@ class CategoryViewController: UIViewController {
         categoryTableView.reloadData()
         
         initComponent()
-        
     }
     
     func checkWhenDataIsReady() {
@@ -117,6 +115,7 @@ class CategoryViewController: UIViewController {
     }
 }
 
+
 extension CategoryViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return listCollection.count
@@ -126,11 +125,17 @@ extension CategoryViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = categoryTableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath) as! CategoryTableViewCell
         cell.lblCategory.text = listCollection[indexPath.row]
         cell.nameCategory = listCollection[indexPath.row]
+
         cell.imageCategory.image = UIImage(named: listCollection[indexPath.row])
         cell.lblTime.text = "Time: \(timeLimit)"
         cell.lblNumberOfQuestion.text = "Questions: \(numberOfQuestions)"
         cell.delegate  = self
+
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 190
     }
 }
 

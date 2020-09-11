@@ -14,6 +14,5 @@ class ShopViewController: UIViewController {
         super.viewDidLoad()
 
         tabBarItem.tag = TabbarItemTag.thirdViewController.rawValue
-
     }
 }

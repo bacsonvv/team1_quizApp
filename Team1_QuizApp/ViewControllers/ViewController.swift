@@ -46,7 +46,6 @@ class ViewController: UIViewController {
         }
     }
     
-    
     @IBAction func signInWithGG(_ sender: Any) {
         GIDSignIn.sharedInstance()?.presentingViewController = self
         GIDSignIn.sharedInstance()?.signIn()
@@ -60,12 +59,11 @@ class ViewController: UIViewController {
         let loginManager = LoginManager()
         loginManager.logIn(permissions: [Permission.publicProfile], viewController : self) { loginResult in
             switch loginResult {
-            case .failed(let error):
-                print(error)
+            case .failed(let _):
+                return
             case .cancelled:
-                print("User cancelled login")
+                return
             case .success( _, _, _):
-                print("Log in")
                 self.returnUserData()
             }
         }
@@ -111,7 +109,6 @@ class ViewController: UIViewController {
     }
 }
 
-// Huong
 extension ViewController: GIDSignInDelegate {
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
         if let error = error {
@@ -137,9 +134,6 @@ extension ViewController: GIDSignInDelegate {
                 
                 self.nextToHomeViewController()
             }
-            
         }
-        
     }
-    
 }

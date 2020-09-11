@@ -19,6 +19,10 @@ class HistoryViewController: UIViewController {
     @IBOutlet weak var geographyView: UIView!
     @IBOutlet weak var historyView: UIView!
     
+    @IBOutlet weak var lblCivicEducation: UILabel!
+    @IBOutlet weak var lblGeography: UILabel!
+    @IBOutlet weak var lblHistory: UILabel!
+    
     var refreshControl = UIRefreshControl()
     
     var userId = ""
@@ -59,7 +63,8 @@ class HistoryViewController: UIViewController {
         
         self.title = "Play Result"
         
-        civicEducationView.backgroundColor = .red
+        civicEducationView.backgroundColor = .blue
+        lblCivicEducation.textColor = .white
         
         initTableView()
         
@@ -99,23 +104,31 @@ class HistoryViewController: UIViewController {
     @objc func civicEducationClicked(sender : UITapGestureRecognizer) {
         reInitLoading()
         
-        civicEducationView.backgroundColor = .red
+        civicEducationView.backgroundColor = .blue
+        lblCivicEducation.textColor = .white
+        
         geographyView.backgroundColor = .white
+        lblGeography.textColor = .black
+        
         historyView.backgroundColor = .white
+        lblHistory.textColor = .black
         
         self.category = "Civic Education"
         
         initTableView()
-
     }
     
     @objc func geographyClicked(sender : UITapGestureRecognizer) {
         reInitLoading()
         
-        geographyView.backgroundColor = .red
+        geographyView.backgroundColor = .purple
+        lblGeography.textColor = .white
+        
         historyView.backgroundColor = .white
+        lblHistory.textColor = .black
+        
         civicEducationView.backgroundColor = .white
-
+        lblCivicEducation.textColor = .black
         
         self.category = "Geography"
         
@@ -126,8 +139,13 @@ class HistoryViewController: UIViewController {
         reInitLoading()
         
         historyView.backgroundColor = .red
+        lblHistory.textColor = .white
+        
         civicEducationView.backgroundColor = .white
+        lblCivicEducation.textColor = .black
+        
         geographyView.backgroundColor = .white
+        lblGeography.textColor = .black
         
         self.category = "History"
         
@@ -146,7 +164,7 @@ class HistoryViewController: UIViewController {
     @objc func finishLoading() {
         loadingTime += 1
         
-        if loadingTime == 5 {
+        if loadingTime == 3 {
             lblLoading.text = "No data to show."
             loading.isHidden = true
             loading.stopAnimating()
@@ -177,7 +195,6 @@ class HistoryViewController: UIViewController {
         self.ref.child("PlayHistory").child(userId).child(category).observeSingleEvent(of: .value) { snapshot in
             for case let child as DataSnapshot in snapshot.children {
                 guard let dict = child.value as? [String:Any] else {
-                    print("Error")
                     return
                 }
                 
@@ -191,16 +208,14 @@ class HistoryViewController: UIViewController {
         }
     }
     
-    @IBAction func backToHome(_ sender: Any) {
-        let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(identifier: "tabBarVC")
-        navigationController?.pushViewController(vc, animated: true)
+    @IBAction func backToSetting(_ sender: Any) {
+        self.navigationController?.popViewController(animated: true)
     }
     
 }
 
 extension HistoryViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print(listUser.count)
         return listUser.count
     }
     

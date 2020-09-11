@@ -15,46 +15,52 @@ protocol CategoryDelegate: class {
 class CategoryTableViewCell: UITableViewCell {
     
     @IBOutlet weak var lblCategory: UILabel!
-    @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var imageCategory: UIImageView!
     @IBOutlet weak var blurCategory: UIVisualEffectView!
     @IBOutlet weak var lblTime: UILabel!
     @IBOutlet weak var lblNumberOfQuestion: UILabel!
     
+    @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var btnDetail: UIButton!
     @IBOutlet weak var btnTest: UIButton!
-
+    
     var nameCategory = "History"
-         
+    
     weak var delegate: CategoryDelegate?
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
-     
-        
-        imageCategory.layer.cornerRadius = 10
-        imageCategory.clipsToBounds = true
-        
-        blurCategory.layer.cornerRadius = 5
-        blurCategory.clipsToBounds = true
-        
+        containerView.layer.cornerRadius = 10
+        self.imageCategory.roundCorners([.topRight,.topLeft], radius: 10)
+
+        containerView.layer.masksToBounds = false
+        containerView.layer.shadowOpacity = 0.5
+        containerView.layer.shadowOffset = CGSize(width: 0, height: 5)
+        containerView.layer.shadowColor = UIColor.black.cgColor
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-        
     }
     
     @IBAction func seeListQuestion(_ sender: Any) {
-        
         delegate?.didTapButton(with: "see", nameCat: self.nameCategory)
     }
     
     @IBAction func qickTest(_ sender: Any) {
-        
         delegate?.didTapButton(with: "test", nameCat: self.nameCategory)
     }
     
+}
+extension UIImageView {
+    public func roundCorners(_ corners: UIRectCorner, radius: CGFloat) {
+        let maskPath = UIBezierPath(roundedRect: bounds,
+                                    byRoundingCorners: corners,
+                                    cornerRadii: CGSize(width: radius, height: radius))
+        let shape = CAShapeLayer()
+        shape.path = maskPath.cgPath
+        layer.mask = shape
+    }
 }
 

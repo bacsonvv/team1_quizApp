@@ -95,7 +95,7 @@ class ListQuestionViewController: UIViewController {
     @objc func finishLoading() {
         loadingTime += 1
         
-        if loadingTime == 5 {
+        if loadingTime == 3 {
             lblLoading.text = "No data to show."
             loadingView.isHidden = true
             loadingView.stopAnimating()
@@ -116,11 +116,9 @@ class ListQuestionViewController: UIViewController {
             timer.invalidate()
         }
     }
-    
-    @IBAction func backToHome(_ sender: Any) {
-        
-        let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(identifier: "tabBarVC")
-        navigationController?.pushViewController(vc, animated: true)
+
+    @IBAction func backToCategory(_ sender: Any) {
+        self.navigationController?.popViewController(animated: true)
     }
     
 }
