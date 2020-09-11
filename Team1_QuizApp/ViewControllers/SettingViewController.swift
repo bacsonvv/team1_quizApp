@@ -61,6 +61,7 @@ class SettingViewController: UIViewController {
         } else {
             let alert = UIAlertController(title: "SUCCESS", message: "Your settings have been saved!", preferredStyle: UIAlertController.Style.alert)
             alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
             
             DispatchQueue.main.async {
                 self.storeUserSettings(username: self.inputUsername.text!, timeLimit: self.timeLimit, numberOfQuestions: self.numberOfQuestions)
