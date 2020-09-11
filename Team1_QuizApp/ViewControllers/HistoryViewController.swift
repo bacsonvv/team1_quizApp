@@ -15,8 +15,14 @@ class HistoryViewController: UIViewController {
     @IBOutlet weak var loading: UIActivityIndicatorView!
     @IBOutlet weak var lblLoading: UILabel!
     
+    @IBOutlet weak var civicEducationView: UIView!
+    @IBOutlet weak var geographyView: UIView!
+    @IBOutlet weak var historyView: UIView!
+    
+    var refreshControl = UIRefreshControl()
+    
     var userId = ""
-    var category = "Geography"
+    var category = "Civic Education"
     var ref: DatabaseReference!
     var listUser: [UserHistory] = []
     var listUserForView: [UserHistory] = [UserHistory(score: 0, time: 0, playDate: "")]
@@ -27,25 +33,110 @@ class HistoryViewController: UIViewController {
         super.viewDidLoad()
         
         ref = Database.database().reference()
+        
+        refreshControl.attributedTitle = NSAttributedString(string: "Reload data")
+        refreshControl.addTarget(self, action: #selector(self.refresh(_:)), for: .valueChanged)
+        tableView.addSubview(refreshControl)
+        
+        tabBarItem.tag = TabbarItemTag.fourthViewConroller.rawValue
+        
+        let civicEducationGesture = UITapGestureRecognizer(target: self, action:  #selector(self.civicEducationClicked))
+        self.civicEducationView.addGestureRecognizer(civicEducationGesture)
+        
+        let geographyGesture = UITapGestureRecognizer(target: self, action:  #selector(self.geographyClicked))
+        self.geographyView.addGestureRecognizer(geographyGesture)
+        
+        let historyGesture = UITapGestureRecognizer(target: self, action:  #selector(self.historyClicked))
+        self.historyView.addGestureRecognizer(historyGesture)
 
         tableView.register(HistoryViewCell.nib(), forCellReuseIdentifier: HistoryViewCell.identifier)
         tableView.delegate = self
         tableView.dataSource = self
         
-        self.title = category
+        setupViewBorder(view: civicEducationView)
+        setupViewBorder(view: geographyView)
+        setupViewBorder(view: historyView)
         
+        self.title = "Play Result"
+        
+        civicEducationView.backgroundColor = .red
+        
+        initTableView()
+        
+        tableView.reloadData()
+    }
+    
+    func initTableView() {
         loading.isHidden = false
-        lblLoading.isHidden = false
         loading.startAnimating()
+        lblLoading.isHidden = false
+        
         setStateForView(state: true)
         
         DispatchQueue.main.async {
-            self.getUserHistory()
+            self.getUserHistory(category: self.category)
         }
         
         checkWhenDataIsReady()
         
-        tableView.reloadData()
+    }
+    
+    @objc func refresh(_ sender: AnyObject) {
+        DispatchQueue.main.async {
+            self.getUserHistory(category: self.category)
+        }
+        
+        refreshControl.endRefreshing()
+    }
+    
+    func setupViewBorder(view: UIView) {
+        view.layer.cornerRadius = 15
+        view.layer.borderWidth = 1
+        view.layer.borderColor = UIColor.darkGray.cgColor
+        view.clipsToBounds = true
+    }
+    
+    @objc func civicEducationClicked(sender : UITapGestureRecognizer) {
+        reInitLoading()
+        
+        civicEducationView.backgroundColor = .red
+        geographyView.backgroundColor = .white
+        historyView.backgroundColor = .white
+        
+        self.category = "Civic Education"
+        
+        initTableView()
+
+    }
+    
+    @objc func geographyClicked(sender : UITapGestureRecognizer) {
+        reInitLoading()
+        
+        geographyView.backgroundColor = .red
+        historyView.backgroundColor = .white
+        civicEducationView.backgroundColor = .white
+
+        
+        self.category = "Geography"
+        
+        initTableView()
+    }
+    
+    @objc func historyClicked(sender : UITapGestureRecognizer) {
+        reInitLoading()
+        
+        historyView.backgroundColor = .red
+        civicEducationView.backgroundColor = .white
+        geographyView.backgroundColor = .white
+        
+        self.category = "History"
+        
+        initTableView()
+    }
+    
+    func reInitLoading() {
+        lblLoading.text = "Wait for a moment..."
+        loadingTime = 0
     }
     
     func checkWhenDataIsReady() {
@@ -81,7 +172,8 @@ class HistoryViewController: UIViewController {
         tableView.isHidden = state
     }
     
-    func getUserHistory() {
+    func getUserHistory(category: String) {
+        listUser.removeAll()
         self.ref.child("PlayHistory").child(userId).child(category).observeSingleEvent(of: .value) { snapshot in
             for case let child as DataSnapshot in snapshot.children {
                 guard let dict = child.value as? [String:Any] else {
