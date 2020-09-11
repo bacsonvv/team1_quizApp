@@ -15,11 +15,16 @@ class RankingViewController: UIViewController {
     @IBOutlet weak var loading: UIActivityIndicatorView!
     @IBOutlet weak var lblLoading: UILabel!
     
-    var category = "Geography"
+    @IBOutlet weak var civicEducationView: UIView!
+    @IBOutlet weak var geographyView: UIView!
+    @IBOutlet weak var historyView: UIView!
+    
     var ref: DatabaseReference!
     var timer = Timer()
     var listRanking: [UserRank] = []
     var listRankingForView: [UserRank] = [UserRank(key: "Default", score: 0, time: 0, username: "Default")]
+    var category = "Civic Education"
+    var loadingTime = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,12 +32,33 @@ class RankingViewController: UIViewController {
         tabBarItem.tag = TabbarItemTag.fourthViewConroller.rawValue
         
         ref = Database.database().reference()
+        
+        let civicEducationGesture = UITapGestureRecognizer(target: self, action:  #selector(self.civicEducationClicked))
+        self.civicEducationView.addGestureRecognizer(civicEducationGesture)
+        
+        let geographyGesture = UITapGestureRecognizer(target: self, action:  #selector(self.geographyClicked))
+        self.geographyView.addGestureRecognizer(geographyGesture)
+        
+        let historyGesture = UITapGestureRecognizer(target: self, action:  #selector(self.historyClicked))
+        self.historyView.addGestureRecognizer(historyGesture)
 
         tableView.register(RankViewCell.nib(), forCellReuseIdentifier: RankViewCell.identifier)
 
         tableView.delegate = self
         tableView.dataSource = self
-        	
+        
+        setupViewBorder(view: civicEducationView)
+        setupViewBorder(view: geographyView)
+        setupViewBorder(view: historyView)
+        
+        civicEducationView.backgroundColor = .red
+        
+        initTableView()
+        
+        tableView.reloadData()
+    }
+    
+    func initTableView() {
         loading.isHidden = false
         loading.startAnimating()
         lblLoading.isHidden = false
@@ -40,12 +66,67 @@ class RankingViewController: UIViewController {
         setStateForView(state: true)
         
         DispatchQueue.main.async {
-            self.getListUser()
+            self.getListUser(category: self.category)
         }
         
         checkWhenDataIsReady()
         
-        tableView.reloadData()
+    }
+    
+    func setupViewBorder(view: UIView) {
+        view.layer.cornerRadius = 15
+        view.layer.borderWidth = 1
+        view.layer.borderColor = UIColor.darkGray.cgColor
+        view.clipsToBounds = true
+    }
+    
+    @objc func civicEducationClicked(sender : UITapGestureRecognizer) {
+        listRanking.removeAll()
+        
+        reInitLoading()
+        
+        civicEducationView.backgroundColor = .red
+        geographyView.backgroundColor = .white
+        historyView.backgroundColor = .white
+        
+        self.category = "Civic Education"
+        
+        initTableView()
+
+    }
+    
+    @objc func geographyClicked(sender : UITapGestureRecognizer) {
+        listRanking.removeAll()
+        
+        reInitLoading()
+        
+        geographyView.backgroundColor = .red
+        historyView.backgroundColor = .white
+        civicEducationView.backgroundColor = .white
+
+        
+        self.category = "Geography"
+        
+        initTableView()
+    }
+    
+    @objc func historyClicked(sender : UITapGestureRecognizer) {
+        listRanking.removeAll()
+        
+        reInitLoading()
+        
+        historyView.backgroundColor = .red
+        civicEducationView.backgroundColor = .white
+        geographyView.backgroundColor = .white
+        
+        self.category = "History"
+        
+        initTableView()
+    }
+    
+    func reInitLoading() {
+        lblLoading.text = "Wait for a moment..."
+        loadingTime = 0
     }
     
     func setStateForView(state: Bool) {
@@ -56,6 +137,14 @@ class RankingViewController: UIViewController {
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: (#selector(RankingViewController.setupData)), userInfo: nil, repeats: true)
     }
     @objc func setupData() {
+        loadingTime += 1
+        
+        if loadingTime == 5 {
+            lblLoading.text = "No data to show."
+            loading.isHidden = true
+            loading.stopAnimating()
+        }
+        
         if listRanking.count != 0 {
             loading.isHidden = true
             loading.stopAnimating()
@@ -76,17 +165,17 @@ class RankingViewController: UIViewController {
         }
     }
     
-    func getListUser(){
+    func getListUser(category: String){
         ref.child("PlayHistory").observeSingleEvent(of: .value, with: {
             snapshot in
             for category in snapshot.children {
                 let q = UserRank(key: (category as AnyObject).key)
-                self.getDataRank(user: q.key)
+                self.getDataRank(user: q.key, category: self.category)
             }
         })
     }
     
-    func getDataRank(user: String){
+    func getDataRank(user: String, category: String){
         self.ref.child("PlayHistory").child(user).child(category).queryOrdered(byChild: "score").queryLimited(toLast: 1).observe(.value) { snapshot in
             for case let child as DataSnapshot in snapshot.children {
                 guard let dict = child.value as? [String: Any] else {
