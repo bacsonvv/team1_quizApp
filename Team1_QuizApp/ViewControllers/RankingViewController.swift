@@ -19,6 +19,8 @@ class RankingViewController: UIViewController {
     @IBOutlet weak var geographyView: UIView!
     @IBOutlet weak var historyView: UIView!
     
+    var refreshControl = UIRefreshControl()
+    
     var ref: DatabaseReference!
     var timer = Timer()
     var listRanking: [UserRank] = []
@@ -30,6 +32,10 @@ class RankingViewController: UIViewController {
         super.viewDidLoad()
         
         tabBarItem.tag = TabbarItemTag.fourthViewConroller.rawValue
+        
+        refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        refreshControl.addTarget(self, action: #selector(self.refresh(_:)), for: .valueChanged)
+        tableView.addSubview(refreshControl)
         
         ref = Database.database().reference()
         
@@ -73,6 +79,14 @@ class RankingViewController: UIViewController {
         
     }
     
+    @objc func refresh(_ sender: AnyObject) {
+        DispatchQueue.main.async {
+            self.getListUser(category: self.category)
+        }
+        
+        refreshControl.endRefreshing()
+    }
+    
     func setupViewBorder(view: UIView) {
         view.layer.cornerRadius = 15
         view.layer.borderWidth = 1
@@ -81,8 +95,6 @@ class RankingViewController: UIViewController {
     }
     
     @objc func civicEducationClicked(sender : UITapGestureRecognizer) {
-        listRanking.removeAll()
-        
         reInitLoading()
         
         civicEducationView.backgroundColor = .red
@@ -96,8 +108,6 @@ class RankingViewController: UIViewController {
     }
     
     @objc func geographyClicked(sender : UITapGestureRecognizer) {
-        listRanking.removeAll()
-        
         reInitLoading()
         
         geographyView.backgroundColor = .red
@@ -111,8 +121,6 @@ class RankingViewController: UIViewController {
     }
     
     @objc func historyClicked(sender : UITapGestureRecognizer) {
-        listRanking.removeAll()
-        
         reInitLoading()
         
         historyView.backgroundColor = .red
@@ -176,6 +184,7 @@ class RankingViewController: UIViewController {
     }
     
     func getDataRank(user: String, category: String){
+        listRanking.removeAll()
         self.ref.child("PlayHistory").child(user).child(category).queryOrdered(byChild: "score").queryLimited(toLast: 1).observe(.value) { snapshot in
             for case let child as DataSnapshot in snapshot.children {
                 guard let dict = child.value as? [String: Any] else {

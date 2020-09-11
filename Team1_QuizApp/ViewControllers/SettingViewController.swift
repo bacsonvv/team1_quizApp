@@ -33,8 +33,6 @@ class SettingViewController: UIViewController {
         timeLimit = UserDefaults.standard.integer(forKey: "timeLimit")
         numberOfQuestions = UserDefaults.standard.integer(forKey: "numberOfQuestions")
         
-        print(userId)
-        
         inputUsername.text = self.username
         inputTime.text = "\(self.timeLimit)"
         inputQuestion.text = "\(self.numberOfQuestions)"
@@ -63,9 +61,12 @@ class SettingViewController: UIViewController {
         } else {
             let alert = UIAlertController(title: "SUCCESS", message: "Your settings have been saved!", preferredStyle: UIAlertController.Style.alert)
             alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+            
             DispatchQueue.main.async {
                 self.storeUserSettings(username: self.inputUsername.text!, timeLimit: self.timeLimit, numberOfQuestions: self.numberOfQuestions)
             }
+            UserDefaults.standard.set(self.numberOfQuestions, forKey: "numberOfQuestions")
+            UserDefaults.standard.set(self.timeLimit, forKey: "timeLimit")
         }
     }
     

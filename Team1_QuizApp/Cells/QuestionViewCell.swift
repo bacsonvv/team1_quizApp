@@ -19,8 +19,8 @@ class QuestionViewCell: UITableViewCell {
     @IBOutlet weak var txtQuestion: UILabel!
     @IBOutlet weak var containerView: UIView!
     
-    func configure(question: String) {
-        txtQuestion.text = question
+    func configure(question: String, number: Int) {
+        txtQuestion.text = "\(number). \(question)"
     }
     
     override func awakeFromNib() {
