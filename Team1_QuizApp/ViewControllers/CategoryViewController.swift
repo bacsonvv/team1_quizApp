@@ -24,6 +24,8 @@ class CategoryViewController: UIViewController {
     var spreadSheetId = "1urSOD9SR3lSD7WE1SF0CqKRa7c1INR9I-iMqQgwsKvM"
     var user = ""
     var id = ""
+    var time = ""
+    var questions = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,6 +34,9 @@ class CategoryViewController: UIViewController {
         
         id = UserDefaults.standard.string(forKey: "idUser") ?? "Undefined"
         user = UserDefaults.standard.string(forKey: "username") ?? "Undefined"
+        
+        time = UserDefaults.standard.string(forKey: "timeLimit") ?? "Undefined"
+        questions = UserDefaults.standard.string(forKey: "numberOfQuestions") ?? "Undefined"
 
         categoryTableView.delegate = self
         categoryTableView.dataSource = self
@@ -51,6 +56,7 @@ class CategoryViewController: UIViewController {
         categoryTableView.reloadData()
         
         initComponent()
+        
         
     }
     
@@ -111,6 +117,8 @@ extension CategoryViewController: UITableViewDelegate, UITableViewDataSource {
         cell.lblCategory.text = listCollection[indexPath.row]
         cell.nameCategory = listCollection[indexPath.row]
         cell.imageCategory.image = UIImage(named: listCollection[indexPath.row] )
+        cell.lblTime.text = "Time: \(time)"
+        cell.lblNumberOfQuestion.text = "Questions: \(questions)"
         cell.delegate  = self
 
         return cell

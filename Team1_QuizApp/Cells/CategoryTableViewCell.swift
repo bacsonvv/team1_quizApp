@@ -30,21 +30,26 @@ class CategoryTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-          
+        
         containerView.layer.cornerRadius = 10
+        self.imageCategory.roundCorners([.topRight,.topLeft], radius: 10)
+        //self.imageCategory.layer.masksToBounds = true
         containerView.layer.masksToBounds = false
         containerView.layer.shadowOpacity = 0.5
         containerView.layer.shadowOffset = CGSize(width: 0, height: 5)
         containerView.layer.shadowColor = UIColor.black.cgColor
-
-    
-        
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         
     }
+    
+//    func setData(data: Collection) {
+//        lblCategory.text = data.category
+//        lblTime.text = data.time
+//        lblNumberOfQuestion.text = data.numberOfQuestion
+//    }
     
     @IBAction func seeListQuestion(_ sender: Any) {
         
@@ -56,5 +61,15 @@ class CategoryTableViewCell: UITableViewCell {
         delegate?.didTapButton(with: "test", nameCat: self.nameCategory)
     }
     
+}
+extension UIImageView {
+    public func roundCorners(_ corners: UIRectCorner, radius: CGFloat) {
+        let maskPath = UIBezierPath(roundedRect: bounds,
+                                    byRoundingCorners: corners,
+                                    cornerRadii: CGSize(width: radius, height: radius))
+        let shape = CAShapeLayer()
+        shape.path = maskPath.cgPath
+        layer.mask = shape
+    }
 }
 
