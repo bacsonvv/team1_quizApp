@@ -125,6 +125,11 @@ extension CategoryViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = categoryTableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath) as! CategoryTableViewCell
         cell.lblCategory.text = listCollection[indexPath.row]
         cell.nameCategory = listCollection[indexPath.row]
+        
+        if cell.lblCategory.text == "Geography" {
+            cell.lblTime.textColor = .white
+            cell.lblNumberOfQuestion.textColor = .white
+        }
 
         cell.imageCategory.image = UIImage(named: listCollection[indexPath.row])
         cell.lblTime.text = "Time: \(timeLimit)"
