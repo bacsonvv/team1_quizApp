@@ -15,29 +15,29 @@ protocol CategoryDelegate: class {
 class CategoryTableViewCell: UITableViewCell {
     
     @IBOutlet weak var lblCategory: UILabel!
-    @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var imageCategory: UIImageView!
     @IBOutlet weak var blurCategory: UIVisualEffectView!
     @IBOutlet weak var lblTime: UILabel!
     @IBOutlet weak var lblNumberOfQuestion: UILabel!
     
+    @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var btnDetail: UIButton!
     @IBOutlet weak var btnTest: UIButton!
-
+    
     var nameCategory = "History"
-         
+    
     weak var delegate: CategoryDelegate?
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
-     
-        
-        imageCategory.layer.cornerRadius = 10
-        imageCategory.clipsToBounds = true
-        
-        blurCategory.layer.cornerRadius = 5
-        blurCategory.clipsToBounds = true
+          
+        containerView.layer.cornerRadius = 10
+        containerView.layer.masksToBounds = false
+        containerView.layer.shadowOpacity = 0.5
+        containerView.layer.shadowOffset = CGSize(width: 0, height: 5)
+        containerView.layer.shadowColor = UIColor.black.cgColor
+
+    
         
     }
     

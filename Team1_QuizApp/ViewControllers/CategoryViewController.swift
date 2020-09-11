@@ -100,6 +100,7 @@ class CategoryViewController: UIViewController {
     }
 }
 
+
 extension CategoryViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return listCollection.count
@@ -111,9 +112,16 @@ extension CategoryViewController: UITableViewDelegate, UITableViewDataSource {
         cell.nameCategory = listCollection[indexPath.row]
         cell.imageCategory.image = UIImage(named: listCollection[indexPath.row] )
         cell.delegate  = self
+
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 190
+    }
 }
+
+
 
 extension CategoryViewController : CategoryDelegate {
     func didTapButton(with: String, nameCat: String) {
