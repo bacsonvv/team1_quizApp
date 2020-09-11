@@ -10,7 +10,6 @@ import UIKit
 
 class AnswerViewCell: UITableViewCell {
     
-    // AUTHOR: Vuong Vu Bac Son
     @IBOutlet weak var imageCheckBox: UIImageView!
     @IBOutlet weak var lblChoice: UILabel!
     @IBOutlet weak var containerView: UIView!
@@ -31,7 +30,6 @@ class AnswerViewCell: UITableViewCell {
         containerView.layer.cornerRadius = 10
         containerView.layer.borderWidth = 1
         containerView.layer.borderColor = UIColor.darkGray.cgColor
-//        txtChoice.alwaysBounceVertical = false
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

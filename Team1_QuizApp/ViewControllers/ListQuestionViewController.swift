@@ -15,6 +15,8 @@ class ListQuestionViewController: UIViewController {
     @IBOutlet weak var loadingView: UIActivityIndicatorView!
     @IBOutlet weak var lblLoading: UILabel!
     
+    var refreshControl = UIRefreshControl()
+
     var listQuestion = [Question]()
     var questionForView = Array<Question>(repeating: Question(question: "Default", choice1: "Default", choice2: "Default", choice3: "Default", choice4: "Default", answer: "Default", id: 0), count: 30)
     var spreadSheetId = "1urSOD9SR3lSD7WE1SF0CqKRa7c1INR9I-iMqQgwsKvM"
@@ -25,6 +27,10 @@ class ListQuestionViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        refreshControl.attributedTitle = NSAttributedString(string: "Reload data")
+        refreshControl.addTarget(self, action: #selector(self.refresh(_:)), for: .valueChanged)
+        tableView.addSubview(refreshControl)
         
         tableView.register(QuestionViewCell.nib(), forCellReuseIdentifier: QuestionViewCell.identifier)
         tableView.delegate = self
@@ -48,7 +54,16 @@ class ListQuestionViewController: UIViewController {
         tableView.reloadData()
     }
     
+    @objc func refresh(_ sender: AnyObject) {
+        DispatchQueue.main.async {
+            self.fetchData(self.category)
+        }
+        
+        refreshControl.endRefreshing()
+    }
+    
     func fetchData(_ category: String){
+        listQuestion.removeAll()
         self.ref.child(self.spreadSheetId).child(category).observeSingleEvent(of: .value) { snapshot in
             for case let child as DataSnapshot in snapshot.children {
                 guard let dict = child.value as? [String:Any] else {
@@ -80,7 +95,7 @@ class ListQuestionViewController: UIViewController {
     @objc func finishLoading() {
         loadingTime += 1
         
-        if loadingTime == 5 {
+        if loadingTime == 3 {
             lblLoading.text = "No data to show."
             loadingView.isHidden = true
             loadingView.stopAnimating()
@@ -116,7 +131,7 @@ extension ListQuestionViewController: UITableViewDelegate, UITableViewDataSource
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: QuestionViewCell.identifier, for: indexPath) as! QuestionViewCell
         
-        cell.configure(question: questionForView[indexPath.row].question)
+        cell.configure(question: questionForView[indexPath.row].question, number: indexPath.row + 1)
         
         return cell
     }

@@ -72,13 +72,13 @@ class GameViewController: UIViewController {
     }
     
     override var hidesBottomBarWhenPushed: Bool {
-           get {
-               return true
-           }
-           set {
-               super.hidesBottomBarWhenPushed = newValue
-           }
-       }
+        get {
+            return true
+        }
+        set {
+            super.hidesBottomBarWhenPushed = newValue
+        }
+    }
     
     @objc func endVC(){
         moveToEndGame()
@@ -98,6 +98,7 @@ class GameViewController: UIViewController {
     }
     
     func fetchData(category: String){
+        questionArray.removeAll()
         self.ref.child(self.spreadSheetId).child(category).observeSingleEvent(of: .value) { snapshot in
             for case let child as DataSnapshot in snapshot.children {
                 guard let dict = child.value as? [String:Any] else {
@@ -122,9 +123,6 @@ class GameViewController: UIViewController {
         let quitAlert = UIAlertController(title: "WARNING", message: "Are you sure to quit the test? Your result will not be saved!", preferredStyle: UIAlertController.Style.alert)
 
         quitAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action: UIAlertAction!) in
-//            let categoryController = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(identifier: "tabBarVC")
-//
-//            self.navigationController?.pushViewController(categoryController, animated: true)
             self.navigationController?.popViewController(animated: true)
         }))
 

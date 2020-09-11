@@ -33,7 +33,7 @@ class CategoryTableViewCell: UITableViewCell {
         
         containerView.layer.cornerRadius = 10
         self.imageCategory.roundCorners([.topRight,.topLeft], radius: 10)
-        //self.imageCategory.layer.masksToBounds = true
+
         containerView.layer.masksToBounds = false
         containerView.layer.shadowOpacity = 0.5
         containerView.layer.shadowOffset = CGSize(width: 0, height: 5)
@@ -42,22 +42,13 @@ class CategoryTableViewCell: UITableViewCell {
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-        
     }
     
-//    func setData(data: Collection) {
-//        lblCategory.text = data.category
-//        lblTime.text = data.time
-//        lblNumberOfQuestion.text = data.numberOfQuestion
-//    }
-    
     @IBAction func seeListQuestion(_ sender: Any) {
-        
         delegate?.didTapButton(with: "see", nameCat: self.nameCategory)
     }
     
     @IBAction func qickTest(_ sender: Any) {
-        
         delegate?.didTapButton(with: "test", nameCat: self.nameCategory)
     }
     
